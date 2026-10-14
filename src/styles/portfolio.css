@@ -20,14 +20,78 @@
   backdrop-filter: blur(20px);
 }
 .design-ribbon {
-  position: relative;
-  overflow: clip;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow-x: clip;
   margin: 26px 0 0;
-  border-block: 1px solid #151a0a;
+  padding-block: 28px;
+}
+.design-ribbon > * {
+  grid-area: 1 / 1;
+  align-self: center;
+  overflow: clip;
+}
+.ribbon-back {
+  border-block: 1px solid var(--border);
+  padding: 12px 0;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--muted-foreground);
+  opacity: 0.6;
+  transform: skewY(2.5deg);
+}
+.ribbon-back svg {
+  color: var(--muted-foreground);
+}
+.ribbon-glass {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid color-mix(in srgb, #fff 45%, transparent);
   padding: 16px 0;
-  background: var(--highlight);
-  color: #151a0a;
+  color: #fff;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #fff 46%, transparent),
+      color-mix(in srgb, #fff 12%, transparent) 46%,
+      transparent 54%,
+      color-mix(in srgb, #fff 12%, transparent)
+    ),
+    linear-gradient(
+      100deg,
+      color-mix(in srgb, var(--glass-deep) 84%, transparent),
+      color-mix(in srgb, var(--glass-light) 76%, transparent) 48%,
+      color-mix(in srgb, var(--glass-mid) 86%, transparent)
+    );
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 70%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, #fff 25%, transparent),
+    0 22px 50px -22px var(--glass-mid);
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--glass-deep) 45%, transparent);
+  backdrop-filter: blur(10px) saturate(1.8);
   transform: skewY(-2deg);
+}
+.ribbon-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    color-mix(in srgb, #fff 32%, transparent) 50%,
+    transparent 60%
+  );
+  background-size: 300% 100%;
+  animation: ribbon-sheen 6s ease-in-out infinite;
+}
+@keyframes ribbon-sheen {
+  from {
+    background-position: 100% 0;
+  }
+  60%,
+  to {
+    background-position: 0 0;
+  }
 }
 .ribbon-track {
   display: flex;
@@ -142,7 +206,14 @@
   }
   .design-ribbon {
     margin-top: 10px;
+    padding-block: 20px;
+  }
+  .ribbon-glass {
     padding: 14px 0;
+  }
+  .ribbon-back {
+    padding: 10px 0;
+    transform: skewY(4deg);
   }
   .ribbon-track {
     gap: 24px;
