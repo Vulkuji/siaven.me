@@ -50,9 +50,6 @@
   --muted-foreground: #62685d;
   --border: #d3d7ca;
   --highlight: #d6ff3f;
-  --glass-deep: #1d4ed8;
-  --glass-mid: #3b82f6;
-  --glass-light: #2f7dff;
   --radius: 0.5rem;
   --gutter: clamp(22px, 4.5vw, 72px);
 }
@@ -67,7 +64,6 @@
   --muted: #1c251f;
   --muted-foreground: #a3ad9c;
   --border: #303b31;
-  --glass-light: #7cc4ff;
 }
 
 @layer base {
