@@ -1,0 +1,178 @@
+[
+  {
+    "id": "td66",
+    "title": "TD66 · 有机能量",
+    "category": "brand",
+    "label": "品牌视觉 / BRAND IDENTITY",
+    "description": "以有机能量为线索，让标志、字体、色彩与包装形成一致的品牌表达。",
+    "images": [
+      { "src": "/assets/td66-01.webp", "width": 2000, "height": 971 },
+      { "src": "/assets/td66-02.webp", "width": 2000, "height": 7421 }
+    ]
+  },
+  {
+    "id": "mooncake",
+    "title": "月相 · 中秋礼盒",
+    "category": "brand",
+    "label": "礼盒包装 / PACKAGING",
+    "description": "以月相、暗色与金色细节，串联节日礼盒、手提袋及推广视觉。",
+    "images": [
+      { "src": "/assets/mooncake-01.webp", "width": 2000, "height": 2498 }
+    ]
+  },
+  {
+    "id": "health-platform",
+    "title": "连接医疗 · 数字界面",
+    "category": "medical",
+    "label": "官网与数据界面 / UI DESIGN",
+    "description": "企业官网与医共体慢病管理平台，以清晰的信息层级组织品牌内容和医疗数据。",
+    "images": [
+      {
+        "src": "/assets/health-platform-01.webp",
+        "width": 2000,
+        "height": 2231
+      }
+    ]
+  },
+  {
+    "id": "pomegranate",
+    "title": "红宝石 · 新品上市",
+    "category": "campaign",
+    "label": "新品传播 / LAUNCH CAMPAIGN",
+    "description": "围绕石榴饮品的色彩与质感，延展新品主视觉、外卖界面和门店物料。",
+    "images": [
+      { "src": "/assets/pomegranate-01.webp", "width": 2000, "height": 2832 }
+    ]
+  },
+  {
+    "id": "drink-test",
+    "title": "饮品安心卡",
+    "category": "medical",
+    "label": "产品包装 / PRODUCT PACKAGING",
+    "description": "把产品使用场景融入包装语言，探索卡片结构、刀版与完整的应用呈现。",
+    "images": [
+      { "src": "/assets/drink-test-01.webp", "width": 2000, "height": 4409 }
+    ]
+  },
+  {
+    "id": "art-space",
+    "title": "铸艺空间 · 让创作发生",
+    "category": "culture",
+    "label": "艺术教育 / ART & CULTURE",
+    "description": "从海报编排、节日插画到网站与空间物料，探索艺术教育的多种视觉表达。",
+    "images": [
+      { "src": "/assets/art-space-01.webp", "width": 2000, "height": 1490 },
+      { "src": "/assets/art-space-02.webp", "width": 2000, "height": 685 },
+      { "src": "/assets/art-space-03.webp", "width": 2000, "height": 1414 },
+      { "src": "/assets/art-space-04.webp", "width": 2000, "height": 542 },
+      { "src": "/assets/art-space-05.webp", "width": 2000, "height": 595 }
+    ]
+  },
+  {
+    "id": "black-garlic",
+    "title": "山茶黑蒜 · 市集现场",
+    "category": "campaign",
+    "label": "活动视觉 / EVENT DESIGN",
+    "description": "围绕黑蒜主题，把活动主视觉延展为互动装置、现场指引与展陈物料。",
+    "images": [
+      { "src": "/assets/black-garlic-01.webp", "width": 2000, "height": 1507 },
+      { "src": "/assets/black-garlic-02.webp", "width": 2001, "height": 1496 }
+    ]
+  },
+  {
+    "id": "spring-anniversary",
+    "title": "繁花似锦 · 周年庆",
+    "category": "campaign",
+    "label": "节日传播 / SEASONAL CAMPAIGN",
+    "description": "以春日花卉与复古色彩连接节日主题，将视觉语言应用于海报、优惠券和门店。",
+    "images": [
+      {
+        "src": "/assets/spring-anniversary-01.webp",
+        "width": 2000,
+        "height": 2613
+      }
+    ]
+  },
+  {
+    "id": "french-badge",
+    "title": "味觉与文化 · 纪念徽章",
+    "category": "campaign",
+    "label": "活动衍生 / BADGE DESIGN",
+    "description": "将法国美食文化转译为徽章图形，并延展色彩规范、包装与现场应用。",
+    "images": [
+      { "src": "/assets/french-badge-01.webp", "width": 2000, "height": 2302 }
+    ]
+  },
+  {
+    "id": "bistro-menu",
+    "title": "TD66 Bistro · 餐桌之间",
+    "category": "brand",
+    "label": "信息编排 / EDITORIAL DESIGN",
+    "description": "以网格、食物摄影和字体层级，组织菜单信息与餐饮品牌的日常触点。",
+    "images": [
+      { "src": "/assets/bistro-menu-01.webp", "width": 2000, "height": 2469 }
+    ]
+  },
+  {
+    "id": "diagnostic-pen",
+    "title": "胸痛三联笔",
+    "category": "medical",
+    "label": "医疗产品 / MEDICAL PACKAGING",
+    "description": "用蓝紫渐变与清晰的产品标识，统一医疗器械的包装结构和信息呈现。",
+    "images": [
+      { "src": "/assets/diagnostic-pen-01.webp", "width": 2000, "height": 3436 }
+    ]
+  },
+  {
+    "id": "alcohol-test",
+    "title": "呼气检测 · 结构与视觉",
+    "category": "medical",
+    "label": "结构与包装 / STRUCTURE & PACKAGING",
+    "description": "以橙色建立产品识别，结合刀版、信息规范与产品实景呈现包装系统。",
+    "images": [
+      { "src": "/assets/alcohol-test-01.webp", "width": 2000, "height": 5103 }
+    ]
+  },
+  {
+    "id": "medical-exhibition",
+    "title": "从视觉到现场 · 医疗展台",
+    "category": "medical",
+    "label": "展陈与传播 / EXHIBITION DESIGN",
+    "description": "让展台主视觉、产品陈列与互动周边共享同一套品牌语言。",
+    "images": [
+      {
+        "src": "/assets/medical-exhibition-01.webp",
+        "width": 2000,
+        "height": 2707
+      }
+    ]
+  },
+  {
+    "id": "medical-editorial",
+    "title": "把信息说清楚 · 产品传播",
+    "category": "medical",
+    "label": "宣传与画册 / PRINT & COMMUNICATION",
+    "description": "整合社交媒体长图、宣传单页与产品画册，在不同媒介中维持清晰一致的信息层级。",
+    "images": [
+      {
+        "src": "/assets/medical-editorial-01.webp",
+        "width": 2000,
+        "height": 4017
+      }
+    ]
+  },
+  {
+    "id": "corporate-design",
+    "title": "企业表达 · 标志与品牌物料",
+    "category": "culture",
+    "label": "企业设计 / CORPORATE DESIGN",
+    "description": "以折叠与负空间为线索，将标志、色彩和品牌物料连成完整的视觉表达。",
+    "images": [
+      {
+        "src": "/assets/corporate-design-01.webp",
+        "width": 2000,
+        "height": 2485
+      }
+    ]
+  }
+]

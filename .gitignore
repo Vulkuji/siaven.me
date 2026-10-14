@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.env*
+.cf_key*
+__pycache__/
+screenshots/
+dist/
+.build-ssr/
+*.zip

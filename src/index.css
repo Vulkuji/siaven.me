@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "./styles/hero.css";
+@import "./styles/portfolio.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--muted);
+  --color-accent-foreground: var(--foreground);
+  --color-destructive: #c73737;
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: #151a0a;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f2f1eb;
+  --foreground: #171b16;
+  --card: #ffffff;
+  --primary: #4a6500;
+  --primary-foreground: #ffffff;
+  --muted: #e6e8df;
+  --secondary: var(--muted);
+  --muted-foreground: #62685d;
+  --border: #d3d7ca;
+  --highlight: #d6ff3f;
+  --radius: 0.5rem;
+  --gutter: clamp(22px, 4.5vw, 72px);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0c100e;
+  --foreground: #f1f3e9;
+  --card: #181e19;
+  --primary: #d6ff3f;
+  --primary-foreground: #151a0a;
+  --muted: #1c251f;
+  --muted-foreground: #a3ad9c;
+  --border: #303b31;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply bg-background font-sans text-foreground antialiased;
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--foreground) 15%, transparent)
+      transparent;
+  }
+  body {
+    margin: 0;
+    min-width: 320px;
+  }
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: default;
+  }
+  ::selection {
+    color: #151a0a;
+    background: var(--highlight);
+  }
+}
+
+@supports not (scrollbar-width: thin) {
+  html::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  html::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--foreground) 15%, transparent);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[10px] font-medium leading-relaxed tracking-[1.7px];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
