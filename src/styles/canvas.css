@@ -39,15 +39,36 @@
   animation: drift var(--dur, 8s) ease-in-out var(--delay, 0s) infinite
     alternate;
 }
-.obj img {
-  width: 100%;
+.obj-frame {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  aspect-ratio: 4 / 5;
+  padding: 12% 10% 22%;
+  overflow: hidden;
+  border-radius: 3px;
+  background:
+    linear-gradient(to bottom, transparent 70%, var(--frame-floor) 70%),
+    radial-gradient(
+      120% 90% at 28% 12%,
+      var(--frame-light),
+      var(--frame-base) 72%
+    );
+  box-shadow: 0 24px 40px -30px var(--shadow);
+}
+.obj-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
-  border-radius: 4px;
-  box-shadow: 0 24px 40px -28px var(--shadow);
+  border-radius: 2px;
+  box-shadow:
+    0 22px 28px -16px var(--frame-shadow),
+    0 3px 8px -2px var(--frame-shadow);
   transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.obj:hover img {
-  transform: scale(1.03);
+.obj:hover .obj-frame img {
+  transform: translateY(-4px) scale(1.03);
 }
 .canvas:has(.obj:hover) .obj:not(:hover) {
   opacity: 0.38;
@@ -103,18 +124,28 @@
 }
 .profile-name {
   margin: 0;
-  font-weight: 800;
-  font-size: 68px;
+  font-weight: 300;
+  font-size: 72px;
   line-height: 0.92;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.045em;
 }
-.profile-role {
+.profile-line {
+  margin: 0;
+  font: 400 16px/1.6 var(--font-serif);
+  color: var(--ink-soft);
+}
+.profile-contact {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 12px;
-  margin: 0;
-  font: 500 16px/1.4 var(--font-cjk);
+  gap: 8px 14px;
+  margin: 4px 0 0;
+  font: 500 11px/1.4 var(--font-mono);
+  letter-spacing: 0.06em;
+}
+.profile-contact a {
+  text-decoration: none;
+  color: var(--ink-soft);
 }
 .status {
   display: inline-flex;
@@ -134,23 +165,6 @@
   border-radius: 50%;
   background: currentColor;
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
-}
-.profile-meta {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 8px 24px;
-  margin: 0;
-  font: 500 12px/1.5 var(--font-mono);
-  letter-spacing: 0.06em;
-}
-.profile-meta dt {
-  color: var(--ink-faint);
-}
-.profile-meta dd {
-  margin: 0;
-}
-.profile-meta a {
-  text-decoration: none;
 }
 
 @keyframes drift {

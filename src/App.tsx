@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader, Wordmark } from "@/components/site-header";
 import { WorksCanvas } from "@/components/canvas/works-canvas";
 import { ArchiveView } from "@/components/archive-view";
-import { AboutView } from "@/components/about-view";
+import { ResumeView } from "@/components/resume-view";
 import { WorkDetail } from "@/components/work-detail";
 import { PointerLayer } from "@/components/pointer-layer";
 
@@ -26,7 +26,7 @@ function Portfolio() {
       <main>
         <WorksCanvas active={route.view === "canvas"} />
         <ArchiveView active={route.view === "archive"} filter={route.filter} />
-        <AboutView active={route.view === "about"} />
+        <ResumeView active={route.view === "resume"} />
       </main>
       <PointerLayer
         stageRef={stageRef}

@@ -208,13 +208,9 @@
   pointer-events: none;
   white-space: nowrap;
 }
-.headline .zh {
-  font: 900 11.5cqi/0.95 var(--font-cjk);
-  letter-spacing: 0.02em;
-}
 .headline .en {
-  font: 800 12cqi/0.82 var(--font-display);
-  letter-spacing: -0.055em;
+  font: 200 5.6cqi/0.9 var(--font-display);
+  letter-spacing: -0.04em;
 }
 
 .not-found-body {
@@ -251,9 +247,8 @@
     align-items: flex-start;
     gap: 0;
   }
-  .headline .zh,
   .headline .en {
-    font-size: 21cqi;
+    font-size: 12cqi;
   }
 }
 @container (max-width: 900px) {

@@ -5,7 +5,7 @@ import type { View } from "@/hooks/use-route";
 const links: { view: View; href: string; zh: string; en: string }[] = [
   { view: "canvas", href: "#", zh: "作品", en: "WORKS" },
   { view: "archive", href: "#archive", zh: "档案", en: "ARCHIVE" },
-  { view: "about", href: "#about", zh: "关于", en: "ABOUT" },
+  { view: "resume", href: "#resume", zh: "个人简历", en: "RESUME" },
 ];
 
 export function Wordmark() {

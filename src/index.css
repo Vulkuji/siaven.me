@@ -4,7 +4,7 @@
 @import "./styles/ornaments.css";
 @import "./styles/archive.css";
 @import "./styles/detail.css";
-@import "./styles/about.css";
+@import "./styles/resume.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -27,6 +27,10 @@
   --blob: rgb(110 175 255 / 0.55);
   --shadow: rgb(16 36 90 / 0.35);
   --dim: rgb(243 246 251 / 0.74);
+  --frame-light: #ffffff;
+  --frame-base: #e3ebf7;
+  --frame-floor: rgb(150 175 220 / 0.18);
+  --frame-shadow: rgb(20 40 90 / 0.28);
   --font-display:
     "Urbanist Variable", "Noto Sans SC Variable", "PingFang SC", system-ui,
     sans-serif;
@@ -55,6 +59,10 @@
   --blob: rgb(50 115 255 / 0.42);
   --shadow: rgb(0 0 0 / 0.6);
   --dim: rgb(7 11 22 / 0.74);
+  --frame-light: #1b2849;
+  --frame-base: #0d1529;
+  --frame-floor: rgb(0 0 0 / 0.22);
+  --frame-shadow: rgb(0 0 0 / 0.55);
 }
 
 @layer base {

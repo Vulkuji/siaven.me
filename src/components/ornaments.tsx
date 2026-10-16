@@ -2,8 +2,6 @@ import { useId, type CSSProperties, type ReactNode } from "react";
 import { CalendarDays, Coffee, Paintbrush, Plus } from "lucide-react";
 import { categories, type Category } from "@/data/portfolio";
 
-const sparkPath =
-  "M0 -24 C2 -7 7 -2 24 0 C7 2 2 7 0 24 C-2 7 -7 2 -24 0 C-7 -2 -2 -7 0 -24Z";
 const folderPath =
   "M20 0 H128 C140 0 147 6 153 14 L162 27 C166 33 172 36 180 36 H320 C331 36 340 45 340 56 V230 C340 241 331 250 320 250 H20 C9 250 0 241 0 230 V20 C0 9 9 0 20 0 Z";
 const icons = {
@@ -94,18 +92,11 @@ export function CategoryBadge({
   );
 }
 
-export function Orbit({
-  style,
-  className,
-}: {
-  style?: CSSProperties;
-  className?: string;
-}) {
+export function Orbit({ style }: { style?: CSSProperties }) {
   const gradient = useId();
-  const glow = useId();
   return (
     <svg
-      className={`orbit ${className ?? ""}`}
+      className="orbit"
       viewBox="0 0 1400 660"
       style={style}
       aria-hidden="true"
@@ -118,29 +109,14 @@ export function Orbit({
           />
           <stop
             offset="0.45"
-            style={{ stopColor: "var(--accent)", stopOpacity: 0.6 }}
+            style={{ stopColor: "var(--accent)", stopOpacity: 0.5 }}
           />
           <stop
             offset="1"
-            style={{ stopColor: "var(--accent)", stopOpacity: 0.12 }}
+            style={{ stopColor: "var(--accent)", stopOpacity: 0.1 }}
           />
         </linearGradient>
-        <filter id={glow} x="-60%" y="-60%" width="220%" height="220%">
-          <feGaussianBlur stdDeviation="4" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
       </defs>
-      <ellipse
-        cx="700"
-        cy="330"
-        rx="610"
-        ry="290"
-        fill="none"
-        style={{ stroke: "var(--line)" }}
-      />
       <ellipse
         cx="700"
         cy="330"
@@ -149,32 +125,15 @@ export function Orbit({
         transform="rotate(-8 700 330)"
         fill="none"
         stroke={`url(#${gradient})`}
-        strokeWidth="1.4"
+        strokeWidth="1"
         vectorEffect="non-scaling-stroke"
       />
-      <circle
-        cx="633"
-        cy="573"
-        r="18"
-        style={{ fill: "var(--accent)" }}
-        opacity="0.14"
-      />
-      <circle cx="633" cy="573" r="8.5" style={{ fill: "var(--accent)" }} />
-      <path
-        className="star"
-        d={sparkPath}
-        transform="translate(385 169)"
-        style={{ fill: "var(--accent)" }}
-        filter={`url(#${glow})`}
-      />
-    </svg>
-  );
-}
-
-export function Spark({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="-24 -24 48 48" aria-hidden="true">
-      <path d={sparkPath} />
+      <circle cx="633" cy="573" r="5" style={{ fill: "var(--accent)" }} />
+      <g className="register-mark" transform="translate(211 262)">
+        <circle r="13" />
+        <circle r="3.5" />
+        <path d="M-26 0 H26 M0 -26 V26" />
+      </g>
     </svg>
   );
 }

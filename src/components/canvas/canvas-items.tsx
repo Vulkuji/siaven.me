@@ -26,15 +26,17 @@ export function CanvasWork({ work, index }: { work: Work; index: number }) {
       <span className="obj-cap" aria-hidden="true">
         {work.title}
       </span>
-      <img
-        src={work.cover.src}
-        width={work.cover.width}
-        height={work.cover.height}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        draggable={false}
-      />
+      <span className="obj-frame">
+        <img
+          src={work.cover.src}
+          width={work.cover.width}
+          height={work.cover.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+        />
+      </span>
       <span className="obj-meta" aria-hidden="true">
         <span>{pad(index + 1)}</span>
         <span>{categories[work.category].zh}</span>
@@ -51,18 +53,13 @@ export function ProfileCard({ style }: { style: CSSProperties }) {
     <div className="intro" style={style}>
       <p className="kicker">SELECTED WORKS PORTFOLIO · 2026</p>
       <h1 className="profile-name">{profile.name}</h1>
-      <p className="profile-role">
-        {profile.role}
-        <span className="status">{profile.status}</span>
+      <p className="profile-line">
+        {profile.role} · {profile.focus}
       </p>
-      <dl className="profile-meta">
-        <dt>求职意向</dt>
-        <dd>{profile.intent}</dd>
-        <dt>联系</dt>
-        <dd>
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        </dd>
-      </dl>
+      <p className="profile-contact">
+        <span className="status">{profile.status}</span>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      </p>
     </div>
   );
 }

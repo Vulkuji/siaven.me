@@ -36,9 +36,10 @@ export const categoryOrder: Category[] = ["food", "medical", "art", "event"];
 
 export const profile = {
   name: "lingshan.zhu",
-  role: "平面设计师",
+  role: "视觉设计师",
   status: "OPEN TO WORK · 求职中",
-  intent: "平面设计 / 品牌视觉设计",
+  intent: "视觉设计方向",
+  focus: "品牌视觉 / 包装设计 / 广告传播",
   email: "muasiaven@gmail.com",
 };
 

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { categoryOrder, works, type Category } from "@/data/portfolio";
 
-export type View = "canvas" | "archive" | "about";
+export type View = "canvas" | "archive" | "resume";
 export type Filter = Category | "all";
 
 export interface Route {
@@ -21,14 +21,14 @@ function parse(hash: string, previous: Route): Route {
     const filter = categoryOrder.find((category) => category === argument);
     return { view: "archive", filter: filter ?? "all", work: null };
   }
-  if (head === "about") return { ...previous, view: "about", work: null };
+  if (head === "resume") return { ...previous, view: "resume", work: null };
   return { ...previous, view: "canvas", work: null };
 }
 
 export function viewHash({ view, filter }: Route) {
   if (view === "archive")
     return filter === "all" ? "#archive" : `#archive/${filter}`;
-  return view === "about" ? "#about" : "#";
+  return view === "resume" ? "#resume" : "#";
 }
 
 export function useRoute() {

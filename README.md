@@ -1,15 +1,15 @@
 # Siaven Portfolio
 
-`siaven.me` 的静态作品集，使用 React、TypeScript、Motion、Radix 与 Tailwind CSS，以 Cloudflare Workers 静态资源形式部署。首页为可拖动的作品画布，另有作品档案、作品详情与关于页面，支持亮色与暗色主题。
+`siaven.me` 的静态作品集，使用 React、TypeScript、Motion、Radix 与 Tailwind CSS，以 Cloudflare Workers 静态资源形式部署。首页为可拖动的作品画布，另有作品档案、作品详情与个人简历页面，支持亮色与暗色主题。
 
 ## 目录
 
 - `src/components/canvas/`：作品画布，包含拖动与惯性、滚轮平移、双击回到中心和空闲漂浮。
 - `src/components/archive-view.tsx`：作品档案的错落网格、分类筛选与鼠标跟随滚动。
 - `src/components/work-detail.tsx`：基于 Radix Dialog 的作品详情，展示完整图集与描述。
-- `src/components/about-view.tsx`：关于页面。
+- `src/components/resume-view.tsx`：个人简历页面，内容来自 `src/data/resume.ts`。
 - `src/components/pointer-layer.tsx`：十字光标、作品编号与跟随光晕。
-- `src/components/ornaments.tsx`：玻璃文件夹、分类图标、轨道与混合模式大标题。
+- `src/components/ornaments.tsx`：玻璃文件夹、分类图标、轨道与套准标记、混合模式标语。
 - `src/hooks/`：哈希路由与画布平移。
 - `src/data/portfolio.ts`：作品类型、分类与个人信息；`works.json` 由导出脚本生成。
 - `src/data/canvas-layout.ts`：画布尺寸、初始中心与各元素坐标。
@@ -29,7 +29,7 @@ npm run build
 npm run preview
 ```
 
-Vite 构建客户端资源，预渲染脚本生成静态 HTML 并为内联脚本写入 CSP 哈希；浏览器通过 React hydration 接管交互。字体由 Fontsource 自托管。视图通过哈希切换：`#archive`、`#archive/<分类>`、`#about`、`#works/<作品 ID>`。
+Vite 构建客户端资源，预渲染脚本生成静态 HTML 并为内联脚本写入 CSP 哈希；浏览器通过 React hydration 接管交互。字体由 Fontsource 自托管。视图通过哈希切换：`#archive`、`#archive/<分类>`、`#resume`、`#works/<作品 ID>`。
 
 ## 素材更新
 

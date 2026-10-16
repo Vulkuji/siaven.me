@@ -9,11 +9,11 @@ export const canvasSize = { width: 3200, height: 2800 };
 export const canvasHome: Point = { x: 2050, y: 1470 };
 
 export const cluster = {
-  profile: { x: 1674, y: 1311 },
-  folder: { x: 2174, y: 1326, size: 210 },
+  profile: { x: 1690, y: 1372 },
+  folder: { x: 2210, y: 1384, size: 210 },
   orbit: { x: 1344, y: 1081 },
   badges: {
-    medical: { x: 1523, y: 1311 },
+    medical: { x: 1697, y: 1200 },
     food: { x: 1505, y: 1550 },
     art: { x: 2493, y: 1193 },
     event: { x: 2526, y: 1425 },
@@ -21,20 +21,20 @@ export const cluster = {
 };
 
 export const workPlacement: Record<string, Point & { size: number }> = {
-  td66: { x: 1500, y: 1740, size: 300 },
-  mooncake: { x: 874, y: 1747, size: 220 },
-  pomegranate: { x: 1530, y: 2155, size: 190 },
-  "spring-anniversary": { x: 554, y: 2047, size: 190 },
-  "bistro-menu": { x: 1018, y: 2195, size: 260 },
-  "black-garlic": { x: 602, y: 2387, size: 240 },
-  "french-badge": { x: 1210, y: 2483, size: 230 },
-  "tea-break": { x: 230, y: 1690, size: 210 },
-  "drink-test": { x: 858, y: 1123, size: 220 },
-  "health-platform": { x: 1240, y: 1060, size: 260 },
-  "diagnostic-pen": { x: 786, y: 675, size: 240 },
-  "alcohol-test": { x: 506, y: 947, size: 220 },
-  "medical-editorial": { x: 1034, y: 371, size: 260 },
-  "medical-exhibition": { x: 1354, y: 579, size: 280 },
-  "art-space": { x: 2720, y: 900, size: 300 },
-  "corporate-design": { x: 2610, y: 1690, size: 280 },
+  "health-platform": { x: 1150, y: 760, size: 240 },
+  "drink-test": { x: 1540, y: 700, size: 220 },
+  "medical-exhibition": { x: 1880, y: 560, size: 240 },
+  "diagnostic-pen": { x: 780, y: 640, size: 220 },
+  "alcohol-test": { x: 1260, y: 280, size: 220 },
+  "medical-editorial": { x: 1640, y: 140, size: 240 },
+  "art-space": { x: 2700, y: 760, size: 260 },
+  "corporate-design": { x: 2700, y: 1720, size: 260 },
+  td66: { x: 1380, y: 1760, size: 260 },
+  mooncake: { x: 960, y: 1700, size: 220 },
+  pomegranate: { x: 1580, y: 2250, size: 200 },
+  "spring-anniversary": { x: 560, y: 1880, size: 200 },
+  "bistro-menu": { x: 1080, y: 2200, size: 240 },
+  "black-garlic": { x: 300, y: 2350, size: 220 },
+  "french-badge": { x: 700, y: 2420, size: 220 },
+  "tea-break": { x: 140, y: 1780, size: 220 },
 };
