@@ -1,6 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "siaven-portfolio",
-  "pages_build_output_dir": "dist",
+  "name": "siaven-me",
   "compatibility_date": "2026-10-07",
+  "build": {
+    "command": "npm run build",
+  },
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+  },
+  "routes": [{ "pattern": "siaven.me", "custom_domain": true }],
 }

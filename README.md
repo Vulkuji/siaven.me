@@ -1,6 +1,6 @@
 # Siaven Portfolio
 
-`siaven.me` 的静态作品集，使用 React、TypeScript、shadcn/ui（Radix）与 Tailwind CSS，部署至 Cloudflare Pages。
+`siaven.me` 的静态作品集，使用 React、TypeScript、shadcn/ui（Radix）与 Tailwind CSS，以 Cloudflare Workers 静态资源形式部署。
 
 ## 目录
 
@@ -10,11 +10,11 @@
 - `src/components/hero-collage.tsx`、`design-ribbon.tsx`：基于 Motion 的作品视差与滚动视觉。
 - `src/styles/`：首屏叠层、错落作品布局与响应式视觉样式。
 - `src/data/`：公开项目数据与站点信息。
-- `static/`：脱敏作品图片、站点图标与 Pages 响应头。
+- `static/`：脱敏作品图片、站点图标与响应头（`_headers`）。
 - `content/works.json`：项目内容与经过审核的 PDF 裁切范围。
 - `tools/export.py`：只读导出 PDF 区域，重新编码 WebP 并生成公开数据。
 - `tools/prerender.mjs`：将 React 页面预渲染为静态 HTML。
-- `wrangler.jsonc`：Pages 项目名与构建输出目录。
+- `wrangler.jsonc`：Worker 名称、构建命令、静态资源目录与自定义域。
 
 ## 开发与构建
 
@@ -35,6 +35,6 @@ uv run tools/export.py /path/to/source-copy.pdf
 
 ## 部署
 
-Cloudflare Pages 通过 Git 集成连接本仓库：推送到 `main` 分支即构建并发布生产环境，其他分支生成预览部署。构建命令为 `npm run build`，输出目录为 `dist`，Node 版本由 `.node-version` 指定。`siaven.me` 作为自定义域绑定在 Pages 项目上。
+Cloudflare Workers Builds 连接本仓库：推送到 `main` 分支后执行 `npx wrangler deploy`，按 `wrangler.jsonc` 先运行 `npm run build`，再将 `dist/` 作为静态资源发布到自定义域 `siaven.me`。未匹配路径返回 `404.html`，Node 版本由 `.node-version` 指定。
 
-公开内容包括 Siaven 标识、用户指定的 Google 头像、设计作品与 Gmail 联系邮箱。原作品集中的个人介绍素材、肖像、真实姓名、任职与教育资料已从导出范围排除。作品图片由像素重新编码；Google 头像使用无 EXIF/XMP 信息的原始 PNG。Pages 仅发布 `dist/`。
+公开内容包括 Siaven 标识、用户指定的 Google 头像、设计作品与 Gmail 联系邮箱。原作品集中的个人介绍素材、肖像、真实姓名、任职与教育资料已从导出范围排除。作品图片由像素重新编码；Google 头像使用无 EXIF/XMP 信息的原始 PNG。部署仅发布 `dist/`。
