@@ -14,7 +14,7 @@
 - `content/works.json`：项目内容与经过审核的 PDF 裁切范围。
 - `tools/export.py`：只读导出 PDF 区域，重新编码 WebP 并生成公开数据。
 - `tools/prerender.mjs`：将 React 页面预渲染为静态 HTML。
-- `tools/deploy.mjs`：校验 `dist/`、部署 Pages 并关联域名。
+- `wrangler.jsonc`：Pages 项目名与构建输出目录。
 
 ## 开发与构建
 
@@ -35,10 +35,6 @@ uv run tools/export.py /path/to/source-copy.pdf
 
 ## 部署
 
-```sh
-npm run deploy -- /path/to/cloudflare-token
-```
+Cloudflare Pages 通过 Git 集成连接本仓库：推送到 `main` 分支即构建并发布生产环境，其他分支生成预览部署。构建命令为 `npm run build`，输出目录为 `dist`，Node 版本由 `.node-version` 指定。`siaven.me` 作为自定义域绑定在 Pages 项目上。
 
-Token 权限：账号级 Cloudflare Pages Edit，以及 `siaven.me` 的 Zone Read、DNS Edit。
-
-公开内容包括 Siaven 标识、用户指定的 Google 头像、设计作品与 Gmail 联系邮箱。原作品集中的个人介绍素材、肖像、真实姓名、任职与教育资料已从导出范围排除。作品图片由像素重新编码；Google 头像使用无 EXIF/XMP 信息的原始 PNG。Pages 仅上传 `dist/`。
+公开内容包括 Siaven 标识、用户指定的 Google 头像、设计作品与 Gmail 联系邮箱。原作品集中的个人介绍素材、肖像、真实姓名、任职与教育资料已从导出范围排除。作品图片由像素重新编码；Google 头像使用无 EXIF/XMP 信息的原始 PNG。Pages 仅发布 `dist/`。
