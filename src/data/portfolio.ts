@@ -1,15 +1,45 @@
 import entries from "./works.json";
 
-export const works = entries;
-export type Work = (typeof works)[number];
-export const contactEmail = "muasiaven@gmail.com";
+export type Category = "food" | "medical" | "art" | "event";
 
-export const categories = [
-  { value: "all", label: "全部作品" },
-  { value: "brand", label: "品牌与包装" },
-  { value: "campaign", label: "活动与传播" },
-  { value: "medical", label: "医疗与界面" },
-  { value: "culture", label: "艺术与企业" },
-] as const;
+export interface Picture {
+  src: string;
+  width: number;
+  height: number;
+}
 
-export type Category = (typeof categories)[number]["value"];
+export interface Work {
+  id: string;
+  title: string;
+  category: Category;
+  label: string;
+  summary: string;
+  details: { label: string; text: string }[];
+  images: Picture[];
+  cover: Picture;
+  thumb: Picture;
+}
+
+export const works = entries as Work[];
+
+export const categories: Record<
+  Category,
+  { zh: string; en: [string, string] }
+> = {
+  food: { zh: "茶饮餐饮", en: ["FOOD &", "BEVERAGE"] },
+  medical: { zh: "医疗视觉", en: ["MEDICAL", "VISUAL"] },
+  art: { zh: "艺术教育", en: ["ART", "EDUCATION"] },
+  event: { zh: "企业活动", en: ["CORPORATE", "EVENT"] },
+};
+
+export const categoryOrder: Category[] = ["food", "medical", "art", "event"];
+
+export const profile = {
+  name: "lingshan.zhu",
+  role: "平面设计师",
+  status: "OPEN TO WORK · 求职中",
+  intent: "平面设计 / 品牌视觉设计",
+  email: "muasiaven@gmail.com",
+};
+
+export const pad = (value: number) => String(value).padStart(2, "0");

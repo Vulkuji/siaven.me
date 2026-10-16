@@ -1,149 +1,98 @@
 [
   {
     "id": "td66",
-    "title": "TD66 · 有机能量",
-    "category": "brand",
-    "label": "品牌视觉 / BRAND IDENTITY",
-    "description": "以有机能量为线索，让标志、字体、色彩与包装形成一致的品牌表达。",
-    "cover": [6, 0, 0, 1, 1],
-    "pages": [
-      [6, 0, 0, 1, 1],
-      [7, 0, 0, 1, 1]
-    ]
+    "folder": "01",
+    "cover": { "image": 1 },
+    "thumb": { "image": 1 }
   },
   {
     "id": "mooncake",
-    "title": "月相 · 中秋礼盒",
-    "category": "brand",
-    "label": "礼盒包装 / PACKAGING",
-    "description": "以月相、暗色与金色细节，串联节日礼盒、手提袋及推广视觉。",
-    "cover": [14, 0.08, 0.1, 0.93, 0.65],
-    "pages": [[14, 0, 0, 1, 1]]
-  },
-  {
-    "id": "health-platform",
-    "title": "连接医疗 · 数字界面",
-    "category": "medical",
-    "label": "官网与数据界面 / UI DESIGN",
-    "description": "企业官网与医共体慢病管理平台，以清晰的信息层级组织品牌内容和医疗数据。",
-    "cover": [21, 0.08, 0.12, 0.96, 0.6],
-    "pages": [[21, 0, 0.1, 1, 1]]
+    "folder": "02",
+    "cover": { "image": 1, "crop": [0.485, 0.092, 0.955, 0.56] },
+    "thumb": { "image": 1, "crop": [0.08, 0.1, 0.93, 0.65] }
   },
   {
     "id": "pomegranate",
-    "title": "红宝石 · 新品上市",
-    "category": "campaign",
-    "label": "新品传播 / LAUNCH CAMPAIGN",
-    "description": "围绕石榴饮品的色彩与质感，延展新品主视觉、外卖界面和门店物料。",
-    "cover": [10, 0.08, 0.1, 0.93, 0.65],
-    "pages": [[10, 0, 0, 1, 1]]
-  },
-  {
-    "id": "drink-test",
-    "title": "饮品安心卡",
-    "category": "medical",
-    "label": "产品包装 / PRODUCT PACKAGING",
-    "description": "把产品使用场景融入包装语言，探索卡片结构、刀版与完整的应用呈现。",
-    "cover": [18, 0.03, 0.07, 0.97, 0.37],
-    "pages": [[18, 0, 0.052, 1, 1]]
-  },
-  {
-    "id": "art-space",
-    "title": "铸艺空间 · 让创作发生",
-    "category": "culture",
-    "label": "艺术教育 / ART & CULTURE",
-    "description": "从海报编排、节日插画到网站与空间物料，探索艺术教育的多种视觉表达。",
-    "cover": [24, 0, 0.027, 1, 0.225],
-    "pages": [
-      [24, 0, 0.027, 1, 0.225],
-      [24, 0, 0.311, 1, 0.402],
-      [24, 0, 0.461, 1, 0.649],
-      [24, 0, 0.71, 1, 0.782],
-      [24, 0, 0.86, 1, 0.939]
-    ]
-  },
-  {
-    "id": "black-garlic",
-    "title": "山茶黑蒜 · 市集现场",
-    "category": "campaign",
-    "label": "活动视觉 / EVENT DESIGN",
-    "description": "围绕黑蒜主题，把活动主视觉延展为互动装置、现场指引与展陈物料。",
-    "cover": [9, 0.08, 0.1, 0.95, 0.6],
-    "pages": [
-      [9, 0, 0, 1, 0.6],
-      [9, 0.04, 0.66, 0.46, 0.91]
-    ]
+    "folder": "03",
+    "cover": { "image": 1, "crop": [0.095, 0.367, 0.505, 0.915] },
+    "thumb": { "image": 1, "crop": [0.08, 0.1, 0.93, 0.65] }
   },
   {
     "id": "spring-anniversary",
-    "title": "繁花似锦 · 周年庆",
-    "category": "campaign",
-    "label": "节日传播 / SEASONAL CAMPAIGN",
-    "description": "以春日花卉与复古色彩连接节日主题，将视觉语言应用于海报、优惠券和门店。",
-    "cover": [11, 0.08, 0.1, 0.94, 0.64],
-    "pages": [[11, 0, 0, 1, 1]]
-  },
-  {
-    "id": "french-badge",
-    "title": "味觉与文化 · 纪念徽章",
-    "category": "campaign",
-    "label": "活动衍生 / BADGE DESIGN",
-    "description": "将法国美食文化转译为徽章图形，并延展色彩规范、包装与现场应用。",
-    "cover": [12, 0.08, 0.1, 0.94, 0.6],
-    "pages": [[12, 0, 0, 1, 0.749]]
+    "folder": "04",
+    "cover": { "image": 1, "crop": [0.055, 0.354, 0.305, 0.651] },
+    "thumb": { "image": 1, "crop": [0.08, 0.1, 0.94, 0.64] }
   },
   {
     "id": "bistro-menu",
-    "title": "TD66 Bistro · 餐桌之间",
-    "category": "brand",
-    "label": "信息编排 / EDITORIAL DESIGN",
-    "description": "以网格、食物摄影和字体层级，组织菜单信息与餐饮品牌的日常触点。",
-    "cover": [13, 0.08, 0.1, 0.94, 0.64],
-    "pages": [[13, 0, 0, 1, 1]]
+    "folder": "05",
+    "cover": { "image": 1, "crop": [0.38, 0.077, 0.965, 0.429] },
+    "thumb": { "image": 1, "crop": [0.08, 0.1, 0.94, 0.64] }
+  },
+  {
+    "id": "black-garlic",
+    "folder": "06",
+    "cover": { "image": 1, "crop": [0.435, 0.219, 0.91, 0.582] },
+    "thumb": { "image": 1, "crop": [0.085, 0.13, 0.91, 0.58] }
+  },
+  {
+    "id": "french-badge",
+    "folder": "07",
+    "cover": { "image": 1, "crop": [0.405, 0.126, 0.96, 0.487] },
+    "thumb": { "image": 1, "crop": [0.08, 0.134, 0.94, 0.801] }
+  },
+  {
+    "id": "tea-break",
+    "folder": "08",
+    "cover": { "image": 7 },
+    "thumb": { "image": 6 }
+  },
+  {
+    "id": "drink-test",
+    "folder": "09",
+    "cover": { "image": 1, "crop": [0.345, 0.079, 0.995, 0.336] },
+    "thumb": { "image": 1, "crop": [0.03, 0.019, 0.97, 0.335] }
+  },
+  {
+    "id": "health-platform",
+    "folder": "10",
+    "cover": { "image": 1, "crop": [0.425, 0.085, 1, 0.435] },
+    "thumb": { "image": 1, "crop": [0.08, 0.022, 0.96, 0.556] }
   },
   {
     "id": "diagnostic-pen",
-    "title": "胸痛三联笔",
-    "category": "medical",
-    "label": "医疗产品 / MEDICAL PACKAGING",
-    "description": "用蓝紫渐变与清晰的产品标识，统一医疗器械的包装结构和信息呈现。",
-    "cover": [17, 0, 0.075, 1, 0.45],
-    "pages": [[17, 0, 0.065, 1, 1]]
+    "folder": "11",
+    "cover": { "image": 1, "crop": [0.36, 0.07, 0.995, 0.314] },
+    "thumb": { "image": 1, "crop": [0, 0.011, 1, 0.412] }
   },
   {
     "id": "alcohol-test",
-    "title": "呼气检测 · 结构与视觉",
-    "category": "medical",
-    "label": "结构与包装 / STRUCTURE & PACKAGING",
-    "description": "以橙色建立产品识别，结合刀版、信息规范与产品实景呈现包装系统。",
-    "cover": [19, 0.04, 0.055, 0.96, 0.33],
-    "pages": [[19, 0, 0.043, 1, 0.957]]
-  },
-  {
-    "id": "medical-exhibition",
-    "title": "从视觉到现场 · 医疗展台",
-    "category": "medical",
-    "label": "展陈与传播 / EXHIBITION DESIGN",
-    "description": "让展台主视觉、产品陈列与互动周边共享同一套品牌语言。",
-    "cover": [20, 0.04, 0.075, 0.96, 0.52],
-    "pages": [[20, 0, 0.06, 1, 0.74]]
+    "folder": "12",
+    "cover": { "image": 1, "crop": [0.355, 0.686, 0.9, 0.862] },
+    "thumb": { "image": 1, "crop": [0.04, 0.013, 0.96, 0.314] }
   },
   {
     "id": "medical-editorial",
-    "title": "把信息说清楚 · 产品传播",
-    "category": "medical",
-    "label": "宣传与画册 / PRINT & COMMUNICATION",
-    "description": "整合社交媒体长图、宣传单页与产品画册，在不同媒介中维持清晰一致的信息层级。",
-    "cover": [22, 0.04, 0.07, 0.96, 0.38],
-    "pages": [[22, 0, 0.057, 1, 1]]
+    "folder": "13",
+    "cover": { "image": 1, "crop": [0.235, 0.553, 0.85, 0.727] },
+    "thumb": { "image": 1, "crop": [0.04, 0.014, 0.96, 0.343] }
+  },
+  {
+    "id": "medical-exhibition",
+    "folder": "14",
+    "cover": { "image": 1, "crop": [0.025, 0.181, 0.45, 0.399] },
+    "thumb": { "image": 1, "crop": [0.04, 0.022, 0.96, 0.677] }
+  },
+  {
+    "id": "art-space",
+    "folder": "15",
+    "cover": { "image": 1 },
+    "thumb": { "image": 1 }
   },
   {
     "id": "corporate-design",
-    "title": "企业表达 · 标志与品牌物料",
-    "category": "culture",
-    "label": "企业设计 / CORPORATE DESIGN",
-    "description": "以折叠与负空间为线索，将标志、色彩和品牌物料连成完整的视觉表达。",
-    "cover": [26, 0.04, 0.07, 0.96, 0.43],
-    "pages": [[26, 0, 0.052, 1, 0.55]]
+    "folder": "16",
+    "cover": { "image": 4, "crop": [0.1, 0.011, 0.725, 0.354] },
+    "thumb": { "image": 2 }
   }
 ]

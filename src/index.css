@@ -1,133 +1,123 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "./styles/hero.css";
-@import "./styles/portfolio.css";
+@import "./styles/chrome.css";
+@import "./styles/canvas.css";
+@import "./styles/ornaments.css";
+@import "./styles/archive.css";
+@import "./styles/detail.css";
+@import "./styles/about.css";
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --font-heading: var(--font-sans);
-  --font-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
-  --font-sans:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Microsoft YaHei", sans-serif;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--foreground);
-  --color-popover: var(--card);
-  --color-popover-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--muted);
-  --color-accent-foreground: var(--foreground);
-  --color-destructive: #c73737;
-  --color-border: var(--border);
-  --color-input: var(--border);
-  --color-ring: var(--primary);
-  --color-highlight: var(--highlight);
-  --color-highlight-foreground: #151a0a;
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-}
-
 :root {
   color-scheme: light;
-  --background: #f2f1eb;
-  --foreground: #171b16;
-  --card: #ffffff;
-  --primary: #4a6500;
-  --primary-foreground: #ffffff;
-  --muted: #e6e8df;
-  --secondary: var(--muted);
-  --muted-foreground: #62685d;
-  --border: #d3d7ca;
-  --highlight: #d6ff3f;
-  --radius: 0.5rem;
-  --gutter: clamp(22px, 4.5vw, 72px);
+  --paper: #f3f6fb;
+  --surface: #ffffff;
+  --ink: #11151f;
+  --ink-soft: #586278;
+  --ink-faint: #7b869c;
+  --line: #e0e7f1;
+  --hair: rgb(17 21 31 / 0.16);
+  --accent: #3352ef;
+  --deep: #1f3fd1;
+  --glass-hi: #a6d8ff;
+  --glass-lo: #3d8bff;
+  --glass-edge: rgb(255 255 255 / 0.72);
+  --on-glass: #ffffff;
+  --glow: rgb(61 139 255 / 0.32);
+  --blob: rgb(110 175 255 / 0.55);
+  --shadow: rgb(16 36 90 / 0.35);
+  --dim: rgb(243 246 251 / 0.74);
+  --font-display:
+    "Urbanist Variable", "Noto Sans SC Variable", "PingFang SC", system-ui,
+    sans-serif;
+  --font-cjk:
+    "Noto Sans SC Variable", "PingFang SC", "Microsoft YaHei", system-ui,
+    sans-serif;
+  --font-serif: "Noto Serif SC Variable", "Songti SC", "STSong", serif;
+  --font-mono:
+    "IBM Plex Mono", "Noto Sans SC Variable", ui-monospace, monospace;
 }
 
 .dark {
   color-scheme: dark;
-  --background: #0c100e;
-  --foreground: #f1f3e9;
-  --card: #181e19;
-  --primary: #d6ff3f;
-  --primary-foreground: #151a0a;
-  --muted: #1c251f;
-  --muted-foreground: #a3ad9c;
-  --border: #303b31;
+  --paper: #070b16;
+  --surface: #0f172a;
+  --ink: #eaf0fb;
+  --ink-soft: #9ba6be;
+  --ink-faint: #6c7792;
+  --line: #141d32;
+  --hair: rgb(234 240 251 / 0.16);
+  --accent: #7390ff;
+  --glass-hi: #7cc6ff;
+  --glass-lo: #2a68ff;
+  --glass-edge: rgb(255 255 255 / 0.24);
+  --glow: rgb(56 128 255 / 0.5);
+  --blob: rgb(50 115 255 / 0.42);
+  --shadow: rgb(0 0 0 / 0.6);
+  --dim: rgb(7 11 22 / 0.74);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  html,
+  body {
+    height: 100%;
   }
   html {
-    @apply bg-background font-sans text-foreground antialiased;
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 14px/1.6 var(--font-display);
+    -webkit-font-smoothing: antialiased;
     font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    scrollbar-width: thin;
-    scrollbar-color: color-mix(in srgb, var(--foreground) 15%, transparent)
-      transparent;
   }
   body {
     margin: 0;
     min-width: 320px;
+    overflow: hidden;
   }
   a,
   button {
+    color: inherit;
     -webkit-tap-highlight-color: transparent;
   }
-  a:focus-visible {
-    outline: 2px solid var(--primary);
+  :focus-visible {
+    outline: 2px solid var(--accent);
     outline-offset: 4px;
   }
-  button {
-    cursor: pointer;
-  }
-  button:disabled {
-    cursor: default;
-  }
   ::selection {
-    color: #151a0a;
-    background: var(--highlight);
+    color: var(--on-glass);
+    background: var(--accent);
   }
 }
 
-@supports not (scrollbar-width: thin) {
-  html::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  html::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  html::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--foreground) 15%, transparent);
-  }
+.kicker {
+  font: 500 11px/1.4 var(--font-mono);
+  letter-spacing: 0.24em;
 }
-
-@layer components {
-  .eyebrow {
-    @apply text-[10px] font-medium leading-relaxed tracking-[1.7px];
-  }
+.kicker::after,
+.motto::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-top: 10px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.note {
+  font: 500 10px/1.9 var(--font-mono);
+  letter-spacing: 0.3em;
+  color: var(--ink-faint);
+}
+.glass-fill {
+  border: 1px solid var(--glass-edge);
+  color: var(--on-glass);
+  background: linear-gradient(160deg, var(--glass-hi), var(--glass-lo));
+  box-shadow:
+    inset 0 1px 0 var(--glass-edge),
+    0 12px 26px -12px var(--glow);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   *,
   *::before,
   *::after {

@@ -1,0 +1,180 @@
+import { useEffect, useRef, useState } from "react";
+import { m, useSpring } from "motion/react";
+import {
+  categories,
+  categoryOrder,
+  pad,
+  works,
+  type Work,
+} from "@/data/portfolio";
+import type { Filter } from "@/hooks/use-route";
+import { SplitText } from "@/components/split-text";
+
+function ArchiveCard({
+  work,
+  position,
+  total,
+}: {
+  work: Work;
+  position: number;
+  total: number;
+}) {
+  return (
+    <a
+      className="card"
+      href={`#works/${work.id}`}
+      aria-label={`查看 ${work.title}`}
+      data-cursor="查看 VIEW"
+      data-cursor-count={`${pad(position)}/${pad(total)}`}
+    >
+      <img
+        src={work.thumb.src}
+        width={work.thumb.width}
+        height={work.thumb.height}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+      <span className="card-shade" />
+      <span className="card-info" aria-hidden="true">
+        <span className="pill pill-line">{categories[work.category].zh}</span>
+        <span className="card-title">
+          <SplitText text={work.title} />
+        </span>
+        <span className="pill pill-fill">{work.label.split(" / ")[0]}</span>
+      </span>
+    </a>
+  );
+}
+
+function Filters({ filter }: { filter: Filter }) {
+  const [open, setOpen] = useState(false);
+  const options: { value: Filter; label: string; count: number }[] = [
+    { value: "all", label: "全部 ALL", count: works.length },
+    ...categoryOrder.map((category) => ({
+      value: category,
+      label: categories[category].zh,
+      count: works.filter((work) => work.category === category).length,
+    })),
+  ];
+  return (
+    <div className="filters">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls="filters-list"
+        onClick={() => setOpen(!open)}
+      >
+        <span className="box" />
+        筛选 FILTERS{" "}
+        <span className="filters-current">
+          / {filter === "all" ? "全部" : categories[filter].zh}
+        </span>
+      </button>
+      <ul className="filters-list" id="filters-list" hidden={!open}>
+        {options.map((option) => (
+          <li key={option.value}>
+            <a
+              href={
+                option.value === "all" ? "#archive" : `#archive/${option.value}`
+              }
+              aria-current={filter === option.value ? "true" : undefined}
+              onClick={() => setOpen(false)}
+            >
+              <span className="box" />
+              {option.label} <small>{pad(option.count)}</small>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export function ArchiveView({
+  active,
+  filter,
+}: {
+  active: boolean;
+  filter: Filter;
+}) {
+  const viewRef = useRef<HTMLElement>(null);
+  const following = useRef(false);
+  const [columns, setColumns] = useState(4);
+  const scrollY = useSpring(0, { stiffness: 70, damping: 20 });
+  const panX = useSpring(0, { stiffness: 60, damping: 20 });
+  const visible = works.filter(
+    (work) => filter === "all" || work.category === filter,
+  );
+
+  useEffect(() => {
+    const view = viewRef.current;
+    if (!view) return;
+    const observer = new ResizeObserver(() => {
+      const width = view.clientWidth;
+      if (width) setColumns(width < 560 ? 2 : width < 980 ? 3 : 4);
+    });
+    observer.observe(view);
+    const unsubscribe = scrollY.on("change", (value) => {
+      if (following.current) view.scrollTop = value;
+    });
+    return () => {
+      observer.disconnect();
+      unsubscribe();
+    };
+  }, [scrollY]);
+
+  useEffect(() => {
+    if (!viewRef.current) return;
+    viewRef.current.scrollTop = 0;
+    scrollY.jump(0);
+  }, [filter, scrollY]);
+
+  return (
+    <section
+      ref={viewRef}
+      className="view view-archive"
+      hidden={!active}
+      aria-label="作品档案"
+      onWheel={() => {
+        following.current = false;
+        scrollY.jump(viewRef.current?.scrollTop ?? 0);
+      }}
+      onPointerMove={(event) => {
+        const view = viewRef.current;
+        if (event.pointerType !== "mouse" || !view) return;
+        const bounds = view.getBoundingClientRect();
+        const ratioY = Math.min(
+          1,
+          Math.max(
+            0,
+            (event.clientY - bounds.top - bounds.height * 0.18) /
+              (bounds.height * 0.64),
+          ),
+        );
+        const ratioX = (event.clientX - bounds.left) / bounds.width;
+        following.current = true;
+        scrollY.set(ratioY * (view.scrollHeight - view.clientHeight));
+        panX.set(-ratioX * bounds.width * 0.12);
+      }}
+    >
+      <Filters filter={filter} />
+      <m.div className="gridwrap" style={{ x: panX }}>
+        {Array.from({ length: columns }, (_, column) => (
+          <div className="gcol" key={column}>
+            {visible
+              .filter((_, index) => index % columns === column)
+              .map((work) => (
+                <ArchiveCard
+                  key={work.id}
+                  work={work}
+                  position={visible.indexOf(work) + 1}
+                  total={visible.length}
+                />
+              ))}
+          </div>
+        ))}
+      </m.div>
+    </section>
+  );
+}

@@ -1,100 +1,65 @@
-import { useRef, useState } from "react";
-import { domAnimation, LazyMotion, MotionConfig } from "motion/react";
-import { Button } from "@/components/ui/button";
-import {
-  About,
-  SiteFooter,
-  SiteHeader,
-  Wordmark,
-} from "@/components/site-layout";
-import { Hero } from "@/components/hero";
-import { DesignRibbon } from "@/components/design-ribbon";
-import { WorkGallery, type OpenProject } from "@/components/work-gallery";
-import { ProjectDialog } from "@/components/project-dialog";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { useRef } from "react";
+import { domMax, LazyMotion, MotionConfig } from "motion/react";
 import { works } from "@/data/portfolio";
+import { useRoute } from "@/hooks/use-route";
+import { ThemeProvider } from "@/components/theme-provider";
+import { SiteHeader, Wordmark } from "@/components/site-header";
+import { WorksCanvas } from "@/components/canvas/works-canvas";
+import { ArchiveView } from "@/components/archive-view";
+import { AboutView } from "@/components/about-view";
+import { WorkDetail } from "@/components/work-detail";
+import { PointerLayer } from "@/components/pointer-layer";
 
 export type Page = "home" | "not-found";
 
 function Portfolio() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [open, setOpen] = useState(false);
-  const opener = useRef<HTMLAnchorElement>(null);
-  const openProject: OpenProject = (index, event) => {
-    if (
-      event.button !== 0 ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey
-    )
-      return;
-    event.preventDefault();
-    opener.current = event.currentTarget;
-    setActiveIndex(index);
-    setOpen(true);
-  };
+  const stageRef = useRef<HTMLDivElement>(null);
+  const { route, closeWork, stepWork } = useRoute();
+  const work = works.find((entry) => entry.id === route.work) ?? null;
 
   return (
-    <>
-      <SiteHeader />
-      <main id="top" className="mx-auto max-w-[1600px]">
-        <Hero onOpen={openProject} />
-        <DesignRibbon />
-        <WorkGallery onOpen={openProject} />
-        <About />
+    <div ref={stageRef} className="stage" data-view={route.view}>
+      <a className="skip-link" href="#archive">
+        跳至作品档案
+      </a>
+      <SiteHeader view={route.view} />
+      <main>
+        <WorksCanvas active={route.view === "canvas"} />
+        <ArchiveView active={route.view === "archive"} filter={route.filter} />
+        <AboutView active={route.view === "about"} />
       </main>
-      <SiteFooter />
-      <ProjectDialog
-        work={works[activeIndex]}
-        index={activeIndex}
-        open={open}
-        onOpenChange={setOpen}
-        onStep={(direction) =>
-          setActiveIndex((index) =>
-            Math.min(works.length - 1, Math.max(0, index + direction)),
-          )
-        }
-        returnFocus={() => opener.current?.focus({ preventScroll: true })}
+      <PointerLayer
+        stageRef={stageRef}
+        idleLabel={route.view === "canvas" ? "拖动 DRAG" : ""}
+        disabled={Boolean(work)}
       />
-    </>
+      <WorkDetail work={work} onClose={closeWork} onStep={stepWork} />
+    </div>
   );
 }
 
-function PageContent({ page = "home" }: { page?: Page }) {
-  if (page === "not-found")
-    return (
-      <main className="relative grid min-h-dvh place-items-center px-6">
-        <div className="absolute top-6 right-6">
-          <ThemeToggle />
-        </div>
-        <div>
-          <Wordmark />
-          <p className="eyebrow mt-12 text-muted-foreground">
-            404 / PAGE NOT FOUND
-          </p>
-          <h1 className="my-6 text-[clamp(32px,6vw,60px)] font-semibold tracking-tight">
-            这一页还没有作品。
-          </h1>
-          <Button asChild>
-            <a href="/">返回作品集</a>
-          </Button>
-        </div>
+function NotFound() {
+  return (
+    <div className="stage not-found">
+      <SiteHeader />
+      <main className="not-found-body">
+        <Wordmark />
+        <p className="kicker">404 / PAGE NOT FOUND</p>
+        <h1>这一页还没有作品。</h1>
+        <a className="not-found-link glass-fill" href="/">
+          返回作品集
+        </a>
       </main>
-    );
-  return <Portfolio />;
+    </div>
+  );
 }
 
-export default function App({ page }: { page?: Page }) {
+export default function App({ page = "home" }: { page?: Page }) {
   return (
     <ThemeProvider>
-      <LazyMotion features={domAnimation} strict>
-        <MotionConfig
-          reducedMotion="user"
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <PageContent page={page} />
+      <LazyMotion features={domMax} strict>
+        <MotionConfig reducedMotion="user">
+          {page === "not-found" ? <NotFound /> : <Portfolio />}
         </MotionConfig>
       </LazyMotion>
     </ThemeProvider>

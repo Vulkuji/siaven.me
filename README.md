@@ -1,18 +1,22 @@
 # Siaven Portfolio
 
-`siaven.me` 的静态作品集，使用 React、TypeScript、shadcn/ui（Radix）与 Tailwind CSS，以 Cloudflare Workers 静态资源形式部署。
+`siaven.me` 的静态作品集，使用 React、TypeScript、Motion、Radix 与 Tailwind CSS，以 Cloudflare Workers 静态资源形式部署。首页为可拖动的作品画布，另有作品档案、作品详情与关于页面，支持亮色与暗色主题。
 
 ## 目录
 
-- `src/components/`：页面、作品列表与详情弹窗。
-- `src/components/ui/`：由官方 shadcn CLI 生成的基础组件。
-- `src/components/theme-provider.tsx`：基于 next-themes 的亮暗主题、系统偏好与持久化。
-- `src/components/hero-collage.tsx`、`design-ribbon.tsx`：基于 Motion 的作品视差与滚动视觉。
-- `src/styles/`：首屏叠层、错落作品布局与响应式视觉样式。
-- `src/data/`：公开项目数据与站点信息。
-- `static/`：脱敏作品图片、站点图标与响应头（`_headers`）。
-- `content/works.json`：项目内容与经过审核的 PDF 裁切范围。
-- `tools/export.py`：只读导出 PDF 区域，重新编码 WebP 并生成公开数据。
+- `src/components/canvas/`：作品画布，包含拖动与惯性、滚轮平移、双击回到中心和空闲漂浮。
+- `src/components/archive-view.tsx`：作品档案的错落网格、分类筛选与鼠标跟随滚动。
+- `src/components/work-detail.tsx`：基于 Radix Dialog 的作品详情，展示完整图集与描述。
+- `src/components/about-view.tsx`：关于页面。
+- `src/components/pointer-layer.tsx`：十字光标、作品编号与跟随光晕。
+- `src/components/ornaments.tsx`：玻璃文件夹、分类图标、轨道与混合模式大标题。
+- `src/hooks/`：哈希路由与画布平移。
+- `src/data/portfolio.ts`：作品类型、分类与个人信息；`works.json` 由导出脚本生成。
+- `src/data/canvas-layout.ts`：画布尺寸、初始中心与各元素坐标。
+- `src/index.css`、`src/styles/`：主题令牌与按区域拆分的样式。
+- `static/`：作品图片（`works/`、`covers/`、`thumbs/`）、头像与响应头（`_headers`）。
+- `content/works.json`：作品与素材文件夹的对应关系，以及首页封面和档案缩略图的裁切范围。
+- `tools/export.mjs`：读取素材文件夹，生成 WebP 图片与 `src/data/works.json`。
 - `tools/prerender.mjs`：将 React 页面预渲染为静态 HTML。
 - `wrangler.jsonc`：Worker 名称、构建命令、静态资源目录与自定义域。
 
@@ -25,16 +29,18 @@ npm run build
 npm run preview
 ```
 
-Vite 构建脚本生成客户端资源和静态 HTML；浏览器通过 React hydration 接管交互。主题默认跟随系统，可在导航栏切换亮色、暗色并记住选择。预渲染阶段为主题初始化脚本生成 CSP 哈希。Motion 通过 LazyMotion 加载动效，尊重系统减少动态效果设置。构建产物位于 `dist/`，预览地址为 `http://127.0.0.1:4174`。
+Vite 构建客户端资源，预渲染脚本生成静态 HTML 并为内联脚本写入 CSP 哈希；浏览器通过 React hydration 接管交互。字体由 Fontsource 自托管。视图通过哈希切换：`#archive`、`#archive/<分类>`、`#about`、`#works/<作品 ID>`。
 
-素材更新使用源文件的独立副本：
+## 素材更新
 
 ```sh
-uv run tools/export.py /path/to/source-copy.pdf
+npm run export -- /path/to/网站作品整理
 ```
+
+每个作品对应一个以两位序号开头的文件夹，序号与 `content/works.json` 的 `folder` 一致。文件夹内的图片按文件名排序展示，GIF 转为动态 WebP；`介绍.txt` 提供作品名称、所属分类、作品标签、一句话介绍，以及可选的项目背景、我负责的部分、设计思路和最终成果。导出脚本会重建 `static/assets/works`、`covers`、`thumbs` 与 `src/data/works.json`。
 
 ## 部署
 
 Cloudflare Workers Builds 连接本仓库：推送到 `main` 分支后执行 `npx wrangler deploy`，按 `wrangler.jsonc` 先运行 `npm run build`，再将 `dist/` 作为静态资源发布到自定义域 `siaven.me`。未匹配路径返回 `404.html`，Node 版本由 `.node-version` 指定。
 
-公开内容包括 Siaven 标识、用户指定的 Google 头像、设计作品与 Gmail 联系邮箱。原作品集中的个人介绍素材、肖像、真实姓名、任职与教育资料已从导出范围排除。作品图片由像素重新编码；Google 头像使用无 EXIF/XMP 信息的原始 PNG。部署仅发布 `dist/`。
+公开内容包括 Siaven 标识、作者署名 lingshan.zhu、用户指定的 Google 头像、设计作品与 Gmail 联系邮箱。作品图片经重新编码并去除元数据。部署仅发布 `dist/`。

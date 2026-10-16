@@ -7,7 +7,7 @@ function ThemeMetadata() {
     if (!resolvedTheme) return;
     const frame = requestAnimationFrame(() => {
       const background = getComputedStyle(document.documentElement)
-        .getPropertyValue("--background")
+        .getPropertyValue("--paper")
         .trim();
       document
         .querySelector('meta[name="theme-color"]')

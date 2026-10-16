@@ -1,0 +1,200 @@
+.folder-obj {
+  position: absolute;
+  display: block;
+  text-decoration: none;
+}
+.folder {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 340 / 250;
+  container-type: inline-size;
+  filter: drop-shadow(0 26px 34px var(--glow));
+  animation: float 7s ease-in-out infinite;
+}
+.folder-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.sheet {
+  position: absolute;
+  display: grid;
+  align-content: start;
+  gap: 3.4cqi;
+  width: 44%;
+  aspect-ratio: 3 / 4;
+  padding: 9cqi 6cqi;
+  border: 1px solid var(--glass-edge);
+  border-radius: 3cqi;
+  background: linear-gradient(
+    170deg,
+    var(--surface),
+    color-mix(in srgb, var(--glass-hi) 38%, var(--surface))
+  );
+  box-shadow: 0 8px 18px -8px var(--shadow);
+}
+.sheet i {
+  display: block;
+  width: 85%;
+  height: 1.8cqi;
+  border-radius: 1cqi;
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+.sheet i:first-child {
+  width: 55%;
+  height: 3cqi;
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.sheet i:last-child {
+  width: 40%;
+}
+.sheet-a {
+  left: 7%;
+  top: 8%;
+  rotate: -9deg;
+}
+.sheet-b {
+  left: 28%;
+  top: 1%;
+  rotate: 2deg;
+}
+.sheet-c {
+  left: 50%;
+  top: 9%;
+  rotate: 10deg;
+}
+.folder-front {
+  position: absolute;
+  inset: 25% 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 7cqi 8cqi;
+  border: 1px solid var(--glass-edge);
+  border-radius: 6cqi;
+  color: var(--on-glass);
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--glass-hi) 72%, transparent),
+    color-mix(in srgb, var(--glass-lo) 82%, transparent)
+  );
+  backdrop-filter: blur(10px) saturate(1.5);
+  box-shadow:
+    inset 0 1px 0 var(--glass-edge),
+    inset 0 26px 40px -26px color-mix(in srgb, var(--on-glass) 60%, transparent),
+    inset 0 -18px 30px -14px
+      color-mix(in srgb, var(--glass-lo) 40%, transparent);
+}
+.folder-title {
+  position: absolute;
+  left: 7cqi;
+  top: 7cqi;
+  font: 500 4.8cqi/1 var(--font-cjk);
+  letter-spacing: 0.24em;
+  opacity: 0.92;
+}
+.folder-label {
+  display: grid;
+  justify-items: start;
+  gap: 2.4cqi;
+  font-weight: 300;
+  font-size: 6.4cqi;
+  line-height: 1;
+}
+.folder-label i {
+  width: 7cqi;
+  height: 1.5px;
+  background: currentColor;
+  opacity: 0.85;
+}
+.folder-label small {
+  font: 500 3.6cqi/1 var(--font-mono);
+  letter-spacing: 0.16em;
+  opacity: 0.85;
+}
+
+.cat-obj {
+  position: absolute;
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  text-decoration: none;
+}
+.cat-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+.cat-icon svg {
+  width: 25px;
+  height: 25px;
+  stroke-width: 1.15;
+}
+.cat-icon .lucide-plus {
+  stroke-width: 1.3;
+}
+.cat-icon::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 50%;
+  animation: halo 2.8s ease-out infinite;
+}
+.cat-obj:hover .cat-icon {
+  transform: translateY(-4px);
+}
+.cat-label {
+  padding-left: 4px;
+  font: 500 9.5px/1.75 var(--font-mono);
+  letter-spacing: 0.3em;
+  color: var(--ink-faint);
+}
+.cat-label b {
+  display: block;
+  margin-bottom: 2px;
+  font: 700 15px/1.4 var(--font-cjk);
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+
+.orbit {
+  position: absolute;
+  width: 1400px;
+  height: 660px;
+  overflow: visible;
+  pointer-events: none;
+}
+.star {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes halo {
+  from {
+    transform: scale(0.92);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+@keyframes twinkle {
+  50% {
+    scale: 0.8;
+    opacity: 0.7;
+  }
+}
