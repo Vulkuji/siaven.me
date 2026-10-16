@@ -11,6 +11,7 @@ export default defineConfig(({ isSsrBuild }) => ({
   },
   build: {
     sourcemap: false,
+    assetsInlineLimit: 0,
     rolldownOptions: isSsrBuild
       ? undefined
       : {
