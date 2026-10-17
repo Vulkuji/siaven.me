@@ -21,12 +21,12 @@ export const cluster = {
 };
 
 export const workPlacement: Record<string, Point & { size: number }> = {
-  "medical-editorial": { x: 520, y: 260, size: 240 },
-  "alcohol-test": { x: 1180, y: 140, size: 220 },
-  "medical-exhibition": { x: 1880, y: 330, size: 250 },
-  "health-platform": { x: 900, y: 760, size: 240 },
-  "drink-test": { x: 1560, y: 880, size: 220 },
-  "diagnostic-pen": { x: 340, y: 1080, size: 220 },
+  "medical-editorial": { x: 670, y: 660, size: 240 },
+  "alcohol-test": { x: 1330, y: 540, size: 220 },
+  "medical-exhibition": { x: 1960, y: 720, size: 250 },
+  "health-platform": { x: 1050, y: 1160, size: 240 },
+  "drink-test": { x: 1640, y: 1240, size: 220 },
+  "diagnostic-pen": { x: 480, y: 1450, size: 220 },
   "art-space": { x: 3120, y: 1000, size: 260 },
   "corporate-design": { x: 3140, y: 1800, size: 260 },
   td66: { x: 1250, y: 2000, size: 260 },

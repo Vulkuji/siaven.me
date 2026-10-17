@@ -37,26 +37,17 @@
   letter-spacing: -0.04em;
 }
 .name-dot {
-  position: relative;
   display: inline-block;
-  width: 0.15em;
-  height: 0.15em;
-  margin: 0 0.05em;
+  width: 0.11em;
+  height: 0.11em;
+  margin: 0 0.045em;
   border-radius: 50%;
   background: var(--accent);
-  animation: dot-bob 2.6s ease-in-out infinite;
-}
-.name-dot::after {
-  content: "";
-  position: absolute;
-  inset: -0.12em;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  animation: halo 2.6s ease-out infinite;
+  animation: dot-bob 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 @keyframes dot-bob {
   50% {
-    transform: translateY(-0.22em);
+    transform: translateY(-0.07em);
   }
 }
 .resume-intent {

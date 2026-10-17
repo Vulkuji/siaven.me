@@ -106,11 +106,12 @@
   inset: 0;
   z-index: 1;
   background: var(--dim);
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.35s;
 }
-.gridwrap:has(.card:hover) .card:not(:hover) .card-shade {
-  opacity: 1;
+.card:hover .card-shade,
+.card:focus-visible .card-shade {
+  opacity: 0;
 }
 .card-info {
   position: absolute;
@@ -160,6 +161,9 @@
 }
 
 @media (hover: none) {
+  .card-shade {
+    opacity: 0;
+  }
   .card::after,
   .card-info {
     opacity: 1;

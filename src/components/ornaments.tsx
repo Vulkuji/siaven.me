@@ -1,11 +1,4 @@
-import {
-  useEffect,
-  useId,
-  useRef,
-  type CSSProperties,
-  type ReactNode,
-  type RefObject,
-} from "react";
+import { useId, type CSSProperties, type ReactNode } from "react";
 import { CalendarDays, Coffee, Paintbrush, Plus } from "lucide-react";
 import { categories, type Category } from "@/data/portfolio";
 
@@ -95,110 +88,43 @@ export function CategoryBadge({
   );
 }
 
-function usePauseWhenReduced(ref: RefObject<SVGSVGElement | null>) {
-  useEffect(() => {
-    const svg = ref.current;
-    if (!svg) return;
-    const media = matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () =>
-      media.matches ? svg.pauseAnimations() : svg.unpauseAnimations();
-    apply();
-    media.addEventListener("change", apply);
-    return () => media.removeEventListener("change", apply);
-  }, [ref]);
-}
-
-export function OrbitTrack({
-  cx,
-  cy,
-  rx,
-  ry,
-  duration,
-  stroke,
-  rotate = -8,
-  companion = false,
-}: {
-  cx: number;
-  cy: number;
-  rx: number;
-  ry: number;
-  duration: number;
-  stroke: string;
-  rotate?: number;
-  companion?: boolean;
-}) {
-  const track = useId();
-  const d = `M ${cx - rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx + rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx - rx} ${cy} Z`;
-  return (
-    <g transform={`rotate(${rotate} ${cx} ${cy})`}>
-      <path
-        id={track}
-        d={d}
-        fill="none"
-        style={{ stroke }}
-        strokeWidth="1"
-        vectorEffect="non-scaling-stroke"
-      />
-      <g className="orbit-dot">
-        <circle r="11" opacity="0.16" />
-        <circle r="4.5" />
-        <animateMotion dur={`${duration}s`} repeatCount="indefinite">
-          <mpath href={`#${track}`} />
-        </animateMotion>
-      </g>
-      {companion && (
-        <g className="orbit-ring">
-          <circle r="6" />
-          <animateMotion
-            dur={`${duration}s`}
-            begin={`-${duration / 2}s`}
-            repeatCount="indefinite"
-          >
-            <mpath href={`#${track}`} />
-          </animateMotion>
-        </g>
-      )}
-    </g>
-  );
-}
-
 export function Orbit({ style }: { style?: CSSProperties }) {
   const gradient = useId();
-  const ref = useRef<SVGSVGElement>(null);
-  usePauseWhenReduced(ref);
   return (
-    <svg
-      ref={ref}
-      className="orbit"
-      viewBox="0 0 1400 660"
-      style={style}
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id={gradient} x1="0" y1="0" x2="1" y2="0">
-          <stop
-            offset="0"
-            style={{ stopColor: "var(--accent)", stopOpacity: 0.05 }}
-          />
-          <stop
-            offset="0.45"
-            style={{ stopColor: "var(--accent)", stopOpacity: 0.5 }}
-          />
-          <stop
-            offset="1"
-            style={{ stopColor: "var(--accent)", stopOpacity: 0.1 }}
-          />
-        </linearGradient>
-      </defs>
-      <OrbitTrack
-        cx={700}
-        cy={330}
-        rx={580}
-        ry={235}
-        duration={60}
-        companion
-        stroke={`url(#${gradient})`}
-      />
-    </svg>
+    <div className="orbit" style={style} aria-hidden="true">
+      <svg viewBox="0 0 1400 660">
+        <defs>
+          <linearGradient id={gradient} x1="0" y1="0" x2="1" y2="0">
+            <stop
+              offset="0"
+              style={{ stopColor: "var(--accent)", stopOpacity: 0.05 }}
+            />
+            <stop
+              offset="0.45"
+              style={{ stopColor: "var(--accent)", stopOpacity: 0.5 }}
+            />
+            <stop
+              offset="1"
+              style={{ stopColor: "var(--accent)", stopOpacity: 0.1 }}
+            />
+          </linearGradient>
+        </defs>
+        <ellipse
+          cx="700"
+          cy="330"
+          rx="580"
+          ry="235"
+          transform="rotate(-8 700 330)"
+          fill="none"
+          stroke={`url(#${gradient})`}
+          strokeWidth="1"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+      <div className="orbit-path">
+        <span className="orbit-marker orbit-dot" />
+        <span className="orbit-marker orbit-ring" />
+      </div>
+    </div>
   );
 }
