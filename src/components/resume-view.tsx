@@ -8,7 +8,7 @@ import {
   type Category,
 } from "@/data/portfolio";
 import { resume, type Experience } from "@/data/resume";
-import { Headline, NameOrbit } from "@/components/ornaments";
+import { Headline } from "@/components/ornaments";
 
 function Section({
   zh,
@@ -109,6 +109,8 @@ const facts: { label: string; content: ReactNode }[] = [
   },
 ];
 
+const [first, last] = profile.name.split(".");
+
 export function ResumeView({ active }: { active: boolean }) {
   return (
     <section
@@ -120,9 +122,11 @@ export function ResumeView({ active }: { active: boolean }) {
         <div className="resume">
           <aside className="resume-card">
             <p className="kicker">RESUME · 个人简历</p>
-            <NameOrbit>
-              <h2 className="resume-name">{profile.name}</h2>
-            </NameOrbit>
+            <h2 className="resume-name" aria-label={profile.name}>
+              {first}
+              <span className="name-dot" aria-hidden="true" />
+              {last}
+            </h2>
             <p className="resume-intent">意向岗位 · {resume.intent}</p>
             <span className="status">{profile.status}</span>
             <dl className="resume-facts">

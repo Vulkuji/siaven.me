@@ -5,36 +5,36 @@ interface Point {
   y: number;
 }
 
-export const canvasSize = { width: 3200, height: 2800 };
-export const canvasHome: Point = { x: 2050, y: 1470 };
+export const canvasSize = { width: 3800, height: 3400 };
+export const canvasHome: Point = { x: 2450, y: 1770 };
 
 export const cluster = {
-  profile: { x: 1690, y: 1380 },
-  folder: { x: 2130, y: 1395, size: 200 },
-  orbit: { x: 1344, y: 1081 },
+  profile: { x: 2090, y: 1680 },
+  folder: { x: 2530, y: 1695, size: 200 },
+  orbit: { x: 1744, y: 1381 },
   badges: {
-    medical: { x: 1656, y: 1235 },
-    food: { x: 1531, y: 1565 },
-    art: { x: 2315, y: 1142 },
-    event: { x: 2546, y: 1404 },
+    medical: { x: 2056, y: 1535 },
+    food: { x: 1931, y: 1865 },
+    art: { x: 2715, y: 1442 },
+    event: { x: 2946, y: 1704 },
   } satisfies Record<Category, Point>,
 };
 
 export const workPlacement: Record<string, Point & { size: number }> = {
-  "health-platform": { x: 1150, y: 760, size: 240 },
-  "drink-test": { x: 1540, y: 700, size: 220 },
-  "medical-exhibition": { x: 1880, y: 560, size: 240 },
-  "diagnostic-pen": { x: 780, y: 640, size: 220 },
-  "alcohol-test": { x: 1260, y: 280, size: 220 },
-  "medical-editorial": { x: 1640, y: 140, size: 240 },
-  "art-space": { x: 2700, y: 760, size: 260 },
-  "corporate-design": { x: 2740, y: 1520, size: 260 },
-  td66: { x: 1380, y: 1760, size: 260 },
-  mooncake: { x: 960, y: 1700, size: 220 },
-  pomegranate: { x: 1580, y: 2250, size: 200 },
-  "spring-anniversary": { x: 560, y: 1880, size: 200 },
-  "bistro-menu": { x: 1080, y: 2200, size: 240 },
-  "black-garlic": { x: 300, y: 2350, size: 220 },
-  "french-badge": { x: 700, y: 2420, size: 220 },
-  "tea-break": { x: 140, y: 1780, size: 220 },
+  "medical-editorial": { x: 520, y: 260, size: 240 },
+  "alcohol-test": { x: 1180, y: 140, size: 220 },
+  "medical-exhibition": { x: 1880, y: 330, size: 250 },
+  "health-platform": { x: 900, y: 760, size: 240 },
+  "drink-test": { x: 1560, y: 880, size: 220 },
+  "diagnostic-pen": { x: 340, y: 1080, size: 220 },
+  "art-space": { x: 3120, y: 1000, size: 260 },
+  "corporate-design": { x: 3140, y: 1800, size: 260 },
+  td66: { x: 1250, y: 2000, size: 260 },
+  mooncake: { x: 700, y: 1850, size: 220 },
+  "tea-break": { x: 180, y: 2050, size: 220 },
+  "spring-anniversary": { x: 1800, y: 2350, size: 200 },
+  "bistro-menu": { x: 980, y: 2600, size: 240 },
+  pomegranate: { x: 1520, y: 2780, size: 200 },
+  "black-garlic": { x: 420, y: 2700, size: 220 },
+  "french-badge": { x: 2080, y: 2900, size: 220 },
 };

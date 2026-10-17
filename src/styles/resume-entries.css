@@ -155,28 +155,3 @@
 .resume-related:hover .resume-peek img + img {
   margin-left: 2px;
 }
-.resume-card .kicker::after {
-  animation: rule-draw 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-
-@keyframes rule-draw {
-  from {
-    width: 0;
-  }
-}
-@keyframes resume-reveal {
-  from {
-    opacity: 0;
-    translate: 0 28px;
-  }
-}
-@supports (animation-timeline: view()) {
-  .resume-section > h3,
-  .resume-about,
-  .resume-entry,
-  .resume-honors li {
-    animation: resume-reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
-  }
-}

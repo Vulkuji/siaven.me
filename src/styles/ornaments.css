@@ -90,17 +90,18 @@
     inset 0 -18px 30px -14px
       color-mix(in srgb, var(--glass-lo) 40%, transparent);
 }
-.folder-title {
-  position: absolute;
-  left: 7cqi;
-  top: 7cqi;
-  font: 500 4.8cqi/1 var(--font-cjk);
-  letter-spacing: 0.24em;
-  opacity: 0.92;
+.folder-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 3.4cqi;
 }
-.folder-count {
-  font: 500 4.6cqi/1 var(--font-mono);
-  letter-spacing: 0.12em;
+.folder-meta span:first-child {
+  font: 500 4.6cqi/1 var(--font-cjk);
+  letter-spacing: 0.22em;
+}
+.folder-meta span:last-child {
+  font: 500 4.4cqi/1 var(--font-mono);
+  letter-spacing: 0.1em;
   opacity: 0.9;
 }
 

@@ -2,7 +2,6 @@ import {
   useEffect,
   useId,
   useRef,
-  useState,
   type CSSProperties,
   type ReactNode,
   type RefObject,
@@ -59,8 +58,10 @@ export function GlassFolder({ count }: { count: number }) {
         </span>
       ))}
       <span className="folder-front">
-        <span className="folder-title">作品档案</span>
-        <span className="folder-count">{count} ↗</span>
+        <span className="folder-meta">
+          <span>作品档案</span>
+          <span>{count} ↗</span>
+        </span>
       </span>
     </span>
   );
@@ -199,53 +200,5 @@ export function Orbit({ style }: { style?: CSSProperties }) {
         stroke={`url(#${gradient})`}
       />
     </svg>
-  );
-}
-
-export function NameOrbit({ children }: { children: ReactNode }) {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-  const [size, setSize] = useState({ width: 420, height: 72 });
-  usePauseWhenReduced(svgRef);
-
-  useEffect(() => {
-    const wrap = wrapRef.current;
-    if (!wrap) return;
-    const observer = new ResizeObserver(() =>
-      setSize({ width: wrap.offsetWidth, height: wrap.offsetHeight }),
-    );
-    observer.observe(wrap);
-    return () => observer.disconnect();
-  }, []);
-
-  const rx = size.width * 0.625;
-  const ry = size.height * 0.95;
-  const width = rx * 2 + 16;
-  const height = ry * 2 + 16;
-  return (
-    <div ref={wrapRef} className="name-orbit">
-      <svg
-        ref={svgRef}
-        viewBox={`0 0 ${width} ${height}`}
-        style={{
-          width,
-          height,
-          left: (size.width - width) / 2,
-          top: (size.height - height) / 2,
-        }}
-        aria-hidden="true"
-      >
-        <OrbitTrack
-          cx={width / 2}
-          cy={height / 2}
-          rx={rx}
-          ry={ry}
-          rotate={-4}
-          duration={16}
-          stroke="color-mix(in srgb, var(--accent) 30%, transparent)"
-        />
-      </svg>
-      {children}
-    </div>
   );
 }

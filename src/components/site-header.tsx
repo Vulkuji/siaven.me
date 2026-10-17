@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { m } from "motion/react";
 import type { View } from "@/hooks/use-route";
 
 const links: { view: View; href: string; zh: string; en: string }[] = [
-  { view: "canvas", href: "#", zh: "作品", en: "WORKS" },
-  { view: "archive", href: "#archive", zh: "档案", en: "ARCHIVE" },
+  { view: "canvas", href: "#", zh: "首页 · 作品", en: "HOME · WORKS" },
+  { view: "archive", href: "#archive", zh: "作品档案", en: "WORKS ARCHIVE" },
   { view: "resume", href: "#resume", zh: "个人简历", en: "RESUME" },
 ];
 
@@ -49,9 +50,25 @@ export function SiteHeader({ view }: { view?: View }) {
             key={link.view}
             href={link.href}
             aria-current={view === link.view ? "page" : undefined}
+            className="nav-link"
           >
-            {link.zh}
-            <small>{link.en}</small>
+            <span className="nav-roll">
+              <span>
+                {link.zh}
+                <small>{link.en}</small>
+              </span>
+              <span aria-hidden="true">
+                {link.zh}
+                <small>{link.en}</small>
+              </span>
+            </span>
+            {view === link.view && (
+              <m.span
+                layoutId="nav-indicator"
+                className="nav-indicator"
+                transition={{ type: "spring", stiffness: 380, damping: 32 }}
+              />
+            )}
           </a>
         ))}
       </nav>

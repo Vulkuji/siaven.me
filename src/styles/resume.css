@@ -29,24 +29,35 @@
 .resume-card > p {
   margin: 0;
 }
-.name-orbit {
-  position: relative;
-  isolation: isolate;
-  width: fit-content;
-  margin-block: 28px 20px;
-}
-.name-orbit svg {
-  position: absolute;
-  z-index: -1;
-  overflow: visible;
-  pointer-events: none;
-}
 .resume-name {
-  margin: 0;
+  margin: 20px 0 8px;
   font-weight: 300;
   font-size: clamp(44px, 5.4cqi, 76px);
   line-height: 0.95;
   letter-spacing: -0.04em;
+}
+.name-dot {
+  position: relative;
+  display: inline-block;
+  width: 0.15em;
+  height: 0.15em;
+  margin: 0 0.05em;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dot-bob 2.6s ease-in-out infinite;
+}
+.name-dot::after {
+  content: "";
+  position: absolute;
+  inset: -0.12em;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  animation: halo 2.6s ease-out infinite;
+}
+@keyframes dot-bob {
+  50% {
+    transform: translateY(-0.22em);
+  }
 }
 .resume-intent {
   font: 500 16px/1.4 var(--font-cjk);
