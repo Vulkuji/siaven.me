@@ -116,52 +116,54 @@ export function ResumeView({ active }: { active: boolean }) {
       hidden={!active}
       aria-label="个人简历"
     >
-      <div className="resume">
-        <aside className="resume-card">
-          <p className="kicker">RESUME · 个人简历</p>
-          <NameOrbit>
-            <h2 className="resume-name">{profile.name}</h2>
-          </NameOrbit>
-          <p className="resume-intent">意向岗位 · {resume.intent}</p>
-          <span className="status">{profile.status}</span>
-          <dl className="resume-facts">
-            {facts.map((fact) => (
-              <div key={fact.label}>
-                <dt>{fact.label}</dt>
-                <dd>{fact.content}</dd>
-              </div>
-            ))}
-          </dl>
-        </aside>
-        <div className="resume-body">
-          <Section zh="自我评价" en="About Me">
-            {resume.about.map((line) => (
-              <p key={line} className="resume-about">
-                {line}
-              </p>
-            ))}
-          </Section>
-          <Section zh="工作经历" en="Work Experience">
-            <Experiences items={resume.work} />
-          </Section>
-          <Section zh="实习经历" en="Internship">
-            <Experiences items={resume.internships} />
-          </Section>
-          <Section zh="个人荣誉" en="Honors">
-            <ul className="resume-honors">
-              {resume.honors.map((honor) => (
-                <li key={honor}>{honor}</li>
+      <div className="resume-scroll">
+        <div className="resume">
+          <aside className="resume-card">
+            <p className="kicker">RESUME · 个人简历</p>
+            <NameOrbit>
+              <h2 className="resume-name">{profile.name}</h2>
+            </NameOrbit>
+            <p className="resume-intent">意向岗位 · {resume.intent}</p>
+            <span className="status">{profile.status}</span>
+            <dl className="resume-facts">
+              {facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.content}</dd>
+                </div>
               ))}
-            </ul>
-          </Section>
+            </dl>
+          </aside>
+          <div className="resume-body">
+            <Section zh="自我评价" en="About Me">
+              {resume.about.map((line) => (
+                <p key={line} className="resume-about">
+                  {line}
+                </p>
+              ))}
+            </Section>
+            <Section zh="工作经历" en="Work Experience">
+              <Experiences items={resume.work} />
+            </Section>
+            <Section zh="实习经历" en="Internship">
+              <Experiences items={resume.internships} />
+            </Section>
+            <Section zh="个人荣誉" en="Honors">
+              <ul className="resume-honors">
+                {resume.honors.map((honor) => (
+                  <li key={honor}>{honor}</li>
+                ))}
+              </ul>
+            </Section>
+          </div>
         </div>
-        <Headline className="resume-headline">
-          <span className="en">resume</span>
-          <span className="en">
-            design for a brighter tomorrow.<small>个人简历</small>
-          </span>
-        </Headline>
       </div>
+      <Headline>
+        <span className="en">
+          resume<small>个人简历</small>
+        </span>
+        <span className="en">design for a brighter tomorrow.</span>
+      </Headline>
     </section>
   );
 }

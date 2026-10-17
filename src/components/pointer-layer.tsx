@@ -1,6 +1,5 @@
 import { useEffect, useState, type RefObject } from "react";
 import { m, useMotionValue, useSpring } from "motion/react";
-import { pad, works } from "@/data/portfolio";
 
 interface PointerState {
   active: boolean;
@@ -24,7 +23,7 @@ export function PointerLayer({
   const [state, setState] = useState<PointerState>({
     active: false,
     label: idleLabel,
-    count: `01/${pad(works.length)}`,
+    count: "",
   });
 
   useEffect(() => {
@@ -43,9 +42,9 @@ export function PointerLayer({
       setState((previous) =>
         previous.active === active &&
         previous.label === label &&
-        (!count || previous.count === count)
+        previous.count === (count ?? "")
           ? previous
-          : { active, label, count: count ?? previous.count },
+          : { active, label, count: count ?? "" },
       );
     };
     const leave = () =>

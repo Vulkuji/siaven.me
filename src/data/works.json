@@ -1,7 +1,7 @@
 [
   {
     "id": "td66",
-    "title": "TD66 · 有机能量",
+    "title": "品牌VI设计 · TD66有机能量",
     "category": "food",
     "label": "品牌视觉 / BRAND IDENTITY",
     "summary": "以有机能量为线索，让标志、字体、色彩与包装形成一致的品牌表达。",
@@ -36,7 +36,7 @@
   },
   {
     "id": "mooncake",
-    "title": "月相 · 中秋礼盒",
+    "title": "中秋宣传促销 · 月相",
     "category": "food",
     "label": "礼盒包装 / PACKAGING",
     "summary": "以月相、暗色与金色细节，串联节日礼盒、手提袋及推广视觉。",
@@ -81,7 +81,7 @@
   },
   {
     "id": "pomegranate",
-    "title": "红宝石 · 新品上市",
+    "title": "新品上市活动 · 红宝石茶饮",
     "category": "food",
     "label": "新品传播 / LAUNCH CAMPAIGN",
     "summary": "围绕石榴饮品的色彩与质感，延展新品主视觉、外卖界面和门店物料。",
@@ -116,7 +116,7 @@
   },
   {
     "id": "spring-anniversary",
-    "title": "繁花似锦 · 周年庆",
+    "title": "周年庆活动 · 繁花似锦",
     "category": "food",
     "label": "节日传播 / SEASONAL CAMPAIGN",
     "summary": "以春日花卉与复古色彩连接节日主题，将视觉语言应用于海报、优惠券和门店。",
@@ -166,7 +166,7 @@
   },
   {
     "id": "bistro-menu",
-    "title": "TD66 Bistro · 餐桌之间",
+    "title": "Bistro菜单设计 · 餐桌之间",
     "category": "food",
     "label": "信息编排 / EDITORIAL DESIGN",
     "summary": "以网格、食物摄影和字体层级，组织菜单信息与餐饮品牌的日常触点。",
@@ -236,7 +236,7 @@
   },
   {
     "id": "black-garlic",
-    "title": "山茶黑蒜 · 市集现场",
+    "title": "市集现场活动 · 面包节",
     "category": "food",
     "label": "活动视觉 / EVENT DESIGN",
     "summary": "围绕黑蒜主题，把活动主视觉延展为互动装置、现场指引与展陈物料。",
@@ -266,7 +266,7 @@
   },
   {
     "id": "french-badge",
-    "title": "味觉与文化 · 纪念徽章",
+    "title": "纪念徽章 · 法国美食协会",
     "category": "food",
     "label": "活动衍生 / BADGE DESIGN",
     "summary": "将法国美食文化转译为徽章图形，并延展色彩规范、包装与现场应用。",
@@ -296,7 +296,7 @@
   },
   {
     "id": "tea-break",
-    "title": "茶歇餐饮 · 海报宣传",
+    "title": "海报宣传设计 · 茶歇餐饮",
     "category": "food",
     "label": "海报设计 / POSTER DESIGN",
     "summary": "为茶饮与餐饮门店绘制的新品、节日与活动海报，在统一的品牌调性里尝试不同的版式和插画风格。",
@@ -376,7 +376,7 @@
   },
   {
     "id": "drink-test",
-    "title": "饮品安心卡",
+    "title": "包装设计 · 饮品安心卡",
     "category": "medical",
     "label": "产品包装 / PRODUCT PACKAGING",
     "summary": "把产品使用场景融入包装语言，探索卡片结构、刀版与完整的应用呈现。",
@@ -401,7 +401,7 @@
   },
   {
     "id": "health-platform",
-    "title": "连接医疗 · 数字界面",
+    "title": "网站&数字UI界面",
     "category": "medical",
     "label": "官网与数据界面 / UI DESIGN",
     "summary": "企业官网与医共体慢病管理平台，以清晰的信息层级组织品牌内容和医疗数据。",
@@ -426,7 +426,7 @@
   },
   {
     "id": "diagnostic-pen",
-    "title": "胸痛三联笔",
+    "title": "包装设计 · 胸痛三联笔",
     "category": "medical",
     "label": "医疗产品 / MEDICAL PACKAGING",
     "summary": "用蓝紫渐变与清晰的产品标识，统一医疗器械的包装结构和信息呈现。",
@@ -451,7 +451,7 @@
   },
   {
     "id": "alcohol-test",
-    "title": "呼气检测 · 结构与视觉",
+    "title": "包装设计 · 呼气检测",
     "category": "medical",
     "label": "结构与包装 / STRUCTURE & PACKAGING",
     "summary": "以橙色建立产品识别，结合刀版、信息规范与产品实景呈现包装系统。",
@@ -476,7 +476,7 @@
   },
   {
     "id": "medical-editorial",
-    "title": "把信息说清楚 · 产品传播",
+    "title": "画册海报宣传 · 产品传播",
     "category": "medical",
     "label": "宣传与画册 / PRINT & COMMUNICATION",
     "summary": "整合社交媒体长图、宣传单页与产品画册，在不同媒介中维持清晰一致的信息层级。",
@@ -536,7 +536,7 @@
   },
   {
     "id": "medical-exhibition",
-    "title": "从视觉到现场 · 医疗展台",
+    "title": "医疗展会活动 · 从视觉到现场",
     "category": "medical",
     "label": "展陈与传播 / EXHIBITION DESIGN",
     "summary": "让展台主视觉、产品陈列与互动周边共享同一套品牌语言。",
@@ -641,7 +641,7 @@
   },
   {
     "id": "corporate-design",
-    "title": "企业表达 · 标志与品牌物料",
+    "title": "海康威视 · VI与品牌物料",
     "category": "event",
     "label": "企业设计 / CORPORATE DESIGN",
     "summary": "以折叠与负空间为线索，将标志、色彩和品牌物料连成完整的视觉表达。",

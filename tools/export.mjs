@@ -25,6 +25,12 @@ function field(text, label) {
   return text.match(new RegExp(`^${label}：(.*)$`, "m"))?.[1].trim() ?? "";
 }
 
+const titleFrom = (folder) =>
+  folder
+    .replace(/^\d+\s*/, "")
+    .trim()
+    .replace(/\s*_\s*/g, " · ");
+
 function parseIntro(text, folder) {
   const summary = text
     .split(/^一句话介绍[^\n]*\n/m)[1]
@@ -34,7 +40,7 @@ function parseIntro(text, folder) {
     .find(Boolean);
   const category = categories[field(text, "所属分类")];
   const work = {
-    title: field(text, "作品名称"),
+    title: titleFrom(folder),
     category,
     label: field(text, "作品标签"),
     summary: summary ?? "",

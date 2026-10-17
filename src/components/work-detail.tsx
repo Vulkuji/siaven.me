@@ -79,7 +79,7 @@ export function WorkDetail({
                 </div>
                 <div className="detail-info">
                   <p className="detail-label">
-                    {categories[work.category].en.join(" ")} / {work.label}
+                    {categories[work.category].en} / {work.label}
                   </p>
                   <Dialog.Title
                     className="detail-title"

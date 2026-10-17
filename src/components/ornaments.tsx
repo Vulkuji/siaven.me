@@ -60,11 +60,7 @@ export function GlassFolder({ count }: { count: number }) {
       ))}
       <span className="folder-front">
         <span className="folder-title">作品档案</span>
-        <span className="folder-label">
-          portfolio archive
-          <i />
-          <small>{count} WORKS INSIDE ↗</small>
-        </span>
+        <span className="folder-count">{count} ↗</span>
       </span>
     </span>
   );
@@ -92,9 +88,7 @@ export function CategoryBadge({
       </span>
       <span className="cat-label">
         <b>{zh}</b>
-        {en[0]}
-        <br />
-        {en[1]}
+        {en}
       </span>
     </a>
   );
@@ -121,6 +115,7 @@ export function OrbitTrack({
   duration,
   stroke,
   rotate = -8,
+  companion = false,
 }: {
   cx: number;
   cy: number;
@@ -129,6 +124,7 @@ export function OrbitTrack({
   duration: number;
   stroke: string;
   rotate?: number;
+  companion?: boolean;
 }) {
   const track = useId();
   const d = `M ${cx - rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx + rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx - rx} ${cy} Z`;
@@ -149,6 +145,18 @@ export function OrbitTrack({
           <mpath href={`#${track}`} />
         </animateMotion>
       </g>
+      {companion && (
+        <g className="orbit-ring">
+          <circle r="6" />
+          <animateMotion
+            dur={`${duration}s`}
+            begin={`-${duration / 2}s`}
+            repeatCount="indefinite"
+          >
+            <mpath href={`#${track}`} />
+          </animateMotion>
+        </g>
+      )}
     </g>
   );
 }
@@ -187,13 +195,9 @@ export function Orbit({ style }: { style?: CSSProperties }) {
         rx={580}
         ry={235}
         duration={60}
+        companion
         stroke={`url(#${gradient})`}
       />
-      <g className="register-mark" transform="translate(137 348)">
-        <circle r="13" />
-        <circle r="3.5" />
-        <path d="M-26 0 H26 M0 -26 V26" />
-      </g>
     </svg>
   );
 }

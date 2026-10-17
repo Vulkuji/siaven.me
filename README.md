@@ -37,7 +37,7 @@ Vite 构建客户端资源，预渲染脚本生成静态 HTML 并为内联脚本
 npm run export -- /path/to/网站作品整理
 ```
 
-每个作品对应一个以两位序号开头的文件夹，序号与 `content/works.json` 的 `folder` 一致。文件夹内的图片按文件名排序展示，GIF 转为动态 WebP；`介绍.txt` 提供作品名称、所属分类、作品标签、一句话介绍，以及可选的项目背景、我负责的部分、设计思路和最终成果。导出脚本会重建 `static/assets/works`、`covers`、`thumbs` 与 `src/data/works.json`。
+每个作品对应一个以两位序号开头的文件夹，序号与 `content/works.json` 的 `folder` 一致。文件夹内的图片按文件名排序展示，GIF 转为动态 WebP；作品标题取自文件夹名称（去掉序号，下划线显示为 ·）；`介绍.txt` 提供所属分类、作品标签、一句话介绍，以及可选的项目背景、我负责的部分、设计思路和最终成果。导出脚本会重建 `static/assets/works`、`covers`、`thumbs` 与 `src/data/works.json`。
 
 ## 部署
 

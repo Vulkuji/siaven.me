@@ -22,14 +22,11 @@ export interface Work {
 
 export const works = entries as Work[];
 
-export const categories: Record<
-  Category,
-  { zh: string; en: [string, string] }
-> = {
-  food: { zh: "茶饮餐饮", en: ["FOOD &", "BEVERAGE"] },
-  medical: { zh: "医疗视觉", en: ["MEDICAL", "VISUAL"] },
-  art: { zh: "艺术教育", en: ["ART", "EDUCATION"] },
-  event: { zh: "企业活动", en: ["CORPORATE", "EVENT"] },
+export const categories: Record<Category, { zh: string; en: string }> = {
+  food: { zh: "茶饮餐饮", en: "FOOD & BEVERAGE" },
+  medical: { zh: "医疗视觉", en: "MEDICAL VISUAL" },
+  art: { zh: "艺术教育", en: "ART EDUCATION" },
+  event: { zh: "企业活动", en: "CORPORATE EVENT" },
 };
 
 export const categoryOrder: Category[] = ["food", "medical", "art", "event"];

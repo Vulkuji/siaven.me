@@ -10,7 +10,7 @@ export const canvasHome: Point = { x: 2050, y: 1470 };
 
 export const cluster = {
   profile: { x: 1690, y: 1380 },
-  folder: { x: 2200, y: 1395, size: 200 },
+  folder: { x: 2130, y: 1395, size: 200 },
   orbit: { x: 1344, y: 1081 },
   badges: {
     medical: { x: 1656, y: 1235 },

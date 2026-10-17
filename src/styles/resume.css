@@ -1,4 +1,6 @@
-.view-resume {
+.resume-scroll {
+  position: absolute;
+  inset: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   background-image:
@@ -88,7 +90,7 @@
   display: grid;
   align-content: start;
   gap: 56px;
-  padding-bottom: 96px;
+  padding-bottom: calc(8cqi + 120px);
 }
 .resume-section {
   display: grid;
@@ -113,13 +115,6 @@
   margin: 0 0 14px;
   font: 400 15px/2 var(--font-serif);
   color: var(--ink-soft);
-}
-.resume-headline {
-  grid-column: 1 / -1;
-  position: relative;
-  inset: auto;
-  padding: 0;
-  translate: 0 0.08em;
 }
 
 @container (max-width: 900px) {
