@@ -102,18 +102,6 @@
   opacity: 0;
   transition: opacity 0.35s;
 }
-.card-shade {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: var(--dim);
-  opacity: 1;
-  transition: opacity 0.35s;
-}
-.card:hover .card-shade,
-.card:focus-visible .card-shade {
-  opacity: 0;
-}
 .card-info {
   position: absolute;
   z-index: 2;
@@ -170,12 +158,15 @@
   initial-value: 0px;
 }
 @media (hover: hover) and (pointer: fine) {
-  :root:not(.dark) .torch {
+  .stage[data-view="archive"] {
+    background: var(--room);
+  }
+  .torch {
     position: absolute;
     z-index: 1;
-    inset: 0;
+    inset: -100vh 0 0;
     display: block;
-    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    background: var(--veil);
     pointer-events: none;
     mask-image: radial-gradient(
       circle var(--torch-r) at var(--torch-x, -999px) var(--torch-y, -999px),
@@ -184,21 +175,15 @@
     );
     transition: --torch-r 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
-  :root:not(.dark) .torch[data-on] {
+  .torch[data-on] {
     --torch-r: 260px;
   }
-  :root:not(.dark) .card-shade {
-    display: none;
-  }
-  :root:not(.dark) .card:is(:hover, :focus-visible) {
+  .card:is(:hover, :focus-visible) {
     z-index: 2;
   }
 }
 
 @media (hover: none) {
-  .card-shade {
-    opacity: 0;
-  }
   .card::after,
   .card-info {
     opacity: 1;

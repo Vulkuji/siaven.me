@@ -36,7 +36,6 @@ function ArchiveCard({
         loading="lazy"
         decoding="async"
       />
-      <span className="card-shade" />
       <span className="card-info" aria-hidden="true">
         <span className="pill pill-line">{categories[work.category].zh}</span>
         <span className="card-title">

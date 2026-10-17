@@ -5,7 +5,7 @@
 ## 目录
 
 - `src/components/canvas/`：作品画布，包含拖动与惯性、滚轮平移、双击回到中心和空闲漂浮。
-- `src/components/archive-view.tsx`：作品档案的错落网格、分类筛选与鼠标跟随滚动；档案页固定使用暗色令牌，亮色主题下以跟随鼠标的手电光照亮作品。
+- `src/components/archive-view.tsx`：作品档案的错落网格、分类筛选与鼠标跟随滚动；以跟随鼠标的手电光照亮作品，暗场颜色由主题令牌 `--room` 与 `--veil` 定义。
 - `src/components/work-detail.tsx`：基于 Radix Dialog 的作品详情，展示完整图集与描述。
 - `src/components/resume-view.tsx`：个人简历页面，内容来自 `src/data/resume.ts`。
 - `src/components/pointer-layer.tsx`：十字光标、作品编号与跟随光晕。

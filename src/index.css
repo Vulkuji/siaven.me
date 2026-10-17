@@ -27,7 +27,8 @@
   --glow: rgb(61 139 255 / 0.32);
   --blob: rgb(110 175 255 / 0.55);
   --shadow: rgb(16 36 90 / 0.35);
-  --dim: rgb(18 24 40 / 0.5);
+  --room: #6f7c98;
+  --veil: rgb(111 124 152 / 0.78);
   --frame-light: #ffffff;
   --frame-base: #e3ebf7;
   --frame-floor: rgb(150 175 220 / 0.18);
@@ -43,8 +44,7 @@
     "IBM Plex Mono", "Noto Sans SC Variable", ui-monospace, monospace;
 }
 
-.dark,
-.stage[data-view="archive"] {
+.dark {
   color-scheme: dark;
   --paper: #070b16;
   --surface: #0f172a;
@@ -60,7 +60,8 @@
   --glow: rgb(56 128 255 / 0.5);
   --blob: rgb(50 115 255 / 0.42);
   --shadow: rgb(0 0 0 / 0.6);
-  --dim: rgb(3 6 14 / 0.68);
+  --room: #070b16;
+  --veil: rgb(7 11 22 / 0.86);
   --frame-light: #1b2849;
   --frame-base: #0d1529;
   --frame-floor: rgb(0 0 0 / 0.22);
