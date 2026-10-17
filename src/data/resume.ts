@@ -1,5 +1,8 @@
+import type { Category } from "./portfolio";
+
 export interface Experience {
   company: string;
+  category?: Category;
   role: string;
   period: string;
   points: { title?: string; text: string }[];
@@ -20,6 +23,7 @@ export const resume = {
   work: [
     {
       company: "杭州安旭生物科技股份有限公司",
+      category: "medical",
       role: "设计师",
       period: "2024.12 — 至今",
       points: [
@@ -47,6 +51,7 @@ export const resume = {
     },
     {
       company: "珀莱雅 · 原餐饮事业部",
+      category: "food",
       role: "市场部设计岗",
       period: "2023.4 — 2024.4",
       points: [
@@ -62,6 +67,7 @@ export const resume = {
     },
     {
       company: "杭州铸金文化艺术",
+      category: "art",
       role: "新媒体运营及设计",
       period: "2022.7 — 2023.3",
       points: [
@@ -80,6 +86,7 @@ export const resume = {
   internships: [
     {
       company: "杭州海康威视",
+      category: "event",
       role: "设计专员",
       period: "2020.10 — 2021.2",
       points: [

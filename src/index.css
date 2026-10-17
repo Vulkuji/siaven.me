@@ -5,6 +5,7 @@
 @import "./styles/archive.css";
 @import "./styles/detail.css";
 @import "./styles/resume.css";
+@import "./styles/resume-entries.css";
 
 @custom-variant dark (&:is(.dark *));
 

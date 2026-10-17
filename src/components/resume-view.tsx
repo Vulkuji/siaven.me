@@ -1,8 +1,14 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { profile } from "@/data/portfolio";
+import {
+  categories,
+  pad,
+  profile,
+  works,
+  type Category,
+} from "@/data/portfolio";
 import { resume, type Experience } from "@/data/resume";
-import { Headline } from "@/components/ornaments";
+import { Headline, MiniOrbit } from "@/components/ornaments";
 
 function Section({
   zh,
@@ -24,6 +30,36 @@ function Section({
   );
 }
 
+function RelatedWorks({ category }: { category: Category }) {
+  const related = works.filter((work) => work.category === category);
+  const { zh } = categories[category];
+  return (
+    <a
+      className="resume-related"
+      href={`#archive/${category}`}
+      data-cursor={`查看 ${zh}`}
+    >
+      <span className="resume-peek" aria-hidden="true">
+        {related.slice(0, 3).map((work, index) => (
+          <img
+            key={work.id}
+            src={work.thumb.src}
+            width={work.thumb.width}
+            height={work.thumb.height}
+            alt=""
+            loading="lazy"
+            style={{ "--i": index } as CSSProperties}
+          />
+        ))}
+      </span>
+      <span>
+        相关作品 · {zh} <small>{pad(related.length)}</small>
+      </span>
+      <ArrowUpRight aria-hidden="true" />
+    </a>
+  );
+}
+
 function Experiences({ items }: { items: Experience[] }) {
   return items.map((item) => (
     <article key={item.company} className="resume-entry">
@@ -42,6 +78,7 @@ function Experiences({ items }: { items: Experience[] }) {
           </li>
         ))}
       </ul>
+      {item.category && <RelatedWorks category={item.category} />}
     </article>
   ));
 }
@@ -82,7 +119,10 @@ export function ResumeView({ active }: { active: boolean }) {
       <div className="resume">
         <aside className="resume-card">
           <p className="kicker">RESUME · 个人简历</p>
-          <h2 className="resume-name">{profile.name}</h2>
+          <div className="resume-name-wrap">
+            <MiniOrbit className="resume-orbit" />
+            <h2 className="resume-name">{profile.name}</h2>
+          </div>
           <p className="resume-intent">意向岗位 · {resume.intent}</p>
           <span className="status">{profile.status}</span>
           <dl className="resume-facts">
@@ -117,8 +157,10 @@ export function ResumeView({ active }: { active: boolean }) {
           </Section>
         </div>
         <Headline className="resume-headline">
-          <span className="en">design for a</span>
-          <span className="en">brighter tomorrow.</span>
+          <span className="en">
+            resume<sup>个人简历</sup>
+          </span>
+          <span className="en">design for a brighter tomorrow.</span>
         </Headline>
       </div>
     </section>

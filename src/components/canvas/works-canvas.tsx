@@ -98,8 +98,10 @@ export function WorksCanvas({ active }: { active: boolean }) {
       </m.div>
       <p className="hint">拖动画布浏览 · 双击空白回到中心 · 点作品看详情</p>
       <Headline>
-        <span className="en">make ideas</span>
-        <span className="en">visible.</span>
+        <span className="en">
+          portfolio<sup>作品集</sup>
+        </span>
+        <span className="en">make ideas visible.</span>
       </Headline>
     </section>
   );

@@ -1,4 +1,11 @@
-import { useId, type CSSProperties, type ReactNode } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  type CSSProperties,
+  type ReactNode,
+  type RefObject,
+} from "react";
 import { CalendarDays, Coffee, Paintbrush, Plus } from "lucide-react";
 import { categories, type Category } from "@/data/portfolio";
 
@@ -92,10 +99,64 @@ export function CategoryBadge({
   );
 }
 
+function usePauseWhenReduced(ref: RefObject<SVGSVGElement | null>) {
+  useEffect(() => {
+    const svg = ref.current;
+    if (!svg) return;
+    const media = matchMedia("(prefers-reduced-motion: reduce)");
+    const apply = () =>
+      media.matches ? svg.pauseAnimations() : svg.unpauseAnimations();
+    apply();
+    media.addEventListener("change", apply);
+    return () => media.removeEventListener("change", apply);
+  }, [ref]);
+}
+
+export function OrbitTrack({
+  cx,
+  cy,
+  rx,
+  ry,
+  duration,
+  stroke,
+}: {
+  cx: number;
+  cy: number;
+  rx: number;
+  ry: number;
+  duration: number;
+  stroke: string;
+}) {
+  const track = useId();
+  const d = `M ${cx - rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx + rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx - rx} ${cy} Z`;
+  return (
+    <g transform={`rotate(-8 ${cx} ${cy})`}>
+      <path
+        id={track}
+        d={d}
+        fill="none"
+        stroke={stroke}
+        strokeWidth="1"
+        vectorEffect="non-scaling-stroke"
+      />
+      <g className="orbit-dot">
+        <circle r="11" opacity="0.16" />
+        <circle r="4.5" />
+        <animateMotion dur={`${duration}s`} repeatCount="indefinite">
+          <mpath href={`#${track}`} />
+        </animateMotion>
+      </g>
+    </g>
+  );
+}
+
 export function Orbit({ style }: { style?: CSSProperties }) {
   const gradient = useId();
+  const ref = useRef<SVGSVGElement>(null);
+  usePauseWhenReduced(ref);
   return (
     <svg
+      ref={ref}
       className="orbit"
       viewBox="0 0 1400 660"
       style={style}
@@ -117,23 +178,41 @@ export function Orbit({ style }: { style?: CSSProperties }) {
           />
         </linearGradient>
       </defs>
-      <ellipse
-        cx="700"
-        cy="330"
-        rx="580"
-        ry="235"
-        transform="rotate(-8 700 330)"
-        fill="none"
+      <OrbitTrack
+        cx={700}
+        cy={330}
+        rx={580}
+        ry={235}
+        duration={60}
         stroke={`url(#${gradient})`}
-        strokeWidth="1"
-        vectorEffect="non-scaling-stroke"
       />
-      <circle cx="633" cy="573" r="5" style={{ fill: "var(--accent)" }} />
       <g className="register-mark" transform="translate(211 262)">
         <circle r="13" />
         <circle r="3.5" />
         <path d="M-26 0 H26 M0 -26 V26" />
       </g>
+    </svg>
+  );
+}
+
+export function MiniOrbit({ className }: { className?: string }) {
+  const ref = useRef<SVGSVGElement>(null);
+  usePauseWhenReduced(ref);
+  return (
+    <svg
+      ref={ref}
+      className={className}
+      viewBox="0 0 440 160"
+      aria-hidden="true"
+    >
+      <OrbitTrack
+        cx={220}
+        cy={80}
+        rx={200}
+        ry={56}
+        duration={22}
+        stroke="var(--line)"
+      />
     </svg>
   );
 }

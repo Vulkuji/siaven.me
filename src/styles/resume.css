@@ -27,8 +27,23 @@
 .resume-card > p {
   margin: 0;
 }
+.resume-name-wrap {
+  position: relative;
+  isolation: isolate;
+  margin-top: 8px;
+}
+.resume-orbit {
+  position: absolute;
+  z-index: -1;
+  left: -28px;
+  top: 50%;
+  width: min(440px, calc(100% + 56px));
+  translate: 0 -50%;
+  overflow: visible;
+  pointer-events: none;
+}
 .resume-name {
-  margin: 8px 0 0;
+  margin: 0;
   font-weight: 300;
   font-size: clamp(44px, 5.4cqi, 76px);
   line-height: 0.95;
@@ -102,77 +117,12 @@
   font: 400 15px/2 var(--font-serif);
   color: var(--ink-soft);
 }
-.resume-entry + .resume-entry {
-  margin-top: 34px;
-}
-.resume-entry header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 4px 16px;
-}
-.resume-entry h4 {
-  margin: 0;
-  font: 600 18px/1.4 var(--font-serif);
-}
-.resume-entry h4 span {
-  margin-left: 10px;
-  font: 500 13px var(--font-cjk);
-  color: var(--accent);
-}
-.resume-entry time {
-  font: 500 11px/1.4 var(--font-mono);
-  letter-spacing: 0.08em;
-  color: var(--ink-faint);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-.resume-entry ul,
-.resume-honors {
-  display: grid;
-  gap: 10px;
-  margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.resume-entry li,
-.resume-honors li {
-  position: relative;
-  max-width: 46em;
-  padding-left: 16px;
-  font: 400 14px/1.9 var(--font-serif);
-  color: var(--ink-soft);
-}
-.resume-entry li::before,
-.resume-honors li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.95em;
-  width: 6px;
-  height: 1px;
-  background: var(--accent);
-}
-.resume-entry b {
-  font: 600 14px/1.9 var(--font-cjk);
-  color: var(--ink);
-}
-.resume-entry b::after {
-  content: "：";
-}
-.resume-honors {
-  margin: 0;
-}
 .resume-headline {
   grid-column: 1 / -1;
   position: relative;
   inset: auto;
   padding: 0;
   translate: 0 0.08em;
-}
-.resume-headline .en {
-  font-size: 4.4cqi;
 }
 
 @container (max-width: 900px) {
@@ -189,7 +139,4 @@
   }
 }
 @container (max-width: 640px) {
-  .resume-headline .en {
-    font-size: 10cqi;
-  }
 }

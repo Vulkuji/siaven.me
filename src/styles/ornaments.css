@@ -171,6 +171,9 @@
   overflow: visible;
   pointer-events: none;
 }
+.orbit-dot {
+  fill: var(--accent);
+}
 .register-mark {
   fill: none;
   stroke: var(--accent);

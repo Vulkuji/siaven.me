@@ -212,6 +212,16 @@
   font: 200 5.6cqi/0.9 var(--font-display);
   letter-spacing: -0.04em;
 }
+.headline .en + .en {
+  font-size: 2.8cqi;
+  letter-spacing: -0.02em;
+}
+.headline sup {
+  margin-left: 0.6em;
+  font: 400 max(11px, 0.95cqi) / 1 var(--font-cjk);
+  letter-spacing: 0.3em;
+  vertical-align: top;
+}
 
 .not-found-body {
   display: grid;
@@ -248,7 +258,10 @@
     gap: 0;
   }
   .headline .en {
-    font-size: 12cqi;
+    font-size: 14cqi;
+  }
+  .headline .en + .en {
+    font-size: 6cqi;
   }
 }
 @container (max-width: 900px) {
