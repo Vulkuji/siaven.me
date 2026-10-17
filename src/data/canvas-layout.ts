@@ -9,14 +9,14 @@ export const canvasSize = { width: 3200, height: 2800 };
 export const canvasHome: Point = { x: 2050, y: 1470 };
 
 export const cluster = {
-  profile: { x: 1690, y: 1372 },
-  folder: { x: 2210, y: 1384, size: 210 },
+  profile: { x: 1690, y: 1380 },
+  folder: { x: 2200, y: 1395, size: 200 },
   orbit: { x: 1344, y: 1081 },
   badges: {
-    medical: { x: 1697, y: 1200 },
-    food: { x: 1505, y: 1550 },
-    art: { x: 2493, y: 1193 },
-    event: { x: 2526, y: 1425 },
+    medical: { x: 1656, y: 1235 },
+    food: { x: 1531, y: 1565 },
+    art: { x: 2315, y: 1142 },
+    event: { x: 2546, y: 1404 },
   } satisfies Record<Category, Point>,
 };
 
@@ -28,7 +28,7 @@ export const workPlacement: Record<string, Point & { size: number }> = {
   "alcohol-test": { x: 1260, y: 280, size: 220 },
   "medical-editorial": { x: 1640, y: 140, size: 240 },
   "art-space": { x: 2700, y: 760, size: 260 },
-  "corporate-design": { x: 2700, y: 1720, size: 260 },
+  "corporate-design": { x: 2740, y: 1520, size: 260 },
   td66: { x: 1380, y: 1760, size: 260 },
   mooncake: { x: 960, y: 1700, size: 220 },
   pomegranate: { x: 1580, y: 2250, size: 200 },

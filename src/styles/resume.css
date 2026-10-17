@@ -27,18 +27,15 @@
 .resume-card > p {
   margin: 0;
 }
-.resume-name-wrap {
+.name-orbit {
   position: relative;
   isolation: isolate;
-  margin-top: 8px;
+  width: fit-content;
+  margin-block: 28px 20px;
 }
-.resume-orbit {
+.name-orbit svg {
   position: absolute;
   z-index: -1;
-  left: -28px;
-  top: 50%;
-  width: min(440px, calc(100% + 56px));
-  translate: 0 -50%;
   overflow: visible;
   pointer-events: none;
 }

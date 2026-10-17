@@ -216,11 +216,10 @@
   font-size: 2.8cqi;
   letter-spacing: -0.02em;
 }
-.headline sup {
-  margin-left: 0.6em;
+.headline small {
+  margin-left: 0.9em;
   font: 400 max(11px, 0.95cqi) / 1 var(--font-cjk);
   letter-spacing: 0.3em;
-  vertical-align: top;
 }
 
 .not-found-body {

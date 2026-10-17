@@ -2,6 +2,7 @@ import {
   useEffect,
   useId,
   useRef,
+  useState,
   type CSSProperties,
   type ReactNode,
   type RefObject,
@@ -119,6 +120,7 @@ export function OrbitTrack({
   ry,
   duration,
   stroke,
+  rotate = -8,
 }: {
   cx: number;
   cy: number;
@@ -126,16 +128,17 @@ export function OrbitTrack({
   ry: number;
   duration: number;
   stroke: string;
+  rotate?: number;
 }) {
   const track = useId();
   const d = `M ${cx - rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx + rx} ${cy} A ${rx} ${ry} 0 1 1 ${cx - rx} ${cy} Z`;
   return (
-    <g transform={`rotate(-8 ${cx} ${cy})`}>
+    <g transform={`rotate(${rotate} ${cx} ${cy})`}>
       <path
         id={track}
         d={d}
         fill="none"
-        stroke={stroke}
+        style={{ stroke }}
         strokeWidth="1"
         vectorEffect="non-scaling-stroke"
       />
@@ -186,7 +189,7 @@ export function Orbit({ style }: { style?: CSSProperties }) {
         duration={60}
         stroke={`url(#${gradient})`}
       />
-      <g className="register-mark" transform="translate(211 262)">
+      <g className="register-mark" transform="translate(137 348)">
         <circle r="13" />
         <circle r="3.5" />
         <path d="M-26 0 H26 M0 -26 V26" />
@@ -195,24 +198,50 @@ export function Orbit({ style }: { style?: CSSProperties }) {
   );
 }
 
-export function MiniOrbit({ className }: { className?: string }) {
-  const ref = useRef<SVGSVGElement>(null);
-  usePauseWhenReduced(ref);
+export function NameOrbit({ children }: { children: ReactNode }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [size, setSize] = useState({ width: 420, height: 72 });
+  usePauseWhenReduced(svgRef);
+
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const observer = new ResizeObserver(() =>
+      setSize({ width: wrap.offsetWidth, height: wrap.offsetHeight }),
+    );
+    observer.observe(wrap);
+    return () => observer.disconnect();
+  }, []);
+
+  const rx = size.width * 0.625;
+  const ry = size.height * 0.95;
+  const width = rx * 2 + 16;
+  const height = ry * 2 + 16;
   return (
-    <svg
-      ref={ref}
-      className={className}
-      viewBox="0 0 440 160"
-      aria-hidden="true"
-    >
-      <OrbitTrack
-        cx={220}
-        cy={80}
-        rx={200}
-        ry={56}
-        duration={22}
-        stroke="var(--line)"
-      />
-    </svg>
+    <div ref={wrapRef} className="name-orbit">
+      <svg
+        ref={svgRef}
+        viewBox={`0 0 ${width} ${height}`}
+        style={{
+          width,
+          height,
+          left: (size.width - width) / 2,
+          top: (size.height - height) / 2,
+        }}
+        aria-hidden="true"
+      >
+        <OrbitTrack
+          cx={width / 2}
+          cy={height / 2}
+          rx={rx}
+          ry={ry}
+          rotate={-4}
+          duration={16}
+          stroke="color-mix(in srgb, var(--accent) 30%, transparent)"
+        />
+      </svg>
+      {children}
+    </div>
   );
 }

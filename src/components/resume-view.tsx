@@ -8,7 +8,7 @@ import {
   type Category,
 } from "@/data/portfolio";
 import { resume, type Experience } from "@/data/resume";
-import { Headline, MiniOrbit } from "@/components/ornaments";
+import { Headline, NameOrbit } from "@/components/ornaments";
 
 function Section({
   zh,
@@ -119,10 +119,9 @@ export function ResumeView({ active }: { active: boolean }) {
       <div className="resume">
         <aside className="resume-card">
           <p className="kicker">RESUME · 个人简历</p>
-          <div className="resume-name-wrap">
-            <MiniOrbit className="resume-orbit" />
+          <NameOrbit>
             <h2 className="resume-name">{profile.name}</h2>
-          </div>
+          </NameOrbit>
           <p className="resume-intent">意向岗位 · {resume.intent}</p>
           <span className="status">{profile.status}</span>
           <dl className="resume-facts">
@@ -157,10 +156,10 @@ export function ResumeView({ active }: { active: boolean }) {
           </Section>
         </div>
         <Headline className="resume-headline">
+          <span className="en">resume</span>
           <span className="en">
-            resume<sup>个人简历</sup>
+            design for a brighter tomorrow.<small>个人简历</small>
           </span>
-          <span className="en">design for a brighter tomorrow.</span>
         </Headline>
       </div>
     </section>
