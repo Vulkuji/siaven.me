@@ -8,6 +8,7 @@ import {
   type Work,
 } from "@/data/portfolio";
 import type { Filter } from "@/hooks/use-route";
+import { useTorch } from "@/hooks/use-torch";
 import { SplitText } from "@/components/split-text";
 
 function ArchiveCard({
@@ -99,6 +100,7 @@ export function ArchiveView({
   filter: Filter;
 }) {
   const viewRef = useRef<HTMLElement>(null);
+  const torchRef = useRef<HTMLSpanElement>(null);
   const following = useRef(false);
   const [columns, setColumns] = useState(4);
   const scrollY = useSpring(0, { stiffness: 70, damping: 20 });
@@ -106,6 +108,7 @@ export function ArchiveView({
   const visible = works.filter(
     (work) => filter === "all" || work.category === filter,
   );
+  useTorch(viewRef, torchRef, panX);
 
   useEffect(() => {
     const view = viewRef.current;
@@ -160,6 +163,7 @@ export function ArchiveView({
     >
       <Filters filter={filter} />
       <m.div className="gridwrap" style={{ x: panX }}>
+        <span ref={torchRef} className="torch" aria-hidden="true" />
         {Array.from({ length: columns }, (_, column) => (
           <div className="gcol" key={column}>
             {visible

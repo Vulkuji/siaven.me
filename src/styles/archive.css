@@ -55,6 +55,7 @@
 }
 
 .gridwrap {
+  position: relative;
   display: flex;
   gap: 14px;
   width: 112%;
@@ -158,6 +159,40 @@
 .pill-fill {
   background: var(--on-glass);
   color: var(--deep);
+}
+
+.torch {
+  display: none;
+}
+@property --torch-r {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@media (hover: hover) and (pointer: fine) {
+  :root:not(.dark) .torch {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    display: block;
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    pointer-events: none;
+    mask-image: radial-gradient(
+      circle var(--torch-r) at var(--torch-x, -999px) var(--torch-y, -999px),
+      transparent 40%,
+      #000
+    );
+    transition: --torch-r 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  :root:not(.dark) .torch[data-on] {
+    --torch-r: 260px;
+  }
+  :root:not(.dark) .card-shade {
+    display: none;
+  }
+  :root:not(.dark) .card:is(:hover, :focus-visible) {
+    z-index: 2;
+  }
 }
 
 @media (hover: none) {

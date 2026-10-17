@@ -5,12 +5,12 @@
 ## 目录
 
 - `src/components/canvas/`：作品画布，包含拖动与惯性、滚轮平移、双击回到中心和空闲漂浮。
-- `src/components/archive-view.tsx`：作品档案的错落网格、分类筛选与鼠标跟随滚动。
+- `src/components/archive-view.tsx`：作品档案的错落网格、分类筛选与鼠标跟随滚动；档案页固定使用暗色令牌，亮色主题下以跟随鼠标的手电光照亮作品。
 - `src/components/work-detail.tsx`：基于 Radix Dialog 的作品详情，展示完整图集与描述。
 - `src/components/resume-view.tsx`：个人简历页面，内容来自 `src/data/resume.ts`。
 - `src/components/pointer-layer.tsx`：十字光标、作品编号与跟随光晕。
 - `src/components/ornaments.tsx`：玻璃文件夹、分类图标、轨道与套准标记、混合模式标语。
-- `src/hooks/`：哈希路由与画布平移。
+- `src/hooks/`：哈希路由、画布平移与档案手电光定位。
 - `src/data/portfolio.ts`：作品类型、分类与个人信息；`works.json` 由导出脚本生成。
 - `src/data/canvas-layout.ts`：画布尺寸、初始中心与各元素坐标。
 - `src/index.css`、`src/styles/`：主题令牌与按区域拆分的样式。

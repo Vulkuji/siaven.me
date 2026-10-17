@@ -43,7 +43,8 @@
     "IBM Plex Mono", "Noto Sans SC Variable", ui-monospace, monospace;
 }
 
-.dark {
+.dark,
+.stage[data-view="archive"] {
   color-scheme: dark;
   --paper: #070b16;
   --surface: #0f172a;
