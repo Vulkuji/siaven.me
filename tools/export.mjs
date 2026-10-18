@@ -18,7 +18,7 @@ const imagePattern = /\.(webp|png|jpe?g|gif)$/i;
 const output = {
   works: path.join(root, "static/assets/works"),
   covers: path.join(root, "static/assets/covers"),
-  thumbs: path.join(root, "static/assets/thumbs"),
+  cards: path.join(root, "static/assets/cards"),
 };
 
 function field(text, label) {
@@ -93,6 +93,27 @@ async function writeCrop(input, region, file, width) {
   return { src: publicPath(file), width: result.width, height: result.height };
 }
 
+async function writeCard(input, card, file, width) {
+  const { data, info } = await sharp(input)
+    .rotate()
+    .toBuffer({ resolveWithObject: true });
+  const [fx, fy] = card.focus ?? [0.5, 0.5];
+  const height = Math.min(info.height, (info.width * 5) / 4) * (card.zoom ?? 1);
+  const cropWidth = (height * 4) / 5;
+  const clamp = (value, max) => Math.round(Math.min(Math.max(0, value), max));
+  const result = await sharp(data)
+    .extract({
+      left: clamp(fx * info.width - cropWidth / 2, info.width - cropWidth),
+      top: clamp(fy * info.height - height / 2, info.height - height),
+      width: Math.round(cropWidth),
+      height: Math.round(height),
+    })
+    .resize({ width, height: (width * 5) / 4 })
+    .webp({ quality: 80, effort: 6 })
+    .toFile(file);
+  return { src: publicPath(file), width: result.width, height: result.height };
+}
+
 const config = JSON.parse(
   await readFile(path.join(root, "content/works.json"), "utf8"),
 );
@@ -133,13 +154,13 @@ for (const entry of config) {
     path.join(output.covers, `${entry.id}.webp`),
     720,
   );
-  const thumb = await writeCrop(
-    sources[entry.thumb.image - 1],
-    entry.thumb,
-    path.join(output.thumbs, `${entry.id}.webp`),
-    640,
+  const card = await writeCard(
+    sources[entry.card.image - 1],
+    entry.card,
+    path.join(output.cards, `${entry.id}.webp`),
+    720,
   );
-  works.push({ id: entry.id, ...work, images, cover, thumb });
+  works.push({ id: entry.id, ...work, images, cover, card });
   console.log(`${entry.id}: ${images.length} images`);
 }
 

@@ -43,9 +43,9 @@ function RelatedWorks({ category }: { category: Category }) {
         {related.slice(0, 3).map((work, index) => (
           <img
             key={work.id}
-            src={work.thumb.src}
-            width={work.thumb.width}
-            height={work.thumb.height}
+            src={work.card.src}
+            width={work.card.width}
+            height={work.card.height}
             alt=""
             loading="lazy"
             style={{ "--i": index } as CSSProperties}

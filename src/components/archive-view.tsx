@@ -1,15 +1,31 @@
 import { useEffect, useRef, useState } from "react";
 import { m, useSpring } from "motion/react";
+import { ArrowUpRight } from "lucide-react";
 import {
   categories,
   categoryOrder,
   pad,
+  titleParts,
   works,
   type Work,
 } from "@/data/portfolio";
 import type { Filter } from "@/hooks/use-route";
 import { useTorch } from "@/hooks/use-torch";
 import { SplitText } from "@/components/split-text";
+
+const ranks = new Map(
+  works.map((work, index) => {
+    const group = works.filter((item) => item.category === work.category);
+    return [
+      work.id,
+      {
+        number: index + 1,
+        index: group.indexOf(work) + 1,
+        total: group.length,
+      },
+    ];
+  }),
+);
 
 function ArchiveCard({
   work,
@@ -20,6 +36,8 @@ function ArchiveCard({
   position: number;
   total: number;
 }) {
+  const { sub, main } = titleParts(work.title);
+  const rank = ranks.get(work.id)!;
   return (
     <a
       className="card"
@@ -28,20 +46,35 @@ function ArchiveCard({
       data-cursor="查看 VIEW"
       data-cursor-count={`${pad(position)}/${pad(total)}`}
     >
-      <img
-        src={work.thumb.src}
-        width={work.thumb.width}
-        height={work.thumb.height}
-        alt=""
-        loading="lazy"
-        decoding="async"
-      />
-      <span className="card-info" aria-hidden="true">
-        <span className="pill pill-line">{categories[work.category].zh}</span>
-        <span className="card-title">
-          <SplitText text={work.title} />
+      <span className="card-media">
+        <img
+          src={work.card.src}
+          width={work.card.width}
+          height={work.card.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <span className="card-no">No.{pad(rank.number)}</span>
+      </span>
+      <span className="card-bar" aria-hidden="true">
+        <span className="card-meta">
+          <span>
+            {categories[work.category].zh}
+            {sub && ` · ${sub}`}
+          </span>
+          <span>
+            {pad(rank.index)} / {pad(rank.total)}
+          </span>
         </span>
-        <span className="pill pill-fill">{work.label.split(" / ")[0]}</span>
+        <span className="card-head">
+          <span className="card-title">
+            <SplitText text={main} />
+          </span>
+          <span className="card-go">
+            <ArrowUpRight />
+          </span>
+        </span>
       </span>
     </a>
   );

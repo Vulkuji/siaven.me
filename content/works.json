@@ -2,97 +2,206 @@
   {
     "id": "td66",
     "folder": "01",
-    "cover": { "image": 1 },
-    "thumb": { "image": 1 }
+    "cover": {
+      "image": 1
+    },
+    "card": {
+      "image": 1,
+      "focus": [0.62, 0.5],
+      "zoom": 1
+    }
   },
   {
     "id": "mooncake",
     "folder": "02",
-    "cover": { "image": 1, "crop": [0.485, 0.092, 0.955, 0.56] },
-    "thumb": { "image": 1, "crop": [0.08, 0.1, 0.93, 0.65] }
+    "cover": {
+      "image": 1,
+      "crop": [0.485, 0.092, 0.955, 0.56]
+    },
+    "card": {
+      "image": 2,
+      "focus": [0.45, 0.5],
+      "zoom": 1
+    }
   },
   {
     "id": "pomegranate",
     "folder": "03",
-    "cover": { "image": 1, "crop": [0.095, 0.367, 0.505, 0.915] },
-    "thumb": { "image": 1, "crop": [0.08, 0.1, 0.93, 0.65] }
+    "cover": {
+      "image": 1,
+      "crop": [0.095, 0.367, 0.505, 0.915]
+    },
+    "card": {
+      "image": 2,
+      "focus": [0.4, 0.5],
+      "zoom": 1
+    }
   },
   {
     "id": "spring-anniversary",
     "folder": "04",
-    "cover": { "image": 1, "crop": [0.055, 0.354, 0.305, 0.651] },
-    "thumb": { "image": 1, "crop": [0.08, 0.1, 0.94, 0.64] }
+    "cover": {
+      "image": 1,
+      "crop": [0.055, 0.354, 0.305, 0.651]
+    },
+    "card": {
+      "image": 2,
+      "focus": [0.76, 0.5],
+      "zoom": 1
+    }
   },
   {
     "id": "bistro-menu",
     "folder": "05",
-    "cover": { "image": 1, "crop": [0.38, 0.077, 0.965, 0.429] },
-    "thumb": { "image": 1, "crop": [0.08, 0.1, 0.94, 0.64] }
+    "cover": {
+      "image": 1,
+      "crop": [0.38, 0.077, 0.965, 0.429]
+    },
+    "card": {
+      "image": 4,
+      "focus": [0.22, 0.5],
+      "zoom": 1
+    }
   },
   {
     "id": "black-garlic",
     "folder": "06",
-    "cover": { "image": 1, "crop": [0.435, 0.219, 0.91, 0.582] },
-    "thumb": { "image": 1, "crop": [0.085, 0.13, 0.91, 0.58] }
+    "cover": {
+      "image": 1,
+      "crop": [0.435, 0.219, 0.91, 0.582]
+    },
+    "card": {
+      "image": 2,
+      "focus": [0.5, 0.45],
+      "zoom": 1
+    }
   },
   {
     "id": "french-badge",
     "folder": "07",
-    "cover": { "image": 1, "crop": [0.405, 0.126, 0.96, 0.487] },
-    "thumb": { "image": 1, "crop": [0.08, 0.134, 0.94, 0.801] }
+    "cover": {
+      "image": 1,
+      "crop": [0.405, 0.126, 0.96, 0.487]
+    },
+    "card": {
+      "image": 2,
+      "focus": [0.5, 0.55],
+      "zoom": 1
+    }
   },
   {
     "id": "tea-break",
     "folder": "08",
-    "cover": { "image": 7 },
-    "thumb": { "image": 6 }
+    "cover": {
+      "image": 7
+    },
+    "card": {
+      "image": 6,
+      "focus": [0.68, 0.7],
+      "zoom": 0.72
+    }
   },
   {
     "id": "drink-test",
     "folder": "09",
-    "cover": { "image": 1, "crop": [0.345, 0.079, 0.995, 0.336] },
-    "thumb": { "image": 1, "crop": [0.03, 0.019, 0.97, 0.335] }
+    "cover": {
+      "image": 1,
+      "crop": [0.345, 0.079, 0.995, 0.336]
+    },
+    "card": {
+      "image": 1,
+      "focus": [0.5, 0.1],
+      "zoom": 1
+    }
   },
   {
     "id": "health-platform",
     "folder": "10",
-    "cover": { "image": 1, "crop": [0.425, 0.085, 1, 0.435] },
-    "thumb": { "image": 1, "crop": [0.08, 0.022, 0.96, 0.556] }
+    "cover": {
+      "image": 1,
+      "crop": [0.425, 0.085, 1, 0.435]
+    },
+    "card": {
+      "image": 1,
+      "focus": [0.68, 0.24],
+      "zoom": 0.5
+    }
   },
   {
     "id": "diagnostic-pen",
     "folder": "11",
-    "cover": { "image": 1, "crop": [0.36, 0.07, 0.995, 0.314] },
-    "thumb": { "image": 1, "crop": [0, 0.011, 1, 0.412] }
+    "cover": {
+      "image": 1,
+      "crop": [0.36, 0.07, 0.995, 0.314]
+    },
+    "card": {
+      "image": 1,
+      "focus": [0.5, 0.08],
+      "zoom": 1
+    }
   },
   {
     "id": "alcohol-test",
     "folder": "12",
-    "cover": { "image": 1, "crop": [0.355, 0.686, 0.9, 0.862] },
-    "thumb": { "image": 1, "crop": [0.04, 0.013, 0.96, 0.314] }
+    "cover": {
+      "image": 1,
+      "crop": [0.355, 0.686, 0.9, 0.862]
+    },
+    "card": {
+      "image": 1,
+      "focus": [0.5, 0.1],
+      "zoom": 1
+    }
   },
   {
     "id": "medical-editorial",
     "folder": "13",
-    "cover": { "image": 1, "crop": [0.235, 0.553, 0.85, 0.727] },
-    "thumb": { "image": 1, "crop": [0.04, 0.014, 0.96, 0.343] }
+    "cover": {
+      "image": 1,
+      "crop": [0.235, 0.553, 0.85, 0.727]
+    },
+    "card": {
+      "image": 6,
+      "focus": [0.5, 0.45],
+      "zoom": 1
+    }
   },
   {
     "id": "medical-exhibition",
     "folder": "14",
-    "cover": { "image": 1, "crop": [0.025, 0.181, 0.45, 0.399] },
-    "thumb": { "image": 1, "crop": [0.04, 0.022, 0.96, 0.677] }
+    "cover": {
+      "image": 1,
+      "crop": [0.025, 0.181, 0.45, 0.399]
+    },
+    "card": {
+      "image": 5,
+      "focus": [0.4, 0.5],
+      "zoom": 1
+    }
   },
   {
     "id": "art-space",
     "folder": "15",
-    "cover": { "image": 1 },
-    "thumb": { "image": 1 }
+    "cover": {
+      "image": 1
+    },
+    "card": {
+      "image": 6,
+      "focus": [0.28, 0.5],
+      "zoom": 1
+    }
   },
   {
     "id": "corporate-design",
     "folder": "16",
-    "cover": { "image": 4, "crop": [0.1, 0.011, 0.725, 0.354] },
-    "thumb": { "image": 2 }
+    "cover": {
+      "image": 4,
+      "crop": [0.1, 0.011, 0.725, 0.354]
+    },
+    "card": {
+      "image": 2,
+      "focus": [0.5, 0.42],
+      "zoom": 0.8
+    }
   }
 ]

@@ -17,7 +17,7 @@ export interface Work {
   details: { label: string; text: string }[];
   images: Picture[];
   cover: Picture;
-  thumb: Picture;
+  card: Picture;
 }
 
 export const works = entries as Work[];
@@ -41,3 +41,10 @@ export const profile = {
 };
 
 export const pad = (value: number) => String(value).padStart(2, "0");
+
+export function titleParts(title: string) {
+  const [first, ...rest] = title.split(" · ");
+  return rest.length
+    ? { sub: first, main: rest.join(" · ") }
+    : { sub: "", main: first };
+}
