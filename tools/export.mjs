@@ -13,7 +13,12 @@ const categories = {
   艺术教育: "art",
   企业活动: "event",
 };
-const detailLabels = ["项目背景", "我负责的部分", "设计思路", "最终成果"];
+const detailKeys = {
+  项目背景: "background",
+  我负责的部分: "role",
+  设计思路: "approach",
+  最终成果: "outcome",
+};
 const imagePattern = /\.(webp|png|jpe?g|gif)$/i;
 const output = {
   works: path.join(root, "static/assets/works"),
@@ -38,20 +43,31 @@ function parseIntro(text, folder) {
     .split("\n")
     .map((line) => line.trim())
     .find(Boolean);
-  const category = categories[field(text, "所属分类")];
-  const work = {
-    title: titleFrom(folder),
-    category,
-    label: field(text, "作品标签"),
-    summary: summary ?? "",
-    details: detailLabels
-      .map((label) => ({ label, text: field(text, label) }))
-      .filter((detail) => detail.text),
+  const [labelZh = "", labelEn = ""] = field(text, "作品标签")
+    .split(" / ")
+    .map((part) => part.trim());
+  const fields = {
+    作品标签中文: labelZh,
+    作品标签英文: labelEn,
+    所属分类: categories[field(text, "所属分类")],
+    一句话介绍: summary ?? "",
+    英文名称: field(text, "英文名称"),
+    英文介绍: field(text, "英文介绍"),
   };
-  for (const key of ["title", "category", "label", "summary"]) {
-    if (!work[key]) throw new Error(`${folder}: missing ${key}`);
-  }
-  return work;
+  const missing = Object.entries(fields).find(([, value]) => !value);
+  if (missing) throw new Error(`${folder}: 缺少${missing[0]}`);
+  return {
+    title: { zh: titleFrom(folder), en: fields.英文名称 },
+    category: fields.所属分类,
+    label: { zh: labelZh, en: labelEn },
+    summary: { zh: fields.一句话介绍, en: fields.英文介绍 },
+    details: Object.entries(detailKeys)
+      .map(([label, key]) => ({
+        key,
+        text: { zh: field(text, label), en: field(text, `英文${label}`) },
+      }))
+      .filter((detail) => detail.text.zh),
+  };
 }
 
 const publicPath = (file) =>

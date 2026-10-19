@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Siaven — lingshan.zhu Visual Design Portfolio",
+    "description": "Portfolio of graphic designer lingshan.zhu: food & beverage, medical visuals, art education and corporate events. Make ideas visible.",
+    "ogTitle": "Siaven — lingshan.zhu Portfolio",
+    "ogDescription": "Selected design work in food & beverage, medical visuals, art education and corporate events."
+  },
+  "skip": "Skip to the works archive",
+  "nav": {
+    "label": "Site navigation",
+    "home": "Siaven home",
+    "canvas": "Home · Works",
+    "archive": "Works Archive",
+    "resume": "Resume"
+  },
+  "theme": { "label": "Color mode", "light": "Light", "dark": "Dark" },
+  "language": { "label": "Language" },
+  "cursor": {
+    "drag": "DRAG",
+    "view": "VIEW",
+    "open": "OPEN ARCHIVE",
+    "filter": "FILTER · {{name}}",
+    "related": "VIEW · {{name}}"
+  },
+  "canvas": {
+    "label": "Works canvas",
+    "hint": "Drag to explore · Double-click empty space to recenter · Click a work for details",
+    "openArchive": "Open the works archive",
+    "open": "Open archive",
+    "view": "View",
+    "viewWork": "View {{title}}",
+    "folder": "Archive"
+  },
+  "archive": {
+    "label": "Works archive",
+    "filters": "FILTERS",
+    "allOption": "ALL",
+    "all": "All"
+  },
+  "detail": {
+    "back": "BACK",
+    "prev": "PREV",
+    "next": "NEXT",
+    "image": "{{title}}, image {{index}}",
+    "category": "Category",
+    "type": "Type",
+    "images": "Images",
+    "imageCount_one": "{{count}} image",
+    "imageCount_other": "{{count}} images",
+    "number": "No.",
+    "vertical": "ARCHIVE No.{{number}}",
+    "sections": {
+      "background": "Background",
+      "role": "My Role",
+      "approach": "Design Approach",
+      "outcome": "Outcome"
+    }
+  },
+  "resume": {
+    "label": "Resume",
+    "kicker": "RESUME",
+    "intent": "Target role · {{intent}}",
+    "education": "Education",
+    "contact": "Contact",
+    "related": "Related work · {{name}}",
+    "about": "About Me",
+    "work": "Work Experience",
+    "internship": "Internships",
+    "honors": "Honors"
+  }
+}

@@ -1,10 +1,19 @@
 [
   {
     "id": "td66",
-    "title": "品牌VI设计 · TD66有机能量",
+    "title": {
+      "zh": "品牌VI设计 · TD66有机能量",
+      "en": "Brand Identity · TD66 Organic Energy"
+    },
     "category": "food",
-    "label": "品牌视觉 / BRAND IDENTITY",
-    "summary": "以有机能量为线索，让标志、字体、色彩与包装形成一致的品牌表达。",
+    "label": {
+      "zh": "品牌视觉",
+      "en": "BRAND IDENTITY"
+    },
+    "summary": {
+      "zh": "以有机能量为线索，让标志、字体、色彩与包装形成一致的品牌表达。",
+      "en": "Built around the idea of organic energy, the logo, typography, color and packaging come together as one consistent brand expression."
+    },
     "details": [],
     "images": [
       {
@@ -36,10 +45,19 @@
   },
   {
     "id": "mooncake",
-    "title": "中秋宣传促销 · 月相",
+    "title": {
+      "zh": "中秋宣传促销 · 月相",
+      "en": "Mid-Autumn Promotion · Moon Phases"
+    },
     "category": "food",
-    "label": "礼盒包装 / PACKAGING",
-    "summary": "以月相、暗色与金色细节，串联节日礼盒、手提袋及推广视觉。",
+    "label": {
+      "zh": "礼盒包装",
+      "en": "PACKAGING"
+    },
+    "summary": {
+      "zh": "以月相、暗色与金色细节，串联节日礼盒、手提袋及推广视觉。",
+      "en": "Moon phases, dark tones and gold details tie together the festival gift box, tote bag and promotional visuals."
+    },
     "details": [],
     "images": [
       {
@@ -81,10 +99,19 @@
   },
   {
     "id": "pomegranate",
-    "title": "新品上市活动 · 红宝石茶饮",
+    "title": {
+      "zh": "新品上市活动 · 红宝石茶饮",
+      "en": "Product Launch · Ruby Tea"
+    },
     "category": "food",
-    "label": "新品传播 / LAUNCH CAMPAIGN",
-    "summary": "围绕石榴饮品的色彩与质感，延展新品主视觉、外卖界面和门店物料。",
+    "label": {
+      "zh": "新品传播",
+      "en": "LAUNCH CAMPAIGN"
+    },
+    "summary": {
+      "zh": "围绕石榴饮品的色彩与质感，延展新品主视觉、外卖界面和门店物料。",
+      "en": "Built on the color and texture of a pomegranate drink, the launch key visual extends to delivery-app screens and in-store materials."
+    },
     "details": [],
     "images": [
       {
@@ -116,10 +143,19 @@
   },
   {
     "id": "spring-anniversary",
-    "title": "周年庆活动 · 繁花似锦",
+    "title": {
+      "zh": "周年庆活动 · 繁花似锦",
+      "en": "Anniversary Campaign · In Full Bloom"
+    },
     "category": "food",
-    "label": "节日传播 / SEASONAL CAMPAIGN",
-    "summary": "以春日花卉与复古色彩连接节日主题，将视觉语言应用于海报、优惠券和门店。",
+    "label": {
+      "zh": "节日传播",
+      "en": "SEASONAL CAMPAIGN"
+    },
+    "summary": {
+      "zh": "以春日花卉与复古色彩连接节日主题，将视觉语言应用于海报、优惠券和门店。",
+      "en": "Spring florals and vintage colors carry the anniversary theme, with the visual language applied to posters, coupons and the store."
+    },
     "details": [],
     "images": [
       {
@@ -166,10 +202,19 @@
   },
   {
     "id": "bistro-menu",
-    "title": "Bistro菜单设计 · 餐桌之间",
+    "title": {
+      "zh": "Bistro菜单设计 · 餐桌之间",
+      "en": "Bistro Menu Design · Around the Table"
+    },
     "category": "food",
-    "label": "信息编排 / EDITORIAL DESIGN",
-    "summary": "以网格、食物摄影和字体层级，组织菜单信息与餐饮品牌的日常触点。",
+    "label": {
+      "zh": "信息编排",
+      "en": "EDITORIAL DESIGN"
+    },
+    "summary": {
+      "zh": "以网格、食物摄影和字体层级，组织菜单信息与餐饮品牌的日常触点。",
+      "en": "A grid, food photography and a clear type hierarchy organize the menu and the restaurant's everyday brand touchpoints."
+    },
     "details": [],
     "images": [
       {
@@ -236,10 +281,19 @@
   },
   {
     "id": "black-garlic",
-    "title": "市集现场活动 · 面包节",
+    "title": {
+      "zh": "市集现场活动 · 面包节",
+      "en": "Market Event · Bread Festival"
+    },
     "category": "food",
-    "label": "活动视觉 / EVENT DESIGN",
-    "summary": "围绕黑蒜主题，把活动主视觉延展为互动装置、现场指引与展陈物料。",
+    "label": {
+      "zh": "活动视觉",
+      "en": "EVENT DESIGN"
+    },
+    "summary": {
+      "zh": "围绕黑蒜主题，把活动主视觉延展为互动装置、现场指引与展陈物料。",
+      "en": "Built around black garlic, the event key visual extends to an interactive installation, on-site wayfinding and display materials."
+    },
     "details": [],
     "images": [
       {
@@ -266,10 +320,19 @@
   },
   {
     "id": "french-badge",
-    "title": "纪念徽章 · 法国美食协会",
+    "title": {
+      "zh": "纪念徽章 · 法国美食协会",
+      "en": "Commemorative Badge · French Gastronomy Association"
+    },
     "category": "food",
-    "label": "活动衍生 / BADGE DESIGN",
-    "summary": "将法国美食文化转译为徽章图形，并延展色彩规范、包装与现场应用。",
+    "label": {
+      "zh": "活动衍生",
+      "en": "BADGE DESIGN"
+    },
+    "summary": {
+      "zh": "将法国美食文化转译为徽章图形，并延展色彩规范、包装与现场应用。",
+      "en": "French culinary culture translated into a badge graphic, extended to color guidelines, packaging and on-site applications."
+    },
     "details": [],
     "images": [
       {
@@ -296,10 +359,19 @@
   },
   {
     "id": "tea-break",
-    "title": "海报宣传设计 · 茶歇餐饮",
+    "title": {
+      "zh": "海报宣传设计 · 茶歇餐饮",
+      "en": "Poster Design · Tea Break & Dining"
+    },
     "category": "food",
-    "label": "海报设计 / POSTER DESIGN",
-    "summary": "为茶饮与餐饮门店绘制的新品、节日与活动海报，在统一的品牌调性里尝试不同的版式和插画风格。",
+    "label": {
+      "zh": "海报设计",
+      "en": "POSTER DESIGN"
+    },
+    "summary": {
+      "zh": "为茶饮与餐饮门店绘制的新品、节日与活动海报，在统一的品牌调性里尝试不同的版式和插画风格。",
+      "en": "Posters for new products, holidays and events at tea and restaurant stores, exploring different layouts and illustration styles within one brand tone."
+    },
     "details": [],
     "images": [
       {
@@ -376,10 +448,19 @@
   },
   {
     "id": "drink-test",
-    "title": "包装设计 · 饮品安心卡",
+    "title": {
+      "zh": "包装设计 · 饮品安心卡",
+      "en": "Packaging Design · Drink Spike Test Card"
+    },
     "category": "medical",
-    "label": "产品包装 / PRODUCT PACKAGING",
-    "summary": "把产品使用场景融入包装语言，探索卡片结构、刀版与完整的应用呈现。",
+    "label": {
+      "zh": "产品包装",
+      "en": "PRODUCT PACKAGING"
+    },
+    "summary": {
+      "zh": "把产品使用场景融入包装语言，探索卡片结构、刀版与完整的应用呈现。",
+      "en": "Real usage scenarios woven into the packaging language, exploring the card structure, dielines and a complete product presentation."
+    },
     "details": [],
     "images": [
       {
@@ -401,10 +482,19 @@
   },
   {
     "id": "health-platform",
-    "title": "网站&数字UI界面",
+    "title": {
+      "zh": "网站&数字UI界面",
+      "en": "Website & Digital UI"
+    },
     "category": "medical",
-    "label": "官网与数据界面 / UI DESIGN",
-    "summary": "企业官网与医共体慢病管理平台，以清晰的信息层级组织品牌内容和医疗数据。",
+    "label": {
+      "zh": "官网与数据界面",
+      "en": "UI DESIGN"
+    },
+    "summary": {
+      "zh": "企业官网与医共体慢病管理平台，以清晰的信息层级组织品牌内容和医疗数据。",
+      "en": "A corporate website and a chronic disease management platform for a regional medical consortium, organizing brand content and medical data with a clear information hierarchy."
+    },
     "details": [],
     "images": [
       {
@@ -426,10 +516,19 @@
   },
   {
     "id": "diagnostic-pen",
-    "title": "包装设计 · 胸痛三联笔",
+    "title": {
+      "zh": "包装设计 · 胸痛三联笔",
+      "en": "Packaging Design · Triple-Marker Diagnostic Pen"
+    },
     "category": "medical",
-    "label": "医疗产品 / MEDICAL PACKAGING",
-    "summary": "用蓝紫渐变与清晰的产品标识，统一医疗器械的包装结构和信息呈现。",
+    "label": {
+      "zh": "医疗产品",
+      "en": "MEDICAL PACKAGING"
+    },
+    "summary": {
+      "zh": "用蓝紫渐变与清晰的产品标识，统一医疗器械的包装结构和信息呈现。",
+      "en": "A blue-violet gradient and clear product labeling unify the packaging structure and information of a medical device."
+    },
     "details": [],
     "images": [
       {
@@ -451,10 +550,19 @@
   },
   {
     "id": "alcohol-test",
-    "title": "包装设计 · 呼气检测",
+    "title": {
+      "zh": "包装设计 · 呼气检测",
+      "en": "Packaging Design · Breath Alcohol Test"
+    },
     "category": "medical",
-    "label": "结构与包装 / STRUCTURE & PACKAGING",
-    "summary": "以橙色建立产品识别，结合刀版、信息规范与产品实景呈现包装系统。",
+    "label": {
+      "zh": "结构与包装",
+      "en": "STRUCTURE & PACKAGING"
+    },
+    "summary": {
+      "zh": "以橙色建立产品识别，结合刀版、信息规范与产品实景呈现包装系统。",
+      "en": "Orange builds product recognition, presented as a packaging system with dielines, information guidelines and in-context product shots."
+    },
     "details": [],
     "images": [
       {
@@ -476,10 +584,19 @@
   },
   {
     "id": "medical-editorial",
-    "title": "画册海报宣传 · 产品传播",
+    "title": {
+      "zh": "画册海报宣传 · 产品传播",
+      "en": "Brochures & Posters · Product Communication"
+    },
     "category": "medical",
-    "label": "宣传与画册 / PRINT & COMMUNICATION",
-    "summary": "整合社交媒体长图、宣传单页与产品画册，在不同媒介中维持清晰一致的信息层级。",
+    "label": {
+      "zh": "宣传与画册",
+      "en": "PRINT & COMMUNICATION"
+    },
+    "summary": {
+      "zh": "整合社交媒体长图、宣传单页与产品画册，在不同媒介中维持清晰一致的信息层级。",
+      "en": "Social media long-form graphics, flyers and product brochures that keep a clear, consistent information hierarchy across media."
+    },
     "details": [],
     "images": [
       {
@@ -536,10 +653,19 @@
   },
   {
     "id": "medical-exhibition",
-    "title": "医疗展会活动 · 从视觉到现场",
+    "title": {
+      "zh": "医疗展会活动 · 从视觉到现场",
+      "en": "Medical Exhibition · From Visuals to Venue"
+    },
     "category": "medical",
-    "label": "展陈与传播 / EXHIBITION DESIGN",
-    "summary": "让展台主视觉、产品陈列与互动周边共享同一套品牌语言。",
+    "label": {
+      "zh": "展陈与传播",
+      "en": "EXHIBITION DESIGN"
+    },
+    "summary": {
+      "zh": "让展台主视觉、产品陈列与互动周边共享同一套品牌语言。",
+      "en": "The booth key visual, product displays and interactive giveaways share one brand language."
+    },
     "details": [],
     "images": [
       {
@@ -581,10 +707,19 @@
   },
   {
     "id": "art-space",
-    "title": "铸艺空间 · 让创作发生",
+    "title": {
+      "zh": "铸艺空间 · 让创作发生",
+      "en": "Cast Art Space · Let Creation Happen"
+    },
     "category": "art",
-    "label": "艺术教育 / ART & CULTURE",
-    "summary": "从海报编排、节日插画到网站与空间物料，探索艺术教育的多种视觉表达。",
+    "label": {
+      "zh": "艺术教育",
+      "en": "ART & CULTURE"
+    },
+    "summary": {
+      "zh": "从海报编排、节日插画到网站与空间物料，探索艺术教育的多种视觉表达。",
+      "en": "From poster layouts and holiday illustrations to the website and space graphics, exploring many visual expressions for art education."
+    },
     "details": [],
     "images": [
       {
@@ -641,10 +776,19 @@
   },
   {
     "id": "corporate-design",
-    "title": "海康威视 · VI与品牌物料",
+    "title": {
+      "zh": "海康威视 · VI与品牌物料",
+      "en": "Hikvision · VI & Brand Collateral"
+    },
     "category": "event",
-    "label": "企业设计 / CORPORATE DESIGN",
-    "summary": "以折叠与负空间为线索，将标志、色彩和品牌物料连成完整的视觉表达。",
+    "label": {
+      "zh": "企业设计",
+      "en": "CORPORATE DESIGN"
+    },
+    "summary": {
+      "zh": "以折叠与负空间为线索，将标志、色彩和品牌物料连成完整的视觉表达。",
+      "en": "Folding and negative space as the guiding idea, connecting the logo, color and brand collateral into a complete visual identity."
+    },
     "details": [],
     "images": [
       {

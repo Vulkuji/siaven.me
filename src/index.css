@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./styles/chrome.css";
+@import "./styles/header.css";
 @import "./styles/canvas.css";
 @import "./styles/ornaments.css";
 @import "./styles/archive.css";
@@ -113,6 +114,10 @@
   margin-top: 10px;
   border-radius: 2px;
   background: var(--accent);
+}
+.split-word {
+  display: inline-block;
+  white-space: nowrap;
 }
 .note {
   font: 500 10px/1.9 var(--font-mono);

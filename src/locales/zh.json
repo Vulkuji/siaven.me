@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Siaven — lingshan.zhu 视觉设计作品集",
+    "description": "平面设计师 lingshan.zhu 的作品集：茶饮餐饮、医疗视觉、艺术教育与企业活动。Make ideas visible.",
+    "ogTitle": "Siaven — lingshan.zhu 作品集",
+    "ogDescription": "茶饮餐饮、医疗视觉、艺术教育与企业活动的精选设计作品。"
+  },
+  "skip": "跳至作品档案",
+  "nav": {
+    "label": "网站导航",
+    "home": "Siaven 首页",
+    "canvas": "首页 · 作品",
+    "archive": "作品档案",
+    "resume": "个人简历"
+  },
+  "theme": { "label": "配色", "light": "浅色", "dark": "深色" },
+  "language": { "label": "界面语言" },
+  "cursor": {
+    "drag": "拖动 DRAG",
+    "view": "查看 VIEW",
+    "open": "打开档案 OPEN",
+    "filter": "筛选 {{name}}",
+    "related": "查看 {{name}}"
+  },
+  "canvas": {
+    "label": "作品画布",
+    "hint": "拖动画布浏览 · 双击空白回到中心 · 点作品看详情",
+    "openArchive": "打开作品档案",
+    "open": "打开档案",
+    "view": "查看",
+    "viewWork": "查看 {{title}}",
+    "folder": "作品档案"
+  },
+  "archive": {
+    "label": "作品档案",
+    "filters": "筛选 FILTERS",
+    "allOption": "全部 ALL",
+    "all": "全部"
+  },
+  "detail": {
+    "back": "返回 BACK",
+    "prev": "上一个 PREV",
+    "next": "下一个 NEXT",
+    "image": "{{title}} 第 {{index}} 张",
+    "category": "分类",
+    "type": "类型",
+    "images": "图片",
+    "imageCount_other": "{{count}} 张",
+    "number": "序号",
+    "vertical": "作品档案 No.{{number}}",
+    "sections": {
+      "background": "项目背景",
+      "role": "我负责的部分",
+      "approach": "设计思路",
+      "outcome": "最终成果"
+    }
+  },
+  "resume": {
+    "label": "个人简历",
+    "kicker": "RESUME · 个人简历",
+    "intent": "意向岗位 · {{intent}}",
+    "education": "教育",
+    "contact": "联系",
+    "related": "相关作品 · {{name}}",
+    "about": "自我评价",
+    "work": "工作经历",
+    "internship": "实习经历",
+    "honors": "个人荣誉"
+  }
+}

@@ -1,8 +1,11 @@
 import type { CSSProperties } from "react";
 import { categories, pad, profile, works, type Work } from "@/data/portfolio";
 import { workPlacement } from "@/data/canvas-layout";
+import { useLang } from "@/i18n";
 
 export function CanvasWork({ work, index }: { work: Work; index: number }) {
+  const { t, pick } = useLang();
+  const title = pick(work.title);
   const place = workPlacement[work.id];
   const style = {
     left: place.x,
@@ -17,14 +20,14 @@ export function CanvasWork({ work, index }: { work: Work; index: number }) {
     <a
       className="obj"
       href={`#works/${work.id}`}
-      aria-label={`查看 ${work.title}`}
-      data-cursor="查看 VIEW"
+      aria-label={t("canvas.viewWork", { title })}
+      data-cursor={t("cursor.view")}
       data-cursor-count={`${pad(index + 1)}/${pad(works.length)}`}
       draggable={false}
       style={style}
     >
       <span className="obj-cap" aria-hidden="true">
-        {work.title}
+        {title}
       </span>
       <span className="obj-frame">
         <img
@@ -39,25 +42,26 @@ export function CanvasWork({ work, index }: { work: Work; index: number }) {
       </span>
       <span className="obj-meta" aria-hidden="true">
         <span>{pad(index + 1)}</span>
-        <span>{categories[work.category].zh}</span>
+        <span>{pick(categories[work.category])}</span>
       </span>
       <span className="obj-pill glass-fill" aria-hidden="true">
-        查看
+        {t("canvas.view")}
       </span>
     </a>
   );
 }
 
 export function ProfileCard({ style }: { style: CSSProperties }) {
+  const { pick } = useLang();
   return (
     <div className="intro" style={style}>
       <p className="kicker">SELECTED WORKS PORTFOLIO · 2026</p>
       <h1 className="profile-name">{profile.name}</h1>
       <p className="profile-line">
-        {profile.role} · {profile.focus}
+        {pick(profile.role)} · {pick(profile.focus)}
       </p>
       <p className="profile-contact">
-        <span className="status">{profile.status}</span>
+        <span className="status">{pick(profile.status)}</span>
         <a href={`mailto:${profile.email}`}>{profile.email}</a>
       </p>
     </div>

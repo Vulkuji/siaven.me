@@ -8,22 +8,22 @@ import {
   type Category,
 } from "@/data/portfolio";
 import { resume, type Experience } from "@/data/resume";
+import { useLang } from "@/i18n";
 import { Headline } from "@/components/ornaments";
 
 function Section({
-  zh,
-  en,
+  titleKey,
   children,
 }: {
-  zh: string;
-  en: string;
+  titleKey: string;
   children: ReactNode;
 }) {
+  const { t, other } = useLang();
   return (
     <section className="resume-section">
       <h3>
-        {zh}
-        <small>/ {en}</small>
+        {t(titleKey)}
+        <small>/ {t(titleKey, { lng: other })}</small>
       </h3>
       <div>{children}</div>
     </section>
@@ -31,13 +31,14 @@ function Section({
 }
 
 function RelatedWorks({ category }: { category: Category }) {
+  const { t, pick } = useLang();
   const related = works.filter((work) => work.category === category);
-  const { zh } = categories[category];
+  const name = pick(categories[category]);
   return (
     <a
       className="resume-related"
       href={`#archive/${category}`}
-      data-cursor={`查看 ${zh}`}
+      data-cursor={t("cursor.related", { name })}
     >
       <span className="resume-peek" aria-hidden="true">
         {related.slice(0, 3).map((work, index) => (
@@ -53,7 +54,7 @@ function RelatedWorks({ category }: { category: Category }) {
         ))}
       </span>
       <span>
-        相关作品 · {zh} <small>{pad(related.length)}</small>
+        {t("resume.related", { name })} <small>{pad(related.length)}</small>
       </span>
       <ArrowUpRight aria-hidden="true" />
     </a>
@@ -61,20 +62,21 @@ function RelatedWorks({ category }: { category: Category }) {
 }
 
 function Experiences({ items }: { items: Experience[] }) {
+  const { pick } = useLang();
   return items.map((item) => (
-    <article key={item.company} className="resume-entry">
+    <article key={item.company.zh} className="resume-entry">
       <header>
         <h4>
-          {item.company}
-          <span>{item.role}</span>
+          {pick(item.company)}
+          <span>{pick(item.role)}</span>
         </h4>
-        <time>{item.period}</time>
+        <time>{pick(item.period)}</time>
       </header>
       <ul>
         {item.points.map((point) => (
-          <li key={point.text}>
-            {point.title && <b>{point.title}</b>}
-            {point.text}
+          <li key={point.text.zh}>
+            {point.title && <b>{pick(point.title)}</b>}
+            {pick(point.text)}
           </li>
         ))}
       </ul>
@@ -83,79 +85,91 @@ function Experiences({ items }: { items: Experience[] }) {
   ));
 }
 
-const facts: { label: string; content: ReactNode }[] = [
-  {
-    label: "教育",
-    content: (
-      <>
-        {resume.education.school}｜{resume.education.college}
-        <br />
-        {resume.education.major}
-      </>
-    ),
-  },
-  ...resume.skills.map((skill) => ({
-    label: skill.label,
-    content: skill.text,
-  })),
-  {
-    label: "联系",
-    content: (
-      <a href={`mailto:${profile.email}`}>
-        {profile.email}
-        <ArrowUpRight aria-hidden="true" />
-      </a>
-    ),
-  },
-];
+function Facts() {
+  const { t, pick } = useLang();
+  const { school, college, major } = resume.education;
+  const facts: { label: string; content: ReactNode }[] = [
+    {
+      label: t("resume.education"),
+      content: (
+        <>
+          {pick(school)}
+          {pick({ zh: "｜", en: " | " })}
+          {pick(college)}
+          <br />
+          {pick(major)}
+        </>
+      ),
+    },
+    ...resume.skills.map((skill) => ({
+      label: pick(skill.label),
+      content: pick(skill.text),
+    })),
+    {
+      label: t("resume.contact"),
+      content: (
+        <a href={`mailto:${profile.email}`}>
+          {profile.email}
+          <ArrowUpRight aria-hidden="true" />
+        </a>
+      ),
+    },
+  ];
+  return (
+    <dl className="resume-facts">
+      {facts.map((fact) => (
+        <div key={fact.label}>
+          <dt>{fact.label}</dt>
+          <dd>{fact.content}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
 
 const [first, last] = profile.name.split(".");
 
 export function ResumeView({ active }: { active: boolean }) {
+  const { t, pick } = useLang();
   return (
     <section
       className="view view-resume"
       hidden={!active}
-      aria-label="个人简历"
+      aria-label={t("resume.label")}
     >
       <div className="resume-scroll">
         <div className="resume">
           <aside className="resume-card">
-            <p className="kicker">RESUME · 个人简历</p>
+            <p className="kicker">{t("resume.kicker")}</p>
             <h2 className="resume-name" aria-label={profile.name}>
               {first}
               <span className="name-dot" aria-hidden="true" />
               {last}
             </h2>
-            <p className="resume-intent">意向岗位 · {resume.intent}</p>
-            <span className="status">{profile.status}</span>
-            <dl className="resume-facts">
-              {facts.map((fact) => (
-                <div key={fact.label}>
-                  <dt>{fact.label}</dt>
-                  <dd>{fact.content}</dd>
-                </div>
-              ))}
-            </dl>
+            <p className="resume-intent">
+              {t("resume.intent", { intent: pick(resume.intent) })}
+            </p>
+            <span className="status">{pick(profile.status)}</span>
+            <Facts />
           </aside>
           <div className="resume-body">
-            <Section zh="自我评价" en="About Me">
+            <Section titleKey="resume.about">
               {resume.about.map((line) => (
-                <p key={line} className="resume-about">
-                  {line}
+                <p key={line.zh} className="resume-about">
+                  {pick(line)}
                 </p>
               ))}
             </Section>
-            <Section zh="工作经历" en="Work Experience">
+            <Section titleKey="resume.work">
               <Experiences items={resume.work} />
             </Section>
-            <Section zh="实习经历" en="Internship">
+            <Section titleKey="resume.internship">
               <Experiences items={resume.internships} />
             </Section>
-            <Section zh="个人荣誉" en="Honors">
+            <Section titleKey="resume.honors">
               <ul className="resume-honors">
                 {resume.honors.map((honor) => (
-                  <li key={honor}>{honor}</li>
+                  <li key={honor.zh}>{pick(honor)}</li>
                 ))}
               </ul>
             </Section>

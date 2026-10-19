@@ -11,6 +11,7 @@ import {
 } from "@/data/portfolio";
 import type { Filter } from "@/hooks/use-route";
 import { useTorch } from "@/hooks/use-torch";
+import { useLang } from "@/i18n";
 import { SplitText } from "@/components/split-text";
 
 const ranks = new Map(
@@ -36,14 +37,16 @@ function ArchiveCard({
   position: number;
   total: number;
 }) {
-  const { sub, main } = titleParts(work.title);
+  const { t, pick } = useLang();
+  const title = pick(work.title);
+  const { sub, main } = titleParts(title);
   const rank = ranks.get(work.id)!;
   return (
     <a
       className="card"
       href={`#works/${work.id}`}
-      aria-label={`查看 ${work.title}`}
-      data-cursor="查看 VIEW"
+      aria-label={t("canvas.viewWork", { title })}
+      data-cursor={t("cursor.view")}
       data-cursor-count={`${pad(position)}/${pad(total)}`}
     >
       <span className="card-media">
@@ -60,7 +63,7 @@ function ArchiveCard({
       <span className="card-bar" aria-hidden="true">
         <span className="card-meta">
           <span>
-            {categories[work.category].zh}
+            {pick(categories[work.category])}
             {sub && ` · ${sub}`}
           </span>
           <span>
@@ -81,12 +84,13 @@ function ArchiveCard({
 }
 
 function Filters({ filter }: { filter: Filter }) {
+  const { t, pick } = useLang();
   const [open, setOpen] = useState(false);
   const options: { value: Filter; label: string; count: number }[] = [
-    { value: "all", label: "全部 ALL", count: works.length },
+    { value: "all", label: t("archive.allOption"), count: works.length },
     ...categoryOrder.map((category) => ({
       value: category,
-      label: categories[category].zh,
+      label: pick(categories[category]),
       count: works.filter((work) => work.category === category).length,
     })),
   ];
@@ -99,9 +103,9 @@ function Filters({ filter }: { filter: Filter }) {
         onClick={() => setOpen(!open)}
       >
         <span className="box" />
-        筛选 FILTERS{" "}
+        {t("archive.filters")}{" "}
         <span className="filters-current">
-          / {filter === "all" ? "全部" : categories[filter].zh}
+          / {filter === "all" ? t("archive.all") : pick(categories[filter])}
         </span>
       </button>
       <ul className="filters-list" id="filters-list" hidden={!open}>
@@ -131,6 +135,7 @@ export function ArchiveView({
   active: boolean;
   filter: Filter;
 }) {
+  const { t } = useLang();
   const viewRef = useRef<HTMLElement>(null);
   const torchRef = useRef<HTMLSpanElement>(null);
   const following = useRef(false);
@@ -170,7 +175,7 @@ export function ArchiveView({
       ref={viewRef}
       className="view view-archive"
       hidden={!active}
-      aria-label="作品档案"
+      aria-label={t("archive.label")}
       onWheel={() => {
         following.current = false;
         scrollY.jump(viewRef.current?.scrollTop ?? 0);

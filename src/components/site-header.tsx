@@ -2,12 +2,22 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { m } from "motion/react";
 import type { View } from "@/hooks/use-route";
+import {
+  basePath,
+  htmlLang,
+  langStorageKey,
+  languages,
+  useLang,
+  type Lang,
+} from "@/i18n";
 
-const links: { view: View; href: string; zh: string; en: string }[] = [
-  { view: "canvas", href: "#", zh: "首页 · 作品", en: "HOME · WORKS" },
-  { view: "archive", href: "#archive", zh: "作品档案", en: "WORKS ARCHIVE" },
-  { view: "resume", href: "#resume", zh: "个人简历", en: "RESUME" },
+const links: { view: View; href: string; key: string }[] = [
+  { view: "canvas", href: "#", key: "nav.canvas" },
+  { view: "archive", href: "#archive", key: "nav.archive" },
+  { view: "resume", href: "#resume", key: "nav.resume" },
 ];
+
+const languageNames: Record<Lang, string> = { zh: "中", en: "EN" };
 
 export function Wordmark() {
   return (
@@ -19,11 +29,12 @@ export function Wordmark() {
 }
 
 function ModeToggle() {
+  const { t } = useLang();
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   return (
-    <div className="mode-dots" role="group" aria-label="配色">
+    <div className="mode-dots" role="group" aria-label={t("theme.label")}>
       {(["light", "dark"] as const).map((mode) => (
         <button
           key={mode}
@@ -31,7 +42,42 @@ function ModeToggle() {
           aria-pressed={mounted && resolvedTheme === mode}
           onClick={() => setTheme(mode)}
         >
-          {mode === "light" ? "浅色" : "深色"}
+          {t(`theme.${mode}`)}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function LangToggle() {
+  const { t, lang, i18n } = useLang();
+  const choose = (next: Lang) => {
+    if (next === lang) return;
+    void i18n.changeLanguage(next);
+    try {
+      localStorage.setItem(langStorageKey, next);
+    } catch {
+      // Storage can be unavailable; the URL still carries the language.
+    }
+    window.history.replaceState(
+      window.history.state,
+      "",
+      basePath[next] + window.location.hash,
+    );
+    document.documentElement.lang = htmlLang[next];
+    document.title = t("meta.title", { lng: next });
+  };
+  return (
+    <div className="lang-switch" role="group" aria-label={t("language.label")}>
+      {languages.map((code) => (
+        <button
+          key={code}
+          type="button"
+          lang={htmlLang[code]}
+          aria-pressed={lang === code}
+          onClick={() => choose(code)}
+        >
+          {languageNames[code]}
         </button>
       ))}
     </div>
@@ -39,40 +85,46 @@ function ModeToggle() {
 }
 
 export function SiteHeader({ view }: { view?: View }) {
+  const { t, other } = useLang();
   return (
     <header className="site-head">
-      <a href="#" aria-label="Siaven 首页">
+      <a href="#" aria-label={t("nav.home")}>
         <Wordmark />
       </a>
-      <nav className="site-nav" aria-label="网站导航">
-        {links.map((link) => (
-          <a
-            key={link.view}
-            href={link.href}
-            aria-current={view === link.view ? "page" : undefined}
-            className="nav-link"
-          >
-            <span className="nav-roll">
-              <span>
-                {link.zh}
-                <small>{link.en}</small>
+      <nav className="site-nav" aria-label={t("nav.label")}>
+        {links.map((link) => {
+          const label = (
+            <>
+              {t(link.key)}
+              <small>{t(link.key, { lng: other })}</small>
+            </>
+          );
+          return (
+            <a
+              key={link.view}
+              href={link.href}
+              aria-current={view === link.view ? "page" : undefined}
+              className="nav-link"
+            >
+              <span className="nav-roll">
+                <span>{label}</span>
+                <span aria-hidden="true">{label}</span>
               </span>
-              <span aria-hidden="true">
-                {link.zh}
-                <small>{link.en}</small>
-              </span>
-            </span>
-            {view === link.view && (
-              <m.span
-                layoutId="nav-indicator"
-                className="nav-indicator"
-                transition={{ type: "spring", stiffness: 380, damping: 32 }}
-              />
-            )}
-          </a>
-        ))}
+              {view === link.view && (
+                <m.span
+                  layoutId="nav-indicator"
+                  className="nav-indicator"
+                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                />
+              )}
+            </a>
+          );
+        })}
       </nav>
-      <ModeToggle />
+      <div className="head-tools">
+        <LangToggle />
+        <ModeToggle />
+      </div>
     </header>
   );
 }

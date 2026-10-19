@@ -10,8 +10,10 @@ import {
   Orbit,
 } from "@/components/ornaments";
 import { CanvasWork, ProfileCard } from "@/components/canvas/canvas-items";
+import { useLang } from "@/i18n";
 
 export function WorksCanvas({ active }: { active: boolean }) {
+  const { t } = useLang();
   const viewRef = useRef<HTMLElement>(null);
   const dragged = useRef(false);
   const { x, y, scale, constraints, idle, wake, centerOn } =
@@ -22,7 +24,7 @@ export function WorksCanvas({ active }: { active: boolean }) {
       ref={viewRef}
       className="view view-canvas"
       hidden={!active}
-      aria-label="作品画布"
+      aria-label={t("canvas.label")}
       onDoubleClick={(event) => {
         if ((event.target as Element).closest("a")) return;
         const home = homeFor(event.currentTarget.clientWidth);
@@ -67,8 +69,8 @@ export function WorksCanvas({ active }: { active: boolean }) {
           <a
             className="folder-obj"
             href="#archive"
-            aria-label="打开作品档案"
-            data-cursor="打开档案 OPEN"
+            aria-label={t("canvas.openArchive")}
+            data-cursor={t("cursor.open")}
             draggable={false}
             style={{
               left: cluster.folder.x,
@@ -78,7 +80,7 @@ export function WorksCanvas({ active }: { active: boolean }) {
           >
             <GlassFolder count={works.length} />
             <span className="obj-pill glass-fill" aria-hidden="true">
-              打开档案
+              {t("canvas.open")}
             </span>
           </a>
           {categoryOrder.map((category) => (
@@ -96,7 +98,7 @@ export function WorksCanvas({ active }: { active: boolean }) {
           ))}
         </div>
       </m.div>
-      <p className="hint">拖动画布浏览 · 双击空白回到中心 · 点作品看详情</p>
+      <p className="hint">{t("canvas.hint")}</p>
       <Headline>
         <span className="en">
           portfolio<small>作品集</small>

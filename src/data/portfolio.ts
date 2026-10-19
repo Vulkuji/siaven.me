@@ -1,6 +1,8 @@
+import type { Localized } from "@/i18n";
 import entries from "./works.json";
 
 export type Category = "food" | "medical" | "art" | "event";
+export type DetailKey = "background" | "role" | "approach" | "outcome";
 
 export interface Picture {
   src: string;
@@ -10,11 +12,11 @@ export interface Picture {
 
 export interface Work {
   id: string;
-  title: string;
+  title: Localized;
   category: Category;
-  label: string;
-  summary: string;
-  details: { label: string; text: string }[];
+  label: Localized;
+  summary: Localized;
+  details: { key: DetailKey; text: Localized }[];
   images: Picture[];
   cover: Picture;
   card: Picture;
@@ -22,21 +24,26 @@ export interface Work {
 
 export const works = entries as Work[];
 
-export const categories: Record<Category, { zh: string; en: string }> = {
-  food: { zh: "茶饮餐饮", en: "FOOD & BEVERAGE" },
-  medical: { zh: "医疗视觉", en: "MEDICAL VISUAL" },
-  art: { zh: "艺术教育", en: "ART EDUCATION" },
-  event: { zh: "企业活动", en: "CORPORATE EVENT" },
+export const categories: Record<Category, Localized> = {
+  food: { zh: "茶饮餐饮", en: "Food & Beverage" },
+  medical: { zh: "医疗视觉", en: "Medical Visuals" },
+  art: { zh: "艺术教育", en: "Art Education" },
+  event: { zh: "企业活动", en: "Corporate Events" },
 };
 
 export const categoryOrder: Category[] = ["food", "medical", "art", "event"];
 
 export const profile = {
   name: "lingshan.zhu",
-  role: "视觉设计师",
-  status: "OPEN TO WORK · 求职中",
-  intent: "视觉设计方向",
-  focus: "品牌视觉 / 包装设计 / 广告传播",
+  role: { zh: "视觉设计师", en: "Visual Designer" } satisfies Localized,
+  status: {
+    zh: "OPEN TO WORK · 求职中",
+    en: "OPEN TO WORK",
+  } satisfies Localized,
+  focus: {
+    zh: "品牌视觉 / 包装设计 / 广告传播",
+    en: "Brand Identity / Packaging / Advertising",
+  } satisfies Localized,
   email: "muasiaven@gmail.com",
 };
 

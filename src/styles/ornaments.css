@@ -144,6 +144,7 @@
   padding-left: 4px;
   font: 500 9.5px/1.75 var(--font-mono);
   letter-spacing: 0.3em;
+  text-transform: uppercase;
   color: var(--ink-faint);
 }
 .cat-label b {
@@ -151,6 +152,7 @@
   margin-bottom: 2px;
   font: 700 15px/1.4 var(--font-cjk);
   letter-spacing: 0.12em;
+  text-transform: none;
   color: var(--ink);
 }
 

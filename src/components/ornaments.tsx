@@ -1,6 +1,7 @@
 import { useId, type CSSProperties, type ReactNode } from "react";
 import { CalendarDays, Coffee, Paintbrush, Plus } from "lucide-react";
 import { categories, type Category } from "@/data/portfolio";
+import { useLang } from "@/i18n";
 
 const folderPath =
   "M20 0 H128 C140 0 147 6 153 14 L162 27 C166 33 172 36 180 36 H320 C331 36 340 45 340 56 V230 C340 241 331 250 320 250 H20 C9 250 0 241 0 230 V20 C0 9 9 0 20 0 Z";
@@ -27,6 +28,7 @@ export function Headline({
 
 export function GlassFolder({ count }: { count: number }) {
   const gradient = useId();
+  const { t } = useLang();
   return (
     <span className="folder" aria-hidden="true">
       <svg className="folder-back" viewBox="0 0 340 250">
@@ -52,7 +54,7 @@ export function GlassFolder({ count }: { count: number }) {
       ))}
       <span className="folder-front">
         <span className="folder-meta">
-          <span>作品档案</span>
+          <span>{t("canvas.folder")}</span>
           <span>{count} ↗</span>
         </span>
       </span>
@@ -68,12 +70,13 @@ export function CategoryBadge({
   style?: CSSProperties;
 }) {
   const Icon = icons[category];
-  const { zh, en } = categories[category];
+  const { t, pick, other } = useLang();
+  const name = pick(categories[category]);
   return (
     <a
       className="cat-obj"
       href={`#archive/${category}`}
-      data-cursor={`筛选 ${zh}`}
+      data-cursor={t("cursor.filter", { name })}
       style={style}
       draggable={false}
     >
@@ -81,8 +84,8 @@ export function CategoryBadge({
         <Icon aria-hidden="true" />
       </span>
       <span className="cat-label">
-        <b>{zh}</b>
-        {en}
+        <b>{name}</b>
+        {categories[category][other]}
       </span>
     </a>
   );

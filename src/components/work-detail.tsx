@@ -3,6 +3,7 @@ import { Dialog } from "radix-ui";
 import { ArrowLeft } from "lucide-react";
 import { categories, pad, works, type Work } from "@/data/portfolio";
 import { SplitText } from "@/components/split-text";
+import { useLang } from "@/i18n";
 
 export function WorkDetail({
   work,
@@ -13,8 +14,10 @@ export function WorkDetail({
   onClose: () => void;
   onStep: (direction: number) => void;
 }) {
+  const { t, pick } = useLang();
   const contentRef = useRef<HTMLDivElement>(null);
   const index = work ? works.indexOf(work) : -1;
+  const title = work ? pick(work.title) : "";
 
   useEffect(() => {
     contentRef.current?.scrollTo({ top: 0 });
@@ -39,7 +42,7 @@ export function WorkDetail({
               <div className="detail-bar">
                 <Dialog.Close className="detail-button">
                   <ArrowLeft aria-hidden="true" />
-                  返回 BACK
+                  {t("detail.back")}
                 </Dialog.Close>
                 <span className="detail-count">
                   {pad(index + 1)} / {pad(works.length)}
@@ -51,7 +54,7 @@ export function WorkDetail({
                     disabled={index === 0}
                     onClick={() => onStep(-1)}
                   >
-                    上一个 PREV
+                    {t("detail.prev")}
                   </button>
                   <button
                     type="button"
@@ -59,7 +62,7 @@ export function WorkDetail({
                     disabled={index === works.length - 1}
                     onClick={() => onStep(1)}
                   >
-                    下一个 NEXT
+                    {t("detail.next")}
                   </button>
                 </span>
               </div>
@@ -71,7 +74,7 @@ export function WorkDetail({
                       src={image.src}
                       width={image.width}
                       height={image.height}
-                      alt={`${work.title} 第 ${imageIndex + 1} 张`}
+                      alt={t("detail.image", { title, index: imageIndex + 1 })}
                       loading={imageIndex ? "lazy" : "eager"}
                       decoding="async"
                     />
@@ -79,37 +82,37 @@ export function WorkDetail({
                 </div>
                 <div className="detail-info">
                   <p className="detail-label">
-                    {categories[work.category].en} / {work.label}
+                    {categories[work.category].en.toUpperCase()} /{" "}
+                    {work.label.en}
                   </p>
-                  <Dialog.Title
-                    className="detail-title"
-                    aria-label={work.title}
-                  >
-                    <SplitText text={work.title} />
+                  <Dialog.Title className="detail-title" aria-label={title}>
+                    <SplitText text={title} />
                   </Dialog.Title>
                   <Dialog.Description className="detail-summary">
-                    {work.summary}
+                    {pick(work.summary)}
                   </Dialog.Description>
                   {work.details.map((detail) => (
-                    <section key={detail.label} className="detail-section">
-                      <h3>{detail.label}</h3>
-                      <p>{detail.text}</p>
+                    <section key={detail.key} className="detail-section">
+                      <h3>{t(`detail.sections.${detail.key}`)}</h3>
+                      <p>{pick(detail.text) || detail.text.zh}</p>
                     </section>
                   ))}
                   <dl className="detail-meta">
-                    <dt>分类</dt>
-                    <dd>{categories[work.category].zh}</dd>
-                    <dt>类型</dt>
-                    <dd>{work.label.split(" / ")[0]}</dd>
-                    <dt>图片</dt>
-                    <dd>{work.images.length} 张</dd>
-                    <dt>序号</dt>
+                    <dt>{t("detail.category")}</dt>
+                    <dd>{pick(categories[work.category])}</dd>
+                    <dt>{t("detail.type")}</dt>
+                    <dd>{pick(work.label)}</dd>
+                    <dt>{t("detail.images")}</dt>
+                    <dd>
+                      {t("detail.imageCount", { count: work.images.length })}
+                    </dd>
+                    <dt>{t("detail.number")}</dt>
                     <dd>
                       {pad(index + 1)} / {pad(works.length)}
                     </dd>
                   </dl>
                   <span className="detail-vertical" aria-hidden="true">
-                    作品档案 No.{pad(index + 1)}
+                    {t("detail.vertical", { number: pad(index + 1) })}
                   </span>
                 </div>
               </div>

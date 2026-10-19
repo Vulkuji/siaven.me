@@ -10,6 +10,20 @@
       content="平面设计师 lingshan.zhu 的作品集：茶饮餐饮、医疗视觉、艺术教育与企业活动。Make ideas visible."
     />
     <link rel="canonical" href="https://siaven.me/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://siaven.me/" />
+    <link rel="alternate" hreflang="en" href="https://siaven.me/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://siaven.me/" />
+    <script>
+      (function () {
+        try {
+          if (location.pathname !== "/") return;
+          var saved = localStorage.getItem("siaven-lang");
+          var browser = (navigator.language || "").toLowerCase();
+          var lang = saved || (browser.indexOf("zh") === 0 ? "zh" : "en");
+          if (lang === "en") location.replace("/en/" + location.hash);
+        } catch (error) {}
+      })();
+    </script>
     <meta property="og:title" content="Siaven — lingshan.zhu 作品集" />
     <meta
       property="og:description"

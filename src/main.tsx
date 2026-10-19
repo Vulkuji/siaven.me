@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App";
+import { langFromPath } from "./i18n";
 import "@fontsource-variable/urbanist";
 import "@fontsource-variable/noto-sans-sc";
 import "@fontsource-variable/noto-serif-sc";
@@ -12,7 +13,7 @@ const root = document.getElementById("root")!;
 const page = root.dataset.page === "not-found" ? "not-found" : "home";
 const application = (
   <StrictMode>
-    <App page={page} />
+    <App page={page} lang={langFromPath(window.location.pathname)} />
   </StrictMode>
 );
 
