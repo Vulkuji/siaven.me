@@ -90,12 +90,12 @@
 }
 .obj-cap-main {
   display: block;
-  font: 600 13px/1.3 var(--font-sans);
+  font: 600 14.5px/1.3 var(--font-sans);
 }
 .obj-cap-sub {
   display: block;
   margin-block-start: 6px;
-  font: 500 9.5px/1.4 var(--font-mono);
+  font: 500 10px/1.4 var(--font-mono);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -108,6 +108,11 @@
   font: 500 10px/1.2 var(--font-mono);
   letter-spacing: 0.12em;
   color: var(--ink-faint);
+}
+.obj-cat:lang(en) {
+  font: 500 11.5px/1.2 var(--font-sans);
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
 }
 .obj-pill {
   position: absolute;

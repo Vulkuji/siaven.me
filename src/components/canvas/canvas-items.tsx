@@ -58,7 +58,7 @@ export function CanvasWork({ work, index }: { work: Work; index: number }) {
       </span>
       <span className="obj-meta" aria-hidden="true">
         <span>{pad(index + 1)}</span>
-        <span>{pick(categories[work.category])}</span>
+        <span className="obj-cat">{pick(categories[work.category])}</span>
       </span>
       <span className="obj-pill glass-fill" aria-hidden="true">
         {t("canvas.view")}
