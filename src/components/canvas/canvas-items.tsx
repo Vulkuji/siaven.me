@@ -1,16 +1,25 @@
 import type { CSSProperties } from "react";
-import { categories, pad, profile, works, type Work } from "@/data/portfolio";
+import {
+  categories,
+  pad,
+  profile,
+  titleParts,
+  works,
+  type Work,
+} from "@/data/portfolio";
 import { workPlacement } from "@/data/canvas-layout";
 import { useLang } from "@/i18n";
 
 export function CanvasWork({ work, index }: { work: Work; index: number }) {
-  const { t, pick } = useLang();
+  const { t, lang, pick } = useLang();
   const title = pick(work.title);
+  const { sub, main } = titleParts(title);
   const place = workPlacement[work.id];
   const style = {
     left: place.x,
     top: place.y,
     width: place.size,
+    "--size": `${place.size}px`,
     "--dur": `${7 + (index % 5) * 1.3}s`,
     "--delay": `${-((index * 1.7) % 7)}s`,
     "--fx": `${(index % 2 ? 1 : -1) * (4 + (index % 3) * 3)}px`,
@@ -27,7 +36,14 @@ export function CanvasWork({ work, index }: { work: Work; index: number }) {
       style={style}
     >
       <span className="obj-cap" aria-hidden="true">
-        {title}
+        {lang === "en" ? (
+          <>
+            <span className="obj-cap-main">{main}</span>
+            {sub && <span className="obj-cap-sub">{sub}</span>}
+          </>
+        ) : (
+          title
+        )}
       </span>
       <span className="obj-frame">
         <img
