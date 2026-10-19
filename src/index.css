@@ -37,12 +37,17 @@
   --font-display:
     "Urbanist Variable", "Noto Sans SC Variable", "PingFang SC", system-ui,
     sans-serif;
-  --font-cjk:
-    "Noto Sans SC Variable", "PingFang SC", "Microsoft YaHei", system-ui,
-    sans-serif;
+  --font-sans:
+    "Figtree Variable", "Noto Sans SC Variable", "PingFang SC",
+    "Microsoft YaHei", system-ui, sans-serif;
   --font-serif: "Noto Serif SC Variable", "Songti SC", "STSong", serif;
+  --ink-body: color-mix(in srgb, var(--ink) 80%, var(--paper));
   --font-mono:
     "IBM Plex Mono", "Noto Sans SC Variable", ui-monospace, monospace;
+}
+
+:root:lang(en) {
+  --font-serif: var(--font-sans);
 }
 
 .dark {

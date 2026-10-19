@@ -3,6 +3,7 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App";
 import { langFromPath } from "./i18n";
 import "@fontsource-variable/urbanist";
+import "@fontsource-variable/figtree";
 import "@fontsource-variable/noto-sans-sc";
 import "@fontsource-variable/noto-serif-sc";
 import "@fontsource/ibm-plex-mono/400.css";

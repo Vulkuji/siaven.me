@@ -37,7 +37,7 @@
 .nav-link {
   position: relative;
   padding: 4px 0;
-  font-family: var(--font-cjk);
+  font-family: var(--font-sans);
   font-size: 13px;
   opacity: 0.5;
   transition: opacity 0.3s;

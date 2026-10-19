@@ -51,7 +51,7 @@
   }
 }
 .resume-intent {
-  font: 500 16px/1.4 var(--font-cjk);
+  font: 500 16px/1.4 var(--font-sans);
 }
 .resume-facts {
   display: grid;
@@ -73,7 +73,7 @@
 }
 .resume-facts dd {
   margin: 0;
-  font: 400 13px/1.7 var(--font-cjk);
+  font: 400 13px/1.7 var(--font-sans);
   color: var(--ink-soft);
 }
 .resume-facts a {
@@ -103,7 +103,7 @@
 }
 .resume-section h3 {
   margin: 0;
-  font: 700 18px/1.3 var(--font-cjk);
+  font: 700 18px/1.3 var(--font-sans);
 }
 .resume-section h3 small {
   display: block;
@@ -113,10 +113,15 @@
   color: var(--ink-faint);
 }
 .resume-about {
-  max-width: 40em;
+  max-width: 38em;
   margin: 0 0 14px;
-  font: 400 15px/2 var(--font-serif);
-  color: var(--ink-soft);
+  font: 400 15px/1.9 var(--font-sans);
+  color: var(--ink-body);
+}
+.resume-about:lang(en) {
+  max-width: 62ch;
+  font-size: 15.5px;
+  line-height: 1.7;
 }
 
 @container (max-width: 900px) {

@@ -165,7 +165,7 @@
 }
 .headline small {
   margin-left: 0.6em;
-  font: 400 max(13px, 1.6cqi) / 1 var(--font-cjk);
+  font: 400 max(13px, 1.6cqi) / 1 var(--font-sans);
   letter-spacing: 0.2em;
 }
 
@@ -178,7 +178,7 @@
   padding: 0 24px;
 }
 .not-found-body h1 {
-  font: 900 clamp(32px, 6vw, 60px) / 1.2 var(--font-cjk);
+  font: 900 clamp(32px, 6vw, 60px) / 1.2 var(--font-sans);
 }
 .not-found-body h1 span {
   display: block;

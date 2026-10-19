@@ -37,7 +37,7 @@ export const resume = {
     {
       company: {
         zh: "杭州安旭生物科技股份有限公司",
-        en: "Hangzhou AllTest Biotech Co., Ltd.",
+        en: "Assure Tech",
       },
       category: "medical",
       role: { zh: "设计师", en: "Designer" },

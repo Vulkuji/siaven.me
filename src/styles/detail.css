@@ -93,7 +93,7 @@
 }
 .detail-title {
   margin: 0;
-  font: 900 clamp(28px, 3.6cqi, 52px) / 1.2 var(--font-cjk);
+  font: 900 clamp(28px, 3.6cqi, 52px) / 1.2 var(--font-sans);
   text-wrap: balance;
 }
 .detail-title .split-char {
@@ -105,8 +105,12 @@
 .detail-section p {
   max-width: 28em;
   margin: 0;
-  font: 400 15px/2 var(--font-serif);
-  color: var(--ink-soft);
+  font: 400 15px/1.85 var(--font-sans);
+  color: var(--ink-body);
+}
+.detail-summary:lang(en),
+.detail-section p:lang(en) {
+  line-height: 1.65;
 }
 .detail-section h3 {
   margin: 0 0 4px;
