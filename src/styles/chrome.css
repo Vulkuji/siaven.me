@@ -272,7 +272,7 @@
   white-space: nowrap;
 }
 .headline .en {
-  font: 200 5.6cqi/0.9 var(--font-display);
+  font: 200 7cqi/0.9 var(--font-display);
   letter-spacing: -0.04em;
 }
 .headline .en + .en {
@@ -280,9 +280,9 @@
   letter-spacing: -0.02em;
 }
 .headline small {
-  margin-left: 0.9em;
-  font: 400 max(11px, 0.95cqi) / 1 var(--font-cjk);
-  letter-spacing: 0.3em;
+  margin-left: 0.6em;
+  font: 400 max(13px, 1.6cqi) / 1 var(--font-cjk);
+  letter-spacing: 0.2em;
 }
 
 .not-found-body {
