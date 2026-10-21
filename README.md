@@ -16,7 +16,7 @@
 - `src/data/resume.ts`：中英文简历内容。
 - `src/data/canvas-layout.ts`：画布尺寸、初始中心与各元素坐标。
 - `src/index.css`、`src/styles/`：主题令牌与按区域拆分的样式。
-- `static/`：作品图片（`works/`、`covers/`、`cards/`）、头像、站点图标（`favicon.svg`、`favicon.ico`、`apple-touch-icon.png`）与响应头（`_headers`）。
+- `static/`：作品图片（`works/`、`covers/`、`cards/`）、站点标识（`favicon.svg` 同时用于页头，另有 `favicon.ico`、`apple-touch-icon.png`）与响应头（`_headers`）。
 - `content/works.json`：作品与素材文件夹的对应关系，以及首页封面的裁切范围和档案卡片的取景。
 - `tools/export.mjs`：读取素材文件夹，生成 WebP 图片与 `src/data/works.json`。
 - `tools/prerender.mjs`：将 React 页面预渲染为静态 HTML，分别输出中文（`/`）与英文（`/en/`）页面。
@@ -47,4 +47,4 @@ npm run export -- /path/to/网站作品整理
 
 Cloudflare Workers Builds 连接本仓库：推送到 `main` 分支后执行 `npx wrangler deploy`，按 `wrangler.jsonc` 先运行 `npm run build`，再将 `dist/` 作为静态资源发布到自定义域 `siaven.me`。未匹配路径返回 `404.html`，Node 版本由 `.node-version` 指定。
 
-公开内容包括 Siaven 标识、作者署名 lingshan.zhu、用户指定的 Google 头像、设计作品与 Gmail 联系邮箱。作品图片经重新编码并去除元数据。部署仅发布 `dist/`。
+公开内容包括 Siaven 标识、作者署名 lingshan.zhu、设计作品与 Gmail 联系邮箱。作品图片经重新编码并去除元数据。部署仅发布 `dist/`。

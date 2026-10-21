@@ -22,7 +22,7 @@ const languageNames: Record<Lang, string> = { zh: "中", en: "EN" };
 export function Wordmark() {
   return (
     <span className="wordmark">
-      <img src="/assets/google-avatar.png" alt="" width={256} height={256} />
+      <img src="/favicon.svg" alt="" width={100} height={100} />
       siaven
     </span>
   );
