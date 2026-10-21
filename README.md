@@ -16,7 +16,7 @@
 - `src/data/resume.ts`：中英文简历内容。
 - `src/data/canvas-layout.ts`：画布尺寸、初始中心与各元素坐标。
 - `src/index.css`、`src/styles/`：主题令牌与按区域拆分的样式。
-- `static/`：作品图片（`works/`、`covers/`、`cards/`）、头像与响应头（`_headers`）。
+- `static/`：作品图片（`works/`、`covers/`、`cards/`）、头像、站点图标（`favicon.svg`、`favicon.ico`、`apple-touch-icon.png`）与响应头（`_headers`）。
 - `content/works.json`：作品与素材文件夹的对应关系，以及首页封面的裁切范围和档案卡片的取景。
 - `tools/export.mjs`：读取素材文件夹，生成 WebP 图片与 `src/data/works.json`。
 - `tools/prerender.mjs`：将 React 页面预渲染为静态 HTML，分别输出中文（`/`）与英文（`/en/`）页面。
