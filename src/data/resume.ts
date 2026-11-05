@@ -34,7 +34,7 @@ export interface Job {
 
 export const jobs: Job[] = [
   {
-    when: { en: "2024.12 — NOW", zh: "2024.12 — 至今" },
+    when: { en: "2024.12 — 2026.9", zh: "2024.12 — 2026.9" },
     company: { en: "Assure Tech", zh: "安旭生物" },
     role: { en: "Designer", zh: "设计师" },
     note: {
