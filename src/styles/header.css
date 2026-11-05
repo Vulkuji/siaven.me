@@ -95,12 +95,12 @@
   white-space: nowrap;
   transform: translateY(100%);
 }
-.nav-a:is(:hover, :focus-visible)
+:is(.nav-a, .cta-link):is(:hover, :focus-visible)
   .roll[data-rolls="true"]
   > span:not(.roll-cn) {
   transform: translateY(-100%);
 }
-.nav-a:is(:hover, :focus-visible) .roll-cn {
+:is(.nav-a, .cta-link):is(:hover, :focus-visible) .roll-cn {
   transform: translateY(0);
 }
 .short {

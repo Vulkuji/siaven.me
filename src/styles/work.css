@@ -132,6 +132,17 @@
   white-space: nowrap;
   transition: color 0.35s;
 }
+.cta-word .roll {
+  height: 1.06em;
+  margin-block: -0.08em;
+  line-height: 1.06;
+}
+.cta-word .roll-cn {
+  font-size: 0.86em;
+  line-height: calc(1.06 / 0.86);
+  letter-spacing: 0;
+  text-align: left;
+}
 .cta-word i {
   color: var(--rope);
   font-size: 0.6em;

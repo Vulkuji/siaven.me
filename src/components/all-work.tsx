@@ -94,36 +94,35 @@ export function AllWorkPage({ filter }: { filter: Filter }) {
     <main className="page">
       <section className="sec t-ink all">
         <div className="lit" />
-        <div data-route="all-head">
-          <h1 className="big all-title over">
-            ALL WORK<sup>{works.length}</sup>
-            {lang === "zh" && (
-              <span className="big-cn" lang="zh-CN">
-                {t("all.subtitle")}
-              </span>
-            )}
-          </h1>
-          <div className="all-tools over">
-            <FilterChips filter={filter} />
-            <div
-              className="layout-switch"
-              role="group"
-              aria-label={t("all.layout")}
-            >
-              {(["grid", "list"] as const).map((option) => (
-                <button
-                  key={option}
-                  type="button"
-                  aria-pressed={layout === option}
-                  onClick={() => {
-                    setLayout(option);
-                    setHovered(null);
-                  }}
-                >
-                  {option.toUpperCase()}
-                </button>
-              ))}
-            </div>
+        <h1 className="big all-title over" data-route="all-title">
+          ALL WORK<b>.</b>
+          <sup>{works.length}</sup>
+          {lang === "zh" && (
+            <span className="big-cn" lang="zh-CN">
+              {t("all.subtitle")}
+            </span>
+          )}
+        </h1>
+        <div className="all-tools over">
+          <FilterChips filter={filter} />
+          <div
+            className="layout-switch"
+            role="group"
+            aria-label={t("all.layout")}
+          >
+            {(["grid", "list"] as const).map((option) => (
+              <button
+                key={option}
+                type="button"
+                aria-pressed={layout === option}
+                onClick={() => {
+                  setLayout(option);
+                  setHovered(null);
+                }}
+              >
+                {option.toUpperCase()}
+              </button>
+            ))}
           </div>
         </div>
         <div className="rows over" data-layout={layout} data-route="all-rows">

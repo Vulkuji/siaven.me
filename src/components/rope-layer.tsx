@@ -137,13 +137,9 @@ export function RopeLayer({ layoutKey }: { layoutKey: string }) {
       /* Bolts sit exactly where the rope crosses into the next section. */
       const layer = boltLayer.current!;
       layer.textContent = "";
-      const crossings = [
-        0,
-        ...sections
-          .slice(1)
-          .filter((section) => section.matches(".sec"))
-          .map((section) => lengthAtY(state.table!, pageRect(section).y)),
-      ];
+      const crossings = sections
+        .filter((section) => section.matches(".sec"))
+        .map((section) => lengthAtY(state.table!, pageRect(section).y));
       state.bolts = crossings.map((at) => {
         const { x, y } = path.getPointAtLength(at);
         const bolt = document.createElementNS(svgNamespace, "g");

@@ -4,7 +4,7 @@ import type { Point } from "@/lib/rope";
  * Control points of the rope, per section, as [x%, y%] of that section.
  * They steer a B-spline, so the rope bends toward them without passing through
  * them. That keeps it free of kinks however far apart two points land.
- * The all-head and all-rows boxes stop at the page gutter, so 102% lands inside it.
+ * The all-title and all-rows boxes stop at the page gutter, so 102% lands inside it.
  */
 export const ropeRoutes: Record<string, Point[]> = {
   hero: [
@@ -103,11 +103,12 @@ export const ropeRoutes: Record<string, Point[]> = {
     [24, 7],
     [40, 5],
   ],
-  "all-head": [
-    [92, 8],
-    [96, 30],
-    [102, 60],
+  "all-title": [
+    [94, -220],
+    [94, -40],
+    [96, 60],
     [102, 100],
+    [102, 190],
   ],
   "all-rows": [
     [102, 50],

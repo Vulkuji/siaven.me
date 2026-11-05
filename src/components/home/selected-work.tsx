@@ -105,7 +105,7 @@ function WorkSection({
 }
 
 export function SelectedWork() {
-  const { t, zhOnly } = useLang();
+  const { t, lang, zhOnly } = useLang();
   return (
     <>
       {showcase.map((entry, index) => (
@@ -121,7 +121,15 @@ export function SelectedWork() {
             </span>
           </span>
           <span className="cta-word">
-            ALL WORK<i aria-hidden="true">↗</i>
+            <span className="roll" data-rolls={lang === "zh"}>
+              <span>ALL WORK</span>
+              {lang === "zh" && (
+                <span className="roll-cn" aria-hidden="true" lang="zh-CN">
+                  {t("nav.allWork")}
+                </span>
+              )}
+            </span>
+            <i aria-hidden="true">↗</i>
           </span>
         </a>
       </section>
