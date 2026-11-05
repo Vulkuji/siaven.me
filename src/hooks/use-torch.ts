@@ -1,41 +1,25 @@
-import { useEffect, type RefObject } from "react";
-import type { MotionValue } from "motion/react";
+import { useEffect } from "react";
+import { hasFinePointer } from "@/lib/pointer";
 
-export function useTorch(
-  viewRef: RefObject<HTMLElement | null>,
-  torchRef: RefObject<HTMLElement | null>,
-  pan: MotionValue<number>,
-) {
+/** Lights the bolt-hole grid of whichever section the mouse is over. */
+export function useTorch() {
   useEffect(() => {
-    const view = viewRef.current;
-    const torch = torchRef.current;
-    if (!view || !torch) return;
-    let pointer: { x: number; y: number } | null = null;
-    const aim = () => {
-      if (!pointer) return;
-      const bounds = torch.getBoundingClientRect();
-      torch.style.setProperty("--torch-x", `${pointer.x - bounds.left}px`);
-      torch.style.setProperty("--torch-y", `${pointer.y - bounds.top}px`);
-    };
+    if (!hasFinePointer()) return;
+    let active: Element | null = null;
     const move = (event: PointerEvent) => {
-      if (event.pointerType !== "mouse") return;
-      pointer = { x: event.clientX, y: event.clientY };
-      torch.dataset.on = "";
-      aim();
+      const section = (event.target as Element).closest?.(".sec") ?? null;
+      if (section !== active) {
+        active?.classList.remove("torch");
+        section?.classList.add("torch");
+        active = section;
+      }
+      const lit = section?.querySelector<HTMLElement>(":scope > .lit");
+      if (!section || !lit) return;
+      const bounds = section.getBoundingClientRect();
+      lit.style.setProperty("--mx", `${event.clientX - bounds.left}px`);
+      lit.style.setProperty("--my", `${event.clientY - bounds.top}px`);
     };
-    const leave = () => {
-      pointer = null;
-      delete torch.dataset.on;
-    };
-    view.addEventListener("pointermove", move);
-    view.addEventListener("pointerleave", leave);
-    view.addEventListener("scroll", aim, { passive: true });
-    const unsubscribe = pan.on("change", aim);
-    return () => {
-      view.removeEventListener("pointermove", move);
-      view.removeEventListener("pointerleave", leave);
-      view.removeEventListener("scroll", aim);
-      unsubscribe();
-    };
-  }, [viewRef, torchRef, pan]);
+    window.addEventListener("pointermove", move, { passive: true });
+    return () => window.removeEventListener("pointermove", move);
+  }, []);
 }

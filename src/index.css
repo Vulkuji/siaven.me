@@ -1,17 +1,26 @@
 @import "tailwindcss";
-@import "./styles/chrome.css";
+@import "./styles/site.css";
 @import "./styles/header.css";
+@import "./styles/hero.css";
+@import "./styles/work.css";
+@import "./styles/all-work.css";
+@import "./styles/experience.css";
+@import "./styles/chrome.css";
 @import "./styles/canvas.css";
 @import "./styles/ornaments.css";
-@import "./styles/archive.css";
 @import "./styles/detail.css";
-@import "./styles/resume.css";
-@import "./styles/resume-entries.css";
-
-@custom-variant dark (&:is(.dark *));
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
+  /* Site: a climbing wall at night, one blue rope falls through the portfolio. */
+  --night: #06070b;
+  --bone: #ece9e1;
+  --rope: #4a67ff;
+  --steel: #c9ced8;
+  --gutter: clamp(16px, 3.4vw, 64px);
+  --page-width: calc(100vw - 2 * var(--gutter));
+  --ease: cubic-bezier(0.2, 0.75, 0.2, 1);
+  /* Playground and project detail. */
   --paper: #f3f6fb;
   --surface: #ffffff;
   --ink: #11151f;
@@ -28,17 +37,15 @@
   --glow: rgb(61 139 255 / 0.32);
   --blob: rgb(110 175 255 / 0.55);
   --shadow: rgb(16 36 90 / 0.35);
-  --room: #eceef1;
-  --veil: rgb(236 238 241 / 0.8);
   --frame-light: #ffffff;
   --frame-base: #e3ebf7;
   --frame-floor: rgb(150 175 220 / 0.18);
   --frame-shadow: rgb(20 40 90 / 0.28);
   --font-display:
-    "Urbanist Variable", "Noto Sans SC Variable", "PingFang SC", system-ui,
+    "Archivo Variable", "Noto Sans SC Variable", "PingFang SC", system-ui,
     sans-serif;
   --font-sans:
-    "Figtree Variable", "Noto Sans SC Variable", "PingFang SC",
+    "Archivo Variable", "Noto Sans SC Variable", "PingFang SC",
     "Microsoft YaHei", system-ui, sans-serif;
   --font-serif: "Noto Serif SC Variable", "Songti SC", "STSong", serif;
   --ink-body: color-mix(in srgb, var(--ink) 80%, var(--paper));
@@ -46,49 +53,21 @@
     "IBM Plex Mono", "Noto Sans SC Variable", ui-monospace, monospace;
 }
 
-:root:lang(en) {
-  --font-serif: var(--font-sans);
-}
-
-.dark {
-  color-scheme: dark;
-  --paper: #070b16;
-  --surface: #0f172a;
-  --ink: #eaf0fb;
-  --ink-soft: #9ba6be;
-  --ink-faint: #6c7792;
-  --line: #141d32;
-  --hair: rgb(234 240 251 / 0.16);
-  --accent: #7390ff;
-  --glass-hi: #7cc6ff;
-  --glass-lo: #2a68ff;
-  --glass-edge: rgb(255 255 255 / 0.24);
-  --glow: rgb(56 128 255 / 0.5);
-  --blob: rgb(50 115 255 / 0.42);
-  --shadow: rgb(0 0 0 / 0.6);
-  --room: #070b16;
-  --veil: rgb(7 11 22 / 0.86);
-  --frame-light: #1b2849;
-  --frame-base: #0d1529;
-  --frame-floor: rgb(0 0 0 / 0.22);
-  --frame-shadow: rgb(0 0 0 / 0.55);
-}
-
 @layer base {
-  html,
-  body {
-    height: 100%;
-  }
   html {
-    background: var(--paper);
+    background: var(--night);
     color: var(--ink);
     font: 400 14px/1.6 var(--font-display);
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     font-synthesis: none;
   }
   body {
     margin: 0;
     min-width: 320px;
+    overflow-x: clip;
+  }
+  body:has(.stage) {
     overflow: hidden;
   }
   a,
@@ -139,6 +118,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {

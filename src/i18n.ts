@@ -37,5 +37,7 @@ export function useLang() {
     lang,
     other: otherLang(lang),
     pick: (value: Localized) => value[lang],
+    /** Second-language line under English-led titles; only the Chinese page has one. */
+    zhOnly: (value: string) => (lang === "zh" ? value : null),
   };
 }

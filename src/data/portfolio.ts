@@ -20,6 +20,7 @@ export interface Work {
   images: Picture[];
   cover: Picture;
   card: Picture;
+  showcase?: Picture[];
 }
 
 export const works = entries as Work[];
@@ -32,6 +33,13 @@ export const categories: Record<Category, Localized> = {
 };
 
 export const categoryOrder: Category[] = ["food", "medical", "art", "event"];
+
+export const categoryShort: Record<Category, string> = {
+  food: "F&B",
+  medical: "MEDICAL",
+  art: "ART",
+  event: "EVENTS",
+};
 
 export const profile = {
   name: "lingshan.zhu",
@@ -55,3 +63,12 @@ export function titleParts(title: string) {
     ? { sub: first, main: rest.join(" · ") }
     : { sub: "", main: first };
 }
+
+const headlines: Record<string, string> = {
+  "art-space": "Cast Art Space",
+  "corporate-design": "Hikvision VI & Collateral",
+};
+
+/** Short English name shown as a project's main title. */
+export const workHeadline = (work: Work) =>
+  headlines[work.id] ?? titleParts(work.title.en).main;

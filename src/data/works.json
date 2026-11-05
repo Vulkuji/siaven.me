@@ -41,7 +41,24 @@
       "src": "/assets/cards/td66.webp",
       "width": 720,
       "height": 900
-    }
+    },
+    "showcase": [
+      {
+        "src": "/assets/showcase/td66-1.webp",
+        "width": 1400,
+        "height": 680
+      },
+      {
+        "src": "/assets/showcase/td66-2.webp",
+        "width": 760,
+        "height": 930
+      },
+      {
+        "src": "/assets/showcase/td66-3.webp",
+        "width": 1100,
+        "height": 346
+      }
+    ]
   },
   {
     "id": "mooncake",
@@ -95,7 +112,24 @@
       "src": "/assets/cards/mooncake.webp",
       "width": 720,
       "height": 900
-    }
+    },
+    "showcase": [
+      {
+        "src": "/assets/showcase/mooncake-1.webp",
+        "width": 1400,
+        "height": 933
+      },
+      {
+        "src": "/assets/showcase/mooncake-2.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/assets/showcase/mooncake-3.webp",
+        "width": 800,
+        "height": 979
+      }
+    ]
   },
   {
     "id": "pomegranate",
@@ -478,7 +512,24 @@
       "src": "/assets/cards/drink-test.webp",
       "width": 720,
       "height": 900
-    }
+    },
+    "showcase": [
+      {
+        "src": "/assets/showcase/drink-test-1.webp",
+        "width": 1200,
+        "height": 930
+      },
+      {
+        "src": "/assets/showcase/drink-test-2.webp",
+        "width": 1000,
+        "height": 757
+      },
+      {
+        "src": "/assets/showcase/drink-test-3.webp",
+        "width": 900,
+        "height": 450
+      }
+    ]
   },
   {
     "id": "health-platform",
@@ -703,7 +754,24 @@
       "src": "/assets/cards/medical-exhibition.webp",
       "width": 720,
       "height": 900
-    }
+    },
+    "showcase": [
+      {
+        "src": "/assets/showcase/medical-exhibition-1.webp",
+        "width": 1400,
+        "height": 933
+      },
+      {
+        "src": "/assets/showcase/medical-exhibition-2.webp",
+        "width": 900,
+        "height": 662
+      },
+      {
+        "src": "/assets/showcase/medical-exhibition-3.webp",
+        "width": 800,
+        "height": 533
+      }
+    ]
   },
   {
     "id": "art-space",
@@ -772,7 +840,24 @@
       "src": "/assets/cards/art-space.webp",
       "width": 720,
       "height": 900
-    }
+    },
+    "showcase": [
+      {
+        "src": "/assets/showcase/art-space-1.webp",
+        "width": 1400,
+        "height": 700
+      },
+      {
+        "src": "/assets/showcase/art-space-2.webp",
+        "width": 1000,
+        "height": 745
+      },
+      {
+        "src": "/assets/showcase/art-space-3.webp",
+        "width": 587,
+        "height": 830
+      }
+    ]
   },
   {
     "id": "corporate-design",
@@ -821,6 +906,23 @@
       "src": "/assets/cards/corporate-design.webp",
       "width": 720,
       "height": 900
-    }
+    },
+    "showcase": [
+      {
+        "src": "/assets/showcase/corporate-design-1.webp",
+        "width": 1200,
+        "height": 679
+      },
+      {
+        "src": "/assets/showcase/corporate-design-2.webp",
+        "width": 900,
+        "height": 754
+      },
+      {
+        "src": "/assets/showcase/corporate-design-3.webp",
+        "width": 900,
+        "height": 507
+      }
+    ]
   }
 ]

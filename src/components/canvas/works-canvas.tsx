@@ -68,7 +68,7 @@ export function WorksCanvas({ active }: { active: boolean }) {
           />
           <a
             className="folder-obj"
-            href="#archive"
+            href="#all-work"
             aria-label={t("canvas.openArchive")}
             data-cursor={t("cursor.open")}
             draggable={false}

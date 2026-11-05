@@ -24,6 +24,7 @@ const output = {
   works: path.join(root, "static/assets/works"),
   covers: path.join(root, "static/assets/covers"),
   cards: path.join(root, "static/assets/cards"),
+  showcase: path.join(root, "static/assets/showcase"),
 };
 
 function field(text, label) {
@@ -176,7 +177,25 @@ for (const entry of config) {
     path.join(output.cards, `${entry.id}.webp`),
     720,
   );
-  works.push({ id: entry.id, ...work, images, cover, card });
+  const showcase = [];
+  for (const [index, region] of (entry.showcase ?? []).entries()) {
+    showcase.push(
+      await writeCrop(
+        sources[region.image - 1],
+        region,
+        path.join(output.showcase, `${entry.id}-${index + 1}.webp`),
+        region.width,
+      ),
+    );
+  }
+  works.push({
+    id: entry.id,
+    ...work,
+    images,
+    cover,
+    card,
+    ...(showcase.length && { showcase }),
+  });
   console.log(`${entry.id}: ${images.length} images`);
 }
 

@@ -1,41 +1,60 @@
 {
   "meta": {
     "title": "Siaven — lingshan.zhu Visual Design Portfolio",
-    "description": "Portfolio of graphic designer lingshan.zhu: food & beverage, medical visuals, art education and corporate events. Make ideas visible.",
+    "description": "Portfolio of visual designer lingshan.zhu: food & beverage, medical visuals, art education and corporate events. Make ideas visible.",
     "ogTitle": "Siaven — lingshan.zhu Portfolio",
     "ogDescription": "Selected design work in food & beverage, medical visuals, art education and corporate events."
   },
-  "skip": "Skip to the works archive",
+  "skip": "Skip to selected work",
   "nav": {
     "label": "Site navigation",
     "home": "Siaven home",
-    "canvas": "Home · Works",
-    "archive": "Works Archive",
-    "resume": "Resume"
+    "work": "WORK",
+    "allWork": "ALL WORK",
+    "experience": "EXPERIENCE",
+    "contact": "CONTACT",
+    "resume": "RESUME"
   },
-  "theme": { "label": "Color mode", "light": "Light", "dark": "Dark" },
-  "language": { "label": "Language" },
+  "language": {
+    "label": "Language"
+  },
+  "hero": {
+    "lede": "Visual designer with 5 years across brand, packaging and advertising.",
+    "status": "OPEN TO WORK"
+  },
+  "cta": {
+    "note": "All {{count}} projects"
+  },
+  "experience": {
+    "work": "WORK",
+    "honors": "HONORS"
+  },
+  "contact": {
+    "copy": "COPY",
+    "copied": "COPIED",
+    "resume": "RESUME",
+    "playground": "PLAYGROUND",
+    "top": "BACK TO TOP"
+  },
+  "all": {
+    "filters": "Filter by industry",
+    "layout": "Change layout",
+    "home": "HOME"
+  },
   "cursor": {
     "drag": "DRAG",
     "view": "VIEW",
-    "open": "OPEN ARCHIVE",
-    "filter": "FILTER · {{name}}",
-    "related": "VIEW · {{name}}"
+    "open": "ALL WORK",
+    "filter": "FILTER · {{name}}"
   },
   "canvas": {
     "label": "Works canvas",
     "hint": "Drag to explore · Double-click empty space to recenter · Click a work for details",
-    "openArchive": "Open the works archive",
-    "open": "Open archive",
+    "openArchive": "Open all work",
+    "open": "All work",
     "view": "View",
     "viewWork": "View {{title}}",
-    "folder": "Archive"
-  },
-  "archive": {
-    "label": "Works archive",
-    "filters": "FILTERS",
-    "allOption": "ALL",
-    "all": "All"
+    "folder": "All work"
   },
   "detail": {
     "back": "BACK",
@@ -55,17 +74,5 @@
       "approach": "Design Approach",
       "outcome": "Outcome"
     }
-  },
-  "resume": {
-    "label": "Resume",
-    "kicker": "RESUME",
-    "intent": "Target role · {{intent}}",
-    "education": "Education",
-    "contact": "Contact",
-    "related": "Related work · {{name}}",
-    "about": "About Me",
-    "work": "Work Experience",
-    "internship": "Internships",
-    "honors": "Honors"
   }
 }

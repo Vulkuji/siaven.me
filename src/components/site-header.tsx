@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { m } from "motion/react";
+import { useGround } from "@/hooks/use-ground";
 import type { View } from "@/hooks/use-route";
 import {
   basePath,
@@ -11,10 +9,11 @@ import {
   type Lang,
 } from "@/i18n";
 
-const links: { view: View; href: string; key: string }[] = [
-  { view: "canvas", href: "#", key: "nav.canvas" },
-  { view: "archive", href: "#archive", key: "nav.archive" },
-  { view: "resume", href: "#resume", key: "nav.resume" },
+const links = [
+  { hash: "#works", key: "nav.work", short: "WORK" },
+  { hash: "#all-work", key: "nav.allWork", short: "ALL" },
+  { hash: "#experience", key: "nav.experience", short: "CV" },
+  { hash: "#contact", key: "nav.contact", short: "HELLO" },
 ];
 
 const languageNames: Record<Lang, string> = { zh: "中", en: "EN" };
@@ -25,27 +24,6 @@ export function Wordmark() {
       <img src="/favicon.svg" alt="" width={100} height={100} />
       siaven
     </span>
-  );
-}
-
-function ModeToggle() {
-  const { t } = useLang();
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  return (
-    <div className="mode-dots" role="group" aria-label={t("theme.label")}>
-      {(["light", "dark"] as const).map((mode) => (
-        <button
-          key={mode}
-          type="button"
-          aria-pressed={mounted && resolvedTheme === mode}
-          onClick={() => setTheme(mode)}
-        >
-          {t(`theme.${mode}`)}
-        </button>
-      ))}
-    </div>
   );
 }
 
@@ -84,47 +62,59 @@ function LangToggle() {
   );
 }
 
-export function SiteHeader({ view }: { view?: View }) {
-  const { t, other } = useLang();
+function NavLabel({ labelKey, short }: { labelKey: string; short?: string }) {
+  const { t, lang } = useLang();
   return (
-    <header className="site-head">
-      <a href="#" aria-label={t("nav.home")}>
-        <Wordmark />
+    <span className="roll" data-rolls={lang === "zh"}>
+      <span className="long">{t(labelKey, { lng: "en" })}</span>
+      {short && <span className="short">{short}</span>}
+      {lang === "zh" && (
+        <span className="roll-cn" aria-hidden="true" lang="zh-CN">
+          {t(labelKey, { lng: "zh" })}
+        </span>
+      )}
+    </span>
+  );
+}
+
+export function SiteHeader({
+  view,
+  base = "",
+}: {
+  view?: View;
+  /** Prefix for section links when the header sits outside the home page. */
+  base?: string;
+}) {
+  const { t } = useLang();
+  const light = useGround(view);
+  return (
+    <>
+      <a className="brand" href={base || "#top"} aria-label={t("nav.home")}>
+        <img src="/favicon.svg" alt="" width={100} height={100} />
       </a>
-      <nav className="site-nav" aria-label={t("nav.label")}>
-        {links.map((link) => {
-          const label = (
-            <>
-              {t(link.key)}
-              <small>{t(link.key, { lng: other })}</small>
-            </>
-          );
-          return (
+      <header className="bar" data-light={light}>
+        <a className="bar-word" href={base || "#top"} tabIndex={-1}>
+          siaven
+        </a>
+        <nav aria-label={t("nav.label")}>
+          {links.map((link) => (
             <a
-              key={link.view}
-              href={link.href}
-              aria-current={view === link.view ? "page" : undefined}
-              className="nav-link"
+              key={link.hash}
+              className="nav-a"
+              href={base + link.hash}
+              aria-current={
+                link.hash === "#all-work" && view === "all" ? "page" : undefined
+              }
             >
-              <span className="nav-roll">
-                <span>{label}</span>
-                <span aria-hidden="true">{label}</span>
-              </span>
-              {view === link.view && (
-                <m.span
-                  layoutId="nav-indicator"
-                  className="nav-indicator"
-                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                />
-              )}
+              <NavLabel labelKey={link.key} short={link.short} />
             </a>
-          );
-        })}
-      </nav>
-      <div className="head-tools">
-        <LangToggle />
-        <ModeToggle />
-      </div>
-    </header>
+          ))}
+          <a className="nav-a bar-cv" href={`${base}#experience`}>
+            <NavLabel labelKey="nav.resume" />
+          </a>
+          <LangToggle />
+        </nav>
+      </header>
+    </>
   );
 }

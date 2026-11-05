@@ -75,7 +75,7 @@ export function CategoryBadge({
   return (
     <a
       className="cat-obj"
-      href={`#archive/${category}`}
+      href={`#all-work/${category}`}
       data-cursor={t("cursor.filter", { name })}
       style={style}
       draggable={false}

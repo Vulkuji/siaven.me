@@ -1,0 +1,264 @@
+.page {
+  font: 400 16px/1.65 var(--font-sans);
+}
+
+.grain {
+  position: fixed;
+  inset: -220px;
+  z-index: 60;
+  pointer-events: none;
+  background: url("/assets/texture/grain.png") 0 0 / 110px 110px;
+  opacity: 0.05;
+  animation: grain 1.4s steps(6) infinite;
+}
+@keyframes grain {
+  17% {
+    transform: translate(-70px, 40px);
+  }
+  34% {
+    transform: translate(50px, -90px);
+  }
+  51% {
+    transform: translate(-30px, 110px);
+  }
+  68% {
+    transform: translate(90px, 20px);
+  }
+  85% {
+    transform: translate(-100px, -40px);
+  }
+}
+
+/* Section grounds: the bolt-hole grid of a climbing wall, lit by the cursor. */
+.sec {
+  position: relative;
+}
+.t-ink {
+  --plaster: rgb(205 212 238 / 0.03);
+  --mute: #a7aab2;
+  --dot: rgb(236 233 225 / 0.1);
+  --dot-lit: rgb(236 233 225 / 0.95);
+  --glow: rgb(74 103 255 / 0.26);
+  --hair: rgb(236 233 225 / 0.22);
+  background: var(--night);
+  color: var(--bone);
+}
+.t-bone {
+  --plaster: rgb(70 60 42 / 0.045);
+  --mute: #55585f;
+  --dot: rgb(6 7 11 / 0.09);
+  --dot-lit: rgb(31 63 209 / 0.95);
+  --glow: rgb(74 103 255 / 0.13);
+  --hair: rgb(6 7 11 / 0.22);
+  background: var(--bone);
+  color: var(--night);
+}
+.t-blue {
+  --plaster: rgb(12 22 120 / 0.07);
+  --mute: #e6eaff;
+  --dot: rgb(255 255 255 / 0.12);
+  --dot-lit: rgb(255 255 255 / 0.95);
+  --glow: rgb(255 255 255 / 0.14);
+  --hair: rgb(255 255 255 / 0.3);
+  background: var(--accent);
+  color: #fff;
+}
+.sec::before,
+.sec::after,
+.lit {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.sec::before {
+  background-image: radial-gradient(circle, var(--dot) 1px, transparent 1.4px);
+  background-size: 56px 56px;
+}
+.sec::after {
+  background: var(--plaster);
+  mask: url("/assets/texture/sand.webp") 0 0 / 256px 256px;
+}
+.lit {
+  --mx: -999px;
+  --my: -999px;
+  opacity: 0;
+  background-image: radial-gradient(
+    circle,
+    var(--dot-lit) 1.5px,
+    transparent 2px
+  );
+  background-size: 56px 56px;
+  mask-image: radial-gradient(
+    circle 300px at var(--mx) var(--my),
+    #000 10%,
+    transparent 100%
+  );
+  transition: opacity 0.5s;
+}
+.lit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 320px at var(--mx) var(--my),
+    var(--glow),
+    transparent 100%
+  );
+}
+.sec.torch .lit {
+  opacity: 1;
+}
+.under {
+  position: relative;
+  z-index: 1;
+}
+.over {
+  position: relative;
+  z-index: 4;
+}
+
+/* Rope */
+.rope {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  overflow: visible;
+  pointer-events: none;
+}
+.rope-line {
+  fill: none;
+  stroke: var(--rope);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.rope-line.on-blue {
+  stroke: #fff;
+}
+.rope-head {
+  fill: var(--rope);
+}
+.rope-halo {
+  fill: var(--rope);
+  opacity: 0.22;
+}
+.rope.head-white :is(.rope-head, .rope-halo) {
+  fill: #fff;
+}
+.bolt {
+  opacity: 0.5;
+  transition: opacity 0.4s;
+}
+.bolt.on {
+  opacity: 1;
+}
+.bolt circle {
+  fill: var(--night);
+  stroke: var(--rope);
+  stroke-width: 2;
+}
+.bolt path {
+  fill: var(--steel);
+}
+.cat-eye {
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.cat-eye.on {
+  opacity: 1;
+}
+.cat-eye circle {
+  fill: var(--bone);
+}
+.cat-eye path {
+  fill: var(--night);
+}
+
+/* Sharpen as sections enter. Only what starts below the fold is armed. */
+.reveal {
+  transition:
+    opacity 0.9s var(--ease),
+    filter 0.9s var(--ease),
+    transform 0.9s var(--ease);
+}
+.armed {
+  opacity: 0.16;
+  filter: blur(12px);
+  transform: translateY(20px);
+}
+img.armed {
+  opacity: 0.2;
+  filter: blur(16px);
+  transform: scale(1.05);
+}
+
+/* Shared display type */
+.big {
+  font: 800 clamp(36px, 11vw, 190px) / 0.92 var(--font-display);
+  font-variation-settings:
+    "wdth" 112,
+    "wght" 800;
+  letter-spacing: -0.05em;
+}
+.big-cn {
+  display: block;
+  margin-top: 0.3em;
+  font: 500 clamp(16px, 1.6vw, 24px) / 1.4 var(--font-serif);
+  font-variation-settings: normal;
+  letter-spacing: 0.02em;
+  color: var(--mute);
+}
+.big sup {
+  margin-left: 0.08em;
+  font: 400 0.16em/1 var(--font-mono);
+  font-variation-settings: normal;
+  letter-spacing: 0;
+  vertical-align: super;
+  color: var(--rope);
+}
+.eyebrow {
+  font: 400 12px/1.7 var(--font-mono);
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+.pill {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 1px solid var(--bone);
+  border-radius: 999px;
+  background: none;
+  font: 600 15px/1.2 var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+.pill.solid,
+.pill:hover {
+  border-color: var(--rope);
+  background: var(--rope);
+  color: #fff;
+}
+.pill.on-bone {
+  border-color: var(--night);
+  color: var(--night);
+}
+.pill.on-bone.solid,
+.pill.on-bone:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+.contact-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(28px, 3vw, 44px);
+}

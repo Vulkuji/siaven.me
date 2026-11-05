@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { categoryOrder, works, type Category } from "@/data/portfolio";
 
-export type View = "canvas" | "archive" | "resume";
+export type View = "home" | "all" | "playground";
 export type Filter = Category | "all";
 
 export interface Route {
@@ -10,25 +10,27 @@ export interface Route {
   work: string | null;
 }
 
-const initialRoute: Route = { view: "canvas", filter: "all", work: null };
+const initialRoute: Route = { view: "home", filter: "all", work: null };
 
 function parse(hash: string, previous: Route): Route {
   const [head, argument] = hash.replace(/^#\/?/, "").split("/");
   if (head === "works" && works.some((work) => work.id === argument)) {
     return { ...previous, work: argument };
   }
-  if (head === "archive") {
+  if (head === "all-work") {
     const filter = categoryOrder.find((category) => category === argument);
-    return { view: "archive", filter: filter ?? "all", work: null };
+    return { view: "all", filter: filter ?? "all", work: null };
   }
-  if (head === "resume") return { ...previous, view: "resume", work: null };
-  return { ...previous, view: "canvas", work: null };
+  if (head === "playground") {
+    return { view: "playground", filter: "all", work: null };
+  }
+  return { view: "home", filter: "all", work: null };
 }
 
 export function viewHash({ view, filter }: Route) {
-  if (view === "archive")
-    return filter === "all" ? "#archive" : `#archive/${filter}`;
-  return view === "resume" ? "#resume" : "#";
+  if (view === "all")
+    return filter === "all" ? "#all-work" : `#all-work/${filter}`;
+  return view === "playground" ? "#playground" : "#";
 }
 
 export function useRoute() {

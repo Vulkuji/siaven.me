@@ -9,7 +9,23 @@
       "image": 1,
       "focus": [0.62, 0.5],
       "zoom": 1
-    }
+    },
+    "showcase": [
+      {
+        "image": 1,
+        "width": 1400
+      },
+      {
+        "image": 3,
+        "crop": [0, 0.6207, 0.5, 0.7857],
+        "width": 760
+      },
+      {
+        "image": 3,
+        "crop": [0, 0.78693, 1, 0.87165],
+        "width": 1100
+      }
+    ]
   },
   {
     "id": "mooncake",
@@ -22,7 +38,22 @@
       "image": 2,
       "focus": [0.45, 0.5],
       "zoom": 1
-    }
+    },
+    "showcase": [
+      {
+        "image": 2,
+        "width": 1400
+      },
+      {
+        "image": 4,
+        "width": 900
+      },
+      {
+        "image": 1,
+        "crop": [0.04125, 0.09309, 0.9475, 0.98098],
+        "width": 800
+      }
+    ]
   },
   {
     "id": "pomegranate",
@@ -112,7 +143,24 @@
       "image": 1,
       "focus": [0.5, 0.1],
       "zoom": 1
-    }
+    },
+    "showcase": [
+      {
+        "image": 1,
+        "crop": [0, 0, 1, 0.35157],
+        "width": 1200
+      },
+      {
+        "image": 1,
+        "crop": [0, 0.37709, 1, 0.72016],
+        "width": 1000
+      },
+      {
+        "image": 1,
+        "crop": [0, 0.76269, 1, 0.98951],
+        "width": 900
+      }
+    ]
   },
   {
     "id": "health-platform",
@@ -177,7 +225,21 @@
       "image": 5,
       "focus": [0.4, 0.5],
       "zoom": 1
-    }
+    },
+    "showcase": [
+      {
+        "image": 5,
+        "width": 1400
+      },
+      {
+        "image": 4,
+        "width": 900
+      },
+      {
+        "image": 3,
+        "width": 800
+      }
+    ]
   },
   {
     "id": "art-space",
@@ -189,7 +251,21 @@
       "image": 6,
       "focus": [0.28, 0.5],
       "zoom": 1
-    }
+    },
+    "showcase": [
+      {
+        "image": 6,
+        "width": 1400
+      },
+      {
+        "image": 1,
+        "width": 1000
+      },
+      {
+        "image": 8,
+        "width": 587
+      }
+    ]
   },
   {
     "id": "corporate-design",
@@ -202,6 +278,22 @@
       "image": 2,
       "focus": [0.5, 0.42],
       "zoom": 0.8
-    }
+    },
+    "showcase": [
+      {
+        "image": 4,
+        "crop": [0, 0, 1, 0.50028],
+        "width": 1200
+      },
+      {
+        "image": 3,
+        "crop": [0.05, 0.03262, 0.95625, 0.82518],
+        "width": 900
+      },
+      {
+        "image": 2,
+        "width": 900
+      }
+    ]
   }
 ]
