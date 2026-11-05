@@ -139,9 +139,10 @@ export function RopeLayer({ layoutKey }: { layoutKey: string }) {
       layer.textContent = "";
       const crossings = [
         0,
-        ...sections.slice(1).map((section) => {
-          return lengthAtY(state.table!, pageRect(section).y);
-        }),
+        ...sections
+          .slice(1)
+          .filter((section) => section.matches(".sec"))
+          .map((section) => lengthAtY(state.table!, pageRect(section).y)),
       ];
       state.bolts = crossings.map((at) => {
         const { x, y } = path.getPointAtLength(at);

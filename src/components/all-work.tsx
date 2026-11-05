@@ -92,39 +92,41 @@ export function AllWorkPage({ filter }: { filter: Filter }) {
 
   return (
     <main className="page">
-      <section className="sec t-ink all" data-route="all">
+      <section className="sec t-ink all">
         <div className="lit" />
-        <h1 className="big all-title over">
-          ALL WORK<sup>{works.length}</sup>
-          {lang === "zh" && (
-            <span className="big-cn" lang="zh-CN">
-              {t("all.subtitle")}
-            </span>
-          )}
-        </h1>
-        <div className="all-tools over">
-          <FilterChips filter={filter} />
-          <div
-            className="layout-switch"
-            role="group"
-            aria-label={t("all.layout")}
-          >
-            {(["grid", "list"] as const).map((option) => (
-              <button
-                key={option}
-                type="button"
-                aria-pressed={layout === option}
-                onClick={() => {
-                  setLayout(option);
-                  setHovered(null);
-                }}
-              >
-                {option.toUpperCase()}
-              </button>
-            ))}
+        <div data-route="all-head">
+          <h1 className="big all-title over">
+            ALL WORK<sup>{works.length}</sup>
+            {lang === "zh" && (
+              <span className="big-cn" lang="zh-CN">
+                {t("all.subtitle")}
+              </span>
+            )}
+          </h1>
+          <div className="all-tools over">
+            <FilterChips filter={filter} />
+            <div
+              className="layout-switch"
+              role="group"
+              aria-label={t("all.layout")}
+            >
+              {(["grid", "list"] as const).map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  aria-pressed={layout === option}
+                  onClick={() => {
+                    setLayout(option);
+                    setHovered(null);
+                  }}
+                >
+                  {option.toUpperCase()}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="rows over" data-layout={layout}>
+        <div className="rows over" data-layout={layout} data-route="all-rows">
           {visible.map((work) => (
             <a
               key={work.id}
@@ -165,7 +167,7 @@ export function AllWorkPage({ filter }: { filter: Filter }) {
           ))}
         </div>
       </section>
-      <section className="sec t-bone all-foot">
+      <section className="sec t-bone all-foot" data-route="all-foot">
         <div className="lit" />
         <p className="all-foot-line over">
           Like what you see?
