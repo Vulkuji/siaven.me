@@ -21,6 +21,8 @@
 - `src/index.css`、`src/styles/`：主题令牌与按区域拆分的样式。
 - `static/`：作品图片（`works/`、`covers/`、`cards/`、`showcase/`）、背景肌理（`texture/`）、站点标识（`favicon.svg` 同时用于页头，另有 `favicon.ico`、`apple-touch-icon.png`）与响应头（`_headers`）。
 - `content/works.json`：作品与素材文件夹的对应关系，以及各处图片的裁切。
+- `worker/index.ts`：Cloudflare Worker，只处理 `/api/resume`，其余请求直接交给静态资源。
+- `src/components/resume-download.tsx`：下载简历的密码弹窗。
 - `tools/export.mjs`：读取素材文件夹，生成 WebP 图片与 `src/data/works.json`。
 - `tools/prerender.mjs`：将 React 页面预渲染为静态 HTML，分别输出中文（`/`）与英文（`/en/`）页面。
 - `wrangler.jsonc`：Worker 名称、构建命令、静态资源目录与自定义域。
@@ -46,8 +48,21 @@ npm run export -- /path/to/网站作品整理
 
 `content/works.json` 中每件作品的 `card` 决定作品档案卡片的 4:5 取景：`image` 为素材文件夹内按文件名排序的第几张图（从 1 开始）；`focus` 为对焦点 `[横向, 纵向]`，取值 0–1，0 为左或上边缘，1 为右或下边缘；`zoom` 为取景范围，1 表示该图能容纳的最大 4:5 范围，数值越小画面放大越多。`cover` 的 `crop` 为画布版封面的裁切框 `[左, 上, 右, 下]`，同样取值 0–1。`showcase` 列出首页精选作品的配图：`image` 是第几张图，`crop` 为裁切框（省略则用整张），`width` 为输出宽度；图的摆放位置和背景大字在 `src/data/showcase.ts`，换字后要按实测更新其中的 `em`（最宽一行的字宽）。
 
+## 简历下载
+
+简历 PDF 含个人联系方式，不进入仓库，也不属于静态资源。它存放在 Cloudflare KV，访问者提交密码后由 Worker 校验并返回；同一 IP 每分钟最多尝试 5 次。
+
+```sh
+# 更换简历
+npx wrangler kv key put resume.pdf --path /path/to/resume.pdf --binding RESUME_STORE --remote
+# 设置或更换密码
+npx wrangler secret put RESUME_PASSWORD
+```
+
+本地调试用 `npx wrangler dev`，测试密码写在 `.dev.vars`（`RESUME_PASSWORD=...`），测试文件用同一条 `kv key put` 命令并把 `--remote` 换成 `--local`。
+
 ## 部署
 
-Cloudflare Workers Builds 连接本仓库：推送到 `main` 分支后执行 `npx wrangler deploy`，按 `wrangler.jsonc` 先运行 `npm run build`，再将 `dist/` 作为静态资源发布到自定义域 `siaven.me`。未匹配路径返回 `404.html`，Node 版本由 `.node-version` 指定。
+Cloudflare Workers Builds 连接本仓库：推送到 `main` 分支后执行 `npx wrangler deploy`，按 `wrangler.jsonc` 先运行 `npm run build`，再将 `worker/` 与作为静态资源的 `dist/` 一起发布到自定义域 `siaven.me`。未匹配路径返回 `404.html`，Node 版本由 `.node-version` 指定。
 
 公开内容包括 Siaven 标识、作者署名 lingshan.zhu、设计作品与 Gmail 联系邮箱。作品图片经重新编码并去除元数据。部署仅发布 `dist/`。

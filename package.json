@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir .build-ssr && node tools/prerender.mjs",
+    "build": "tsc --noEmit && tsc -p worker && vite build && vite build --ssr src/entry-server.tsx --outDir .build-ssr && node tools/prerender.mjs",
     "preview": "vite preview --host 127.0.0.1 --port 4174",
     "export": "node tools/export.mjs",
-    "format": "prettier --write src content tools/*.mjs package.json tsconfig.json vite.config.ts index.html 404.html wrangler.jsonc README.md",
-    "format:check": "prettier --check src content tools/*.mjs package.json tsconfig.json vite.config.ts index.html 404.html wrangler.jsonc README.md"
+    "format": "prettier --write src worker content tools/*.mjs package.json tsconfig.json vite.config.ts index.html 404.html wrangler.jsonc README.md",
+    "format:check": "prettier --check src worker content tools/*.mjs package.json tsconfig.json vite.config.ts index.html 404.html wrangler.jsonc README.md"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "5.20261104.1",
     "@tailwindcss/vite": "4.3.3",
     "@types/d3-shape": "3.2.0",
     "@types/node": "24.19.1",

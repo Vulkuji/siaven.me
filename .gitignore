@@ -1,6 +1,8 @@
 node_modules/
 .wrangler/
 .env*
+.dev.vars*
+*.pdf
 .cf_key*
 __pycache__/
 screenshots/

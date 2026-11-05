@@ -74,5 +74,17 @@
       "approach": "Design Approach",
       "outcome": "Outcome"
     }
+  },
+  "resume": {
+    "button": "Download resume",
+    "note": "My resume includes personal contact details, so it needs a password. To get one, email me: ",
+    "password": "PASSWORD",
+    "submit": "Download",
+    "busy": "Checking…",
+    "wrong": "That password isn’t right. Please try again.",
+    "limited": "Too many attempts. Please try again in a minute.",
+    "unavailable": "Download is unavailable right now. Please email me.",
+    "network": "Network error. Please try again.",
+    "close": "Close"
   }
 }

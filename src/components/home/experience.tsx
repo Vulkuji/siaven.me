@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ResumeDownload } from "@/components/resume-download";
 import { honors, jobs, resumeBlocks } from "@/data/resume";
 import { useLang } from "@/i18n";
 
@@ -28,14 +29,17 @@ export function Experience() {
   return (
     <section className="sec t-bone cv" id="experience" data-route="cv">
       <div className="lit" />
-      <h2 className="big over reveal">
-        EXPERIENCE
-        {lang === "zh" && (
-          <span className="big-cn" lang="zh-CN">
-            {t("experience.subtitle")}
-          </span>
-        )}
-      </h2>
+      <div className="cv-top over reveal">
+        <h2 className="big">
+          EXPERIENCE
+          {lang === "zh" && (
+            <span className="big-cn" lang="zh-CN">
+              {t("experience.subtitle")}
+            </span>
+          )}
+        </h2>
+        <ResumeDownload className="pill solid on-bone" />
+      </div>
       <ResumeBlock title="WORK" subtitle={zhOnly(t("experience.work"))}>
         {jobs.map((job) => (
           <article className="job" key={job.company.en}>

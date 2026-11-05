@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { ResumeDownload } from "@/components/resume-download";
 import { profile } from "@/data/portfolio";
 import { useLang } from "@/i18n";
 
@@ -51,9 +52,7 @@ export function Contact() {
         )}
         <div className="contact-acts reveal">
           <EmailActions />
-          <a className="pill" href="#experience">
-            {t("contact.resume")}
-          </a>
+          <ResumeDownload />
         </div>
       </div>
       <div className="cat-slot" aria-hidden="true" />

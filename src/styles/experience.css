@@ -8,8 +8,13 @@
   padding: clamp(26px, 3vw, 44px) 0;
   border-top: 3px solid var(--night);
 }
-.big + .cv-block {
-  margin-top: clamp(32px, 4vw, 56px);
+.cv-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px 32px;
+  margin-bottom: clamp(32px, 4vw, 56px);
 }
 .cv-head {
   font: 800 clamp(24px, 2.5vw, 38px) / 1.08 var(--font-display);
