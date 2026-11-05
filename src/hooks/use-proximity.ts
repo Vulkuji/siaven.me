@@ -12,10 +12,9 @@ interface Letter {
   x: number;
   y: number;
   amount: number;
-  serif: boolean;
 }
 
-/** Giant name letters thin out under the mouse. Each keeps a fixed box so the line never reflows. */
+/** Name letters thin out under the mouse. Each keeps a fixed box so the line never reflows. */
 export function useProximity(key: unknown) {
   const letters = useRef<Letter[]>([]);
 
@@ -35,7 +34,6 @@ export function useProximity(key: unknown) {
             x: bounds.left + bounds.width / 2,
             y: bounds.top + window.scrollY + bounds.height / 2,
             amount: 0,
-            serif: line.dataset.prox === "serif",
           });
         });
       });
@@ -61,9 +59,7 @@ export function useProximity(key: unknown) {
       );
       const target = clamp(1 - distance / reach, 0, 1);
       letter.amount += (target * target - letter.amount) * 0.14;
-      letter.element.style.fontVariationSettings = letter.serif
-        ? `"wght" ${(800 - letter.amount * 560).toFixed(0)}`
-        : `"wdth" 112, "wght" ${(800 - letter.amount * 640).toFixed(0)}`;
+      letter.element.style.fontVariationSettings = `"wdth" 112, "wght" ${(800 - letter.amount * 640).toFixed(0)}`;
     }
   });
 }

@@ -14,8 +14,8 @@ export const ropeRoutes: Record<string, Point[]> = {
     [68, 34],
     [90, 38],
     [84, 66],
-    [60, 72],
-    [60, 94],
+    [64, 70],
+    [72, 94],
   ],
   about: [
     [78, 10],

@@ -13,13 +13,8 @@ export function Hero() {
       >
         <LetterLine className="name under" text="LINGSHAN.ZHU" />
         {lang === "zh" ? (
-          <span className="role role-zh over" aria-hidden="true">
-            <LetterLine
-              className="role-cn"
-              text="视觉设计师"
-              start={12}
-              serif
-            />
+          <span className="role over" aria-hidden="true">
+            <span className="role-cn">视觉设计师</span>
             <b>.</b>
             <span className="role-en">
               VISUAL
@@ -29,7 +24,7 @@ export function Hero() {
           </span>
         ) : (
           <span className="role role-full over" aria-hidden="true">
-            <LetterLine text="VISUAL DESIGNER" start={12} />
+            VISUAL DESIGNER
             <b>.</b>
           </span>
         )}

@@ -1,4 +1,4 @@
-/* Hero. Line widths in em are measured from the fonts, so the type fits without script. */
+/* Hero. 8.466em is the measured width of the name, which caps it at the page width on phones. */
 .hero {
   display: flex;
   flex-direction: column;
@@ -7,23 +7,21 @@
   padding: 96px var(--gutter) 28px;
 }
 .hero-title {
+  --name-size: min(calc(var(--page-width) / 8.466), 6vw + 24px, 20vh);
   font-family: var(--font-display);
+}
+.name {
+  display: block;
+  width: max-content;
+  margin-left: -0.055em;
+  font-size: var(--name-size);
   font-weight: 800;
   font-variation-settings:
     "wdth" 112,
     "wght" 800;
   line-height: 0.94;
-}
-.name,
-.role {
-  font-size: min(calc(var(--page-width) / var(--em)), 30vh);
-  white-space: nowrap;
-}
-.name {
-  --em: 8.466;
-  display: block;
-  width: max-content;
   letter-spacing: -0.05em;
+  white-space: nowrap;
 }
 [data-prox] > span {
   display: inline-block;
@@ -32,42 +30,41 @@
   animation-delay: calc(var(--i) * 30ms);
 }
 .role {
-  --em: 6;
   display: flex;
-  align-items: flex-end;
-  width: max-content;
-  margin-top: 0.05em;
-  line-height: 1.04;
-}
-.role-full {
-  --em: 10.27;
   align-items: baseline;
-  letter-spacing: -0.05em;
+  width: max-content;
+  margin-top: 0.42em;
+  font-size: max(22px, calc(var(--name-size) * 0.38));
+  font-weight: 500;
+  line-height: 1.1;
+  white-space: nowrap;
+  animation: rise 1s var(--ease) 0.45s both;
 }
 .role b {
-  margin-bottom: 0.055em;
+  margin-left: 0.04em;
   color: var(--rope);
-  font-size: 0.6em;
-  font-weight: 800;
-  line-height: 1;
-  animation: rise 1s var(--ease) 0.7s both;
+  font-variation-settings:
+    "wdth" 112,
+    "wght" 800;
 }
-.role-full b {
-  margin-bottom: 0;
-  font-size: 1em;
+.role-full {
+  font-variation-settings:
+    "wdth" 100,
+    "wght" 500;
+  letter-spacing: -0.02em;
 }
 .role-cn {
   font-family: var(--font-serif);
-  font-weight: 800;
-  font-variation-settings: "wght" 800;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.04em;
 }
 .role-en {
-  margin: 0 0 0.09em 0.2em;
-  font-size: 0.155em;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  animation: rise 1s var(--ease) 0.7s both;
+  align-self: flex-end;
+  margin: 0 0 0.2em 0.5em;
+  font-size: max(10px, 0.3em);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: var(--mute);
 }
 .hero-foot {
   display: grid;
@@ -141,8 +138,8 @@
   padding: clamp(96px, 13vw, 190px) var(--gutter) clamp(72px, 8vw, 120px);
 }
 .statement {
-  max-width: 17em;
-  font: 800 clamp(36px, 5.8vw, 96px) / 1.06 var(--font-display);
+  max-width: 19em;
+  font: 800 clamp(30px, 4vw, 68px) / 1.08 var(--font-display);
   font-variation-settings:
     "wdth" 108,
     "wght" 800;
