@@ -62,10 +62,6 @@
   margin-top: 18px;
   color: var(--mute);
 }
-.resume-note a {
-  color: var(--deep);
-  white-space: nowrap;
-}
 .resume-form {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

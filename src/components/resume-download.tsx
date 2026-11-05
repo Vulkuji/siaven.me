@@ -1,7 +1,6 @@
 import { useRef, useState, type FormEvent } from "react";
 import { Dialog } from "radix-ui";
 import { X } from "lucide-react";
-import { profile } from "@/data/portfolio";
 import { useLang } from "@/i18n";
 
 type Status = "idle" | "busy" | "wrong" | "limited" | "unavailable" | "network";
@@ -83,7 +82,6 @@ export function ResumeDownload({ className = "pill" }: { className?: string }) {
           </Dialog.Title>
           <Dialog.Description className="resume-note">
             {t("resume.note")}
-            <a href={`mailto:${profile.email}`}>{profile.email}</a>
           </Dialog.Description>
           <form className="resume-form" onSubmit={submit}>
             <label htmlFor="resume-password">{t("resume.password")}</label>
